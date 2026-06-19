@@ -1,0 +1,30 @@
+{
+  "$schema": "https://nitro.margelo.com/nitro.schema.json",
+  "cxxNamespace": [
+    "nitrofusedlocation"
+  ],
+  "ios": {
+    "iosModuleName": "NitroFusedLocation"
+  },
+  "android": {
+    "androidNamespace": [
+      "nitrofusedlocation"
+    ],
+    "androidCxxLibName": "NitroFusedLocation"
+  },
+  "autolinking": {
+    "NitroFusedLocation": {
+      "ios": {
+        "language": "swift",
+        "implementationClassName": "HybridNitroFusedLocation"
+      },
+      "android": {
+        "language": "kotlin",
+        "implementationClassName": "HybridNitroFusedLocation"
+      }
+    }
+  },
+  "ignorePaths": [
+    "**/node_modules"
+  ]
+}
