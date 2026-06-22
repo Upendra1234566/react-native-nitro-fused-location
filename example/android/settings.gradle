@@ -1,6 +1,16 @@
 pluginManagement { includeBuild("../../node_modules/@react-native/gradle-plugin") }
 plugins { id("com.facebook.react.settings") }
 extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+
 rootProject.name = 'NitroFusedLocationExample'
+
+// --- Nitro aur Library ko yahan add karo ---
+include ':react-native-nitro-modules'
+project(':react-native-nitro-modules').projectDir = new File(rootProject.projectDir, '../../node_modules/react-native-nitro-modules/android')
+
+include ':react-native-nitro-fused-location'
+project(':react-native-nitro-fused-location').projectDir = new File(rootProject.projectDir, '../../android')
+// -------------------------------------------
+
 include ':app'
 includeBuild('../../node_modules/@react-native/gradle-plugin')

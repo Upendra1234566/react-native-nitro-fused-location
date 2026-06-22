@@ -10,9 +10,13 @@
 // Forward declarations of C++ defined types
 // Forward declaration of `HybridNitroFusedLocationSpec` to properly resolve imports.
 namespace margelo::nitro::nitrofusedlocation { class HybridNitroFusedLocationSpec; }
+// Forward declaration of `LocationData` to properly resolve imports.
+namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 
 // Include C++ defined types
 #include "HybridNitroFusedLocationSpec.hpp"
+#include "LocationData.hpp"
+#include <NitroModules/Promise.hpp>
 #include <NitroModules/Result.hpp>
 #include <exception>
 #include <memory>

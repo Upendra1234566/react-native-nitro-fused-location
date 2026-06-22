@@ -12,9 +12,11 @@
 // Forward declaration of `HybridNitroFusedLocationSpec_cxx` to properly resolve imports.
 namespace NitroFusedLocation { class HybridNitroFusedLocationSpec_cxx; }
 
+// Forward declaration of `LocationData` to properly resolve imports.
+namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 
-
-
+#include "LocationData.hpp"
+#include <NitroModules/Promise.hpp>
 
 #include "NitroFusedLocation-Swift-Cxx-Umbrella.hpp"
 
@@ -66,8 +68,8 @@ namespace margelo::nitro::nitrofusedlocation {
 
   public:
     // Methods
-    inline double sum(double num1, double num2) override {
-      auto __result = _swiftPart.sum(std::forward<decltype(num1)>(num1), std::forward<decltype(num2)>(num2));
+    inline std::shared_ptr<Promise<LocationData>> getCurrentLocation() override {
+      auto __result = _swiftPart.getCurrentLocation();
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
       }

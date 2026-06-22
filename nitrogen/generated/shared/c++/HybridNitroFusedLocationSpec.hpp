@@ -13,9 +13,11 @@
 #error NitroModules cannot be found! Are you sure you installed NitroModules properly?
 #endif
 
+// Forward declaration of `LocationData` to properly resolve imports.
+namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 
-
-
+#include "LocationData.hpp"
+#include <NitroModules/Promise.hpp>
 
 namespace margelo::nitro::nitrofusedlocation {
 
@@ -48,7 +50,7 @@ namespace margelo::nitro::nitrofusedlocation {
 
     public:
       // Methods
-      virtual double sum(double num1, double num2) = 0;
+      virtual std::shared_ptr<Promise<LocationData>> getCurrentLocation() = 0;
 
     protected:
       // Hybrid Setup

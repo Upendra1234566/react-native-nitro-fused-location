@@ -10,6 +10,7 @@ package com.margelo.nitro.nitrofusedlocation
 import androidx.annotation.Keep
 import com.facebook.jni.HybridData
 import com.facebook.proguard.annotations.DoNotStrip
+import com.margelo.nitro.core.Promise
 import com.margelo.nitro.core.HybridObject
 
 /**
@@ -30,7 +31,7 @@ abstract class HybridNitroFusedLocationSpec: HybridObject() {
   // Methods
   @DoNotStrip
   @Keep
-  abstract fun sum(num1: Double, num2: Double): Double
+  abstract fun getCurrentLocation(): Promise<LocationData>
 
   // Default implementation of `HybridObject.toString()`
   override fun toString(): String {

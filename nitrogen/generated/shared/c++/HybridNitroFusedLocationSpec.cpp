@@ -14,7 +14,7 @@ namespace margelo::nitro::nitrofusedlocation {
     HybridObject::loadHybridMethods();
     // load custom methods/properties
     registerHybrids(this, [](Prototype& prototype) {
-      prototype.registerHybridMethod("sum", &HybridNitroFusedLocationSpec::sum);
+      prototype.registerHybridMethod("getCurrentLocation", &HybridNitroFusedLocationSpec::getCurrentLocation);
     });
   }
 

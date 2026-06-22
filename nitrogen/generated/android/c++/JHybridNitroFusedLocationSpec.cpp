@@ -7,9 +7,13 @@
 
 #include "JHybridNitroFusedLocationSpec.hpp"
 
+// Forward declaration of `LocationData` to properly resolve imports.
+namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 
-
-
+#include "LocationData.hpp"
+#include <NitroModules/Promise.hpp>
+#include <NitroModules/JPromise.hpp>
+#include "JLocationData.hpp"
 
 namespace margelo::nitro::nitrofusedlocation {
 
@@ -44,10 +48,21 @@ namespace margelo::nitro::nitrofusedlocation {
   
 
   // Methods
-  double JHybridNitroFusedLocationSpec::sum(double num1, double num2) {
-    static const auto method = _javaPart->javaClassStatic()->getMethod<double(double /* num1 */, double /* num2 */)>("sum");
-    auto __result = method(_javaPart, num1, num2);
-    return __result;
+  std::shared_ptr<Promise<LocationData>> JHybridNitroFusedLocationSpec::getCurrentLocation() {
+    static const auto method = _javaPart->javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>()>("getCurrentLocation");
+    auto __result = method(_javaPart);
+    return [&]() {
+      auto __promise = Promise<LocationData>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& __boxedResult) {
+        auto __result = jni::static_ref_cast<JLocationData>(__boxedResult);
+        __promise->resolve(__result->toCpp());
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
   }
 
 } // namespace margelo::nitro::nitrofusedlocation

@@ -54,7 +54,7 @@ namespace margelo::nitro::nitrofusedlocation {
 
   public:
     // Methods
-    double sum(double num1, double num2) override;
+    std::shared_ptr<Promise<LocationData>> getCurrentLocation() override;
 
   private:
     jni::global_ref<JHybridNitroFusedLocationSpec::JavaPart> _javaPart;

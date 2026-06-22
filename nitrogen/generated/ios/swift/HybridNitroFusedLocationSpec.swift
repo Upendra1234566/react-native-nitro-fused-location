@@ -13,7 +13,7 @@ public protocol HybridNitroFusedLocationSpec_protocol: HybridObject {
   
 
   // Methods
-  func sum(num1: Double, num2: Double) throws -> Double
+  func getCurrentLocation() throws -> Promise<LocationData>
 }
 
 public extension HybridNitroFusedLocationSpec_protocol {

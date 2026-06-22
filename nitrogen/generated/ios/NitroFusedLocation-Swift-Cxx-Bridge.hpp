@@ -10,6 +10,8 @@
 // Forward declarations of C++ defined types
 // Forward declaration of `HybridNitroFusedLocationSpec` to properly resolve imports.
 namespace margelo::nitro::nitrofusedlocation { class HybridNitroFusedLocationSpec; }
+// Forward declaration of `LocationData` to properly resolve imports.
+namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 
 // Forward declarations of Swift defined types
 // Forward declaration of `HybridNitroFusedLocationSpec_cxx` to properly resolve imports.
@@ -17,8 +19,12 @@ namespace NitroFusedLocation { class HybridNitroFusedLocationSpec_cxx; }
 
 // Include C++ defined types
 #include "HybridNitroFusedLocationSpec.hpp"
+#include "LocationData.hpp"
+#include <NitroModules/Promise.hpp>
+#include <NitroModules/PromiseHolder.hpp>
 #include <NitroModules/Result.hpp>
 #include <exception>
+#include <functional>
 #include <memory>
 
 /**
@@ -27,6 +33,62 @@ namespace NitroFusedLocation { class HybridNitroFusedLocationSpec_cxx; }
  */
 namespace margelo::nitro::nitrofusedlocation::bridge::swift {
 
+  // pragma MARK: std::shared_ptr<Promise<LocationData>>
+  /**
+   * Specialized version of `std::shared_ptr<Promise<LocationData>>`.
+   */
+  using std__shared_ptr_Promise_LocationData__ = std::shared_ptr<Promise<LocationData>>;
+  inline std::shared_ptr<Promise<LocationData>> create_std__shared_ptr_Promise_LocationData__() noexcept {
+    return Promise<LocationData>::create();
+  }
+  inline PromiseHolder<LocationData> wrap_std__shared_ptr_Promise_LocationData__(std::shared_ptr<Promise<LocationData>> promise) noexcept {
+    return PromiseHolder<LocationData>(std::move(promise));
+  }
+  
+  // pragma MARK: std::function<void(const LocationData& /* result */)>
+  /**
+   * Specialized version of `std::function<void(const LocationData&)>`.
+   */
+  using Func_void_LocationData = std::function<void(const LocationData& /* result */)>;
+  /**
+   * Wrapper class for a `std::function<void(const LocationData& / * result * /)>`, this can be used from Swift.
+   */
+  class Func_void_LocationData_Wrapper final {
+  public:
+    explicit Func_void_LocationData_Wrapper(std::function<void(const LocationData& /* result */)>&& func): _function(std::make_unique<std::function<void(const LocationData& /* result */)>>(std::move(func))) {}
+    inline void call(LocationData result) const noexcept {
+      _function->operator()(result);
+    }
+  private:
+    std::unique_ptr<std::function<void(const LocationData& /* result */)>> _function;
+  } SWIFT_NONCOPYABLE;
+  Func_void_LocationData create_Func_void_LocationData(void* NON_NULL swiftClosureWrapper) noexcept;
+  inline Func_void_LocationData_Wrapper wrap_Func_void_LocationData(Func_void_LocationData value) noexcept {
+    return Func_void_LocationData_Wrapper(std::move(value));
+  }
+  
+  // pragma MARK: std::function<void(const std::exception_ptr& /* error */)>
+  /**
+   * Specialized version of `std::function<void(const std::exception_ptr&)>`.
+   */
+  using Func_void_std__exception_ptr = std::function<void(const std::exception_ptr& /* error */)>;
+  /**
+   * Wrapper class for a `std::function<void(const std::exception_ptr& / * error * /)>`, this can be used from Swift.
+   */
+  class Func_void_std__exception_ptr_Wrapper final {
+  public:
+    explicit Func_void_std__exception_ptr_Wrapper(std::function<void(const std::exception_ptr& /* error */)>&& func): _function(std::make_unique<std::function<void(const std::exception_ptr& /* error */)>>(std::move(func))) {}
+    inline void call(std::exception_ptr error) const noexcept {
+      _function->operator()(error);
+    }
+  private:
+    std::unique_ptr<std::function<void(const std::exception_ptr& /* error */)>> _function;
+  } SWIFT_NONCOPYABLE;
+  Func_void_std__exception_ptr create_Func_void_std__exception_ptr(void* NON_NULL swiftClosureWrapper) noexcept;
+  inline Func_void_std__exception_ptr_Wrapper wrap_Func_void_std__exception_ptr(Func_void_std__exception_ptr value) noexcept {
+    return Func_void_std__exception_ptr_Wrapper(std::move(value));
+  }
+  
   // pragma MARK: std::shared_ptr<HybridNitroFusedLocationSpec>
   /**
    * Specialized version of `std::shared_ptr<HybridNitroFusedLocationSpec>`.
@@ -39,13 +101,13 @@ namespace margelo::nitro::nitrofusedlocation::bridge::swift {
   using std__weak_ptr_HybridNitroFusedLocationSpec_ = std::weak_ptr<HybridNitroFusedLocationSpec>;
   inline std__weak_ptr_HybridNitroFusedLocationSpec_ weakify_std__shared_ptr_HybridNitroFusedLocationSpec_(const std::shared_ptr<HybridNitroFusedLocationSpec>& strong) noexcept { return strong; }
   
-  // pragma MARK: Result<double>
-  using Result_double_ = Result<double>;
-  inline Result_double_ create_Result_double_(double value) noexcept {
-    return Result<double>::withValue(std::move(value));
+  // pragma MARK: Result<std::shared_ptr<Promise<LocationData>>>
+  using Result_std__shared_ptr_Promise_LocationData___ = Result<std::shared_ptr<Promise<LocationData>>>;
+  inline Result_std__shared_ptr_Promise_LocationData___ create_Result_std__shared_ptr_Promise_LocationData___(const std::shared_ptr<Promise<LocationData>>& value) noexcept {
+    return Result<std::shared_ptr<Promise<LocationData>>>::withValue(value);
   }
-  inline Result_double_ create_Result_double_(const std::exception_ptr& error) noexcept {
-    return Result<double>::withError(error);
+  inline Result_std__shared_ptr_Promise_LocationData___ create_Result_std__shared_ptr_Promise_LocationData___(const std::exception_ptr& error) noexcept {
+    return Result<std::shared_ptr<Promise<LocationData>>>::withError(error);
   }
 
 } // namespace margelo::nitro::nitrofusedlocation::bridge::swift
