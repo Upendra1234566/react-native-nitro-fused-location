@@ -5,6 +5,7 @@ buildscript {
     }
     dependencies {
         classpath "com.android.tools.build:gradle:8.8.0"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
     }
 }
 
@@ -14,16 +15,15 @@ apply from: '../nitrogen/generated/android/NitroFusedLocation+autolinking.gradle
 
 android {
     namespace "com.margelo.nitro.nitrofusedlocation"
-    ndkVersion getExtOrDefault("ndkVersion")
-    compileSdkVersion getExtOrIntegerDefault("compileSdkVersion")
+    ndkVersion "27.1.12297006"
+    compileSdkVersion 36
 
     defaultConfig {
-        minSdkVersion getExtOrIntegerDefault("minSdkVersion")
-        targetSdkVersion getExtOrIntegerDefault("targetSdkVersion")
+        minSdkVersion 24
+        targetSdkVersion 36
         
         externalNativeBuild {
             cmake {
-                cppFlags "-frtti -fexceptions -Wall -Wextra -fstack-protector-all"
                 arguments "-DANDROID_STL=c++_shared"
             }
         }
@@ -37,23 +37,33 @@ android {
     externalNativeBuild {
         cmake {
             path "CMakeLists.txt"
+            version "3.22.1"
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 }
 
+// dependencies {
+//     implementation "com.facebook.react:react-native:+"
+//     implementation project(':react-native-nitro-modules')
+//     implementation "com.facebook.fbjni:fbjni:0.7.0"
+//     implementation 'com.google.android.gms:play-services-location:21.0.1'
+//     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
+// }
+
 dependencies {
-    implementation "com.facebook.react:react-native:+"
-    // YEH LINE IMPORTANT HAI
+    // Binary copy mat karo, sirf headers/interfaces compile karo
+    compileOnly "com.facebook.react:react-android"
+    
     implementation project(':react-native-nitro-modules')
+    implementation "com.facebook.fbjni:fbjni:0.7.0"
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
 }
-
 def getExtOrDefault(name) {
     return rootProject.ext.has(name) ? rootProject.ext.get(name) : project.properties["NitroFusedLocation_" + name]
 }

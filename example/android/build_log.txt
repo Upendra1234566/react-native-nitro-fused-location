@@ -1,0 +1,1386 @@
+Initialized native services in: /Users/macintoshhd/.gradle/native
+Initialized jansi services in: /Users/macintoshhd/.gradle/native
+The client will now receive all logging from the daemon (pid: 6373). The daemon log file: /Users/macintoshhd/.gradle/daemon/9.0.0/daemon-6373.out.log
+Starting 85th build in daemon [uptime: 4 hrs 33 mins 13.581 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 2 GiB, non-heap usage: 37% of 512 MiB]
+Using 8 worker leases.
+Now considering [/Users/macintoshhd/Desktop/react-native-nitro-fused-location/example/android, /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/@react-native/gradle-plugin] as hierarchies to watch
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Now considering [/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/@react-native/gradle-plugin, /Users/macintoshhd/Desktop/react-native-nitro-fused-location/example/android] as hierarchies to watch
+Resolved plugin [id: 'org.gradle.toolchains.foojay-resolver-convention', version: '0.5.0']
+
+> Configure project :gradle-plugin
+Evaluating project ':gradle-plugin' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/@react-native/gradle-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.1.20', apply: false]
+
+> Configure project :gradle-plugin:react-native-gradle-plugin
+Evaluating project ':gradle-plugin:react-native-gradle-plugin' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/@react-native/gradle-plugin/react-native-gradle-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.1.20']
+Resolved plugin [id: 'java-gradle-plugin']
+Build dcb9529f-89ba-4ba8-a083-513cecd107c5 is started
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :gradle-plugin:settings-plugin
+Evaluating project ':gradle-plugin:settings-plugin' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/@react-native/gradle-plugin/settings-plugin/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.1.20']
+Resolved plugin [id: 'java-gradle-plugin']
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :gradle-plugin:shared
+Evaluating project ':gradle-plugin:shared' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/@react-native/gradle-plugin/shared/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.1.20']
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+
+> Configure project :gradle-plugin:shared-testutil
+Evaluating project ':gradle-plugin:shared-testutil' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/@react-native/gradle-plugin/shared-testutil/build.gradle.kts'.
+Resolved plugin [id: 'org.jetbrains.kotlin.jvm', version: '2.1.20']
+Using Kotlin Gradle Plugin gradle85 variant
+kotlin scripting plugin: created the scripting discovery configuration: kotlinScriptDef
+kotlin scripting plugin: created the scripting discovery configuration: testKotlinScriptDef
+Resolved plugin [id: 'com.facebook.react.settings']
+Starting process 'command '/usr/libexec/java_home''. Working directory: /Users/macintoshhd/.gradle/daemon/9.0.0 Command: /usr/libexec/java_home -V
+Successfully started process 'command '/usr/libexec/java_home''
+Resolve mutations for :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker,5,main]) started.
+:gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :gradle-plugin:shared:compileKotlin (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:shared:compileKotlin (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+Caching disabled for task ':gradle-plugin:shared:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':gradle-plugin:shared:compileKotlin' as it is up-to-date.
+Resolve mutations for :gradle-plugin:shared:compileJava (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:shared:compileJava (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+Skipping task ':gradle-plugin:shared:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :gradle-plugin:shared:processResources (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:shared:processResources (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+Skipping task ':gradle-plugin:shared:processResources' as it has no source files and no previous output files.
+Resolve mutations for :gradle-plugin:shared:classes (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:shared:classes (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+Skipping task ':gradle-plugin:shared:classes' as it has no actions.
+Resolve mutations for :gradle-plugin:shared:jar (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:shared:jar (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+Caching disabled for task ':gradle-plugin:shared:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:shared:jar' as it is up-to-date.
+work action resolve shared.jar (project :gradle-plugin:shared) (Thread[Execution worker Thread 7,5,main]) started.
+Resolve mutations for :gradle-plugin:settings-plugin:compileKotlin (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:settings-plugin:compileKotlin (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+Caching disabled for task ':gradle-plugin:settings-plugin:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':gradle-plugin:settings-plugin:compileKotlin' as it is up-to-date.
+Resolve mutations for :gradle-plugin:settings-plugin:compileJava (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:settings-plugin:compileJava (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+Skipping task ':gradle-plugin:settings-plugin:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :gradle-plugin:settings-plugin:pluginDescriptors (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:settings-plugin:pluginDescriptors (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':gradle-plugin:settings-plugin:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:settings-plugin:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :gradle-plugin:settings-plugin:processResources (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:settings-plugin:processResources (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+Caching disabled for task ':gradle-plugin:settings-plugin:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:settings-plugin:processResources' as it is up-to-date.
+Resolve mutations for :gradle-plugin:settings-plugin:classes (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:settings-plugin:classes (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+Skipping task ':gradle-plugin:settings-plugin:classes' as it has no actions.
+Resolve mutations for :gradle-plugin:settings-plugin:jar (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:settings-plugin:jar (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+Caching disabled for task ':gradle-plugin:settings-plugin:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:settings-plugin:jar' as it is up-to-date.
+Settings evaluated using settings file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/example/android/settings.gradle'.
+Projects loaded. Root project using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/example/android/build.gradle'.
+Included projects: [root project 'NitroFusedLocationExample', project ':app', project ':react-native-nitro-fused-location', project ':react-native-nitro-modules']
+Registering project ':gradle-plugin' in composite build. Will substitute for module ':gradle-plugin-root'.
+Registering project ':gradle-plugin:react-native-gradle-plugin' in composite build. Will substitute for module 'com.facebook.react:react-native-gradle-plugin'.
+Registering project ':gradle-plugin:settings-plugin' in composite build. Will substitute for module 'com.facebook.react:settings-plugin'.
+Registering project ':gradle-plugin:shared' in composite build. Will substitute for module 'com.facebook.react:shared'.
+Registering project ':gradle-plugin:shared-testutil' in composite build. Will substitute for module 'com.facebook.react:shared-testutil'.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+Skipping task ':gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors' as task onlyIf 'errorDiagnostics are present' is false.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:compileKotlin (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:compileKotlin (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+Caching disabled for task ':gradle-plugin:react-native-gradle-plugin:compileKotlin' because:
+  Build cache is disabled
+Skipping task ':gradle-plugin:react-native-gradle-plugin:compileKotlin' as it is up-to-date.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:compileJava (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:compileJava (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+Skipping task ':gradle-plugin:react-native-gradle-plugin:compileJava' as it has no source files and no previous output files.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:pluginDescriptors (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:pluginDescriptors (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+Caching disabled for task ':gradle-plugin:react-native-gradle-plugin:pluginDescriptors' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:react-native-gradle-plugin:pluginDescriptors' as it is up-to-date.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:processResources (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:processResources (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+Caching disabled for task ':gradle-plugin:react-native-gradle-plugin:processResources' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:react-native-gradle-plugin:processResources' as it is up-to-date.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:classes (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:classes (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+Skipping task ':gradle-plugin:react-native-gradle-plugin:classes' as it has no actions.
+Resolve mutations for :gradle-plugin:react-native-gradle-plugin:jar (Thread[Execution worker Thread 7,5,main]) started.
+:gradle-plugin:react-native-gradle-plugin:jar (Thread[Execution worker Thread 7,5,main]) started.
+
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+Caching disabled for task ':gradle-plugin:react-native-gradle-plugin:jar' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':gradle-plugin:react-native-gradle-plugin:jar' as it is up-to-date.
+
+> Configure project :app
+Evaluating project ':app' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/example/android/app/build.gradle'.
+Using default execution profile
+Build d0e6af95-b7ed-4fc2-8ef8-2219c4a01897 is started
+Using Kotlin Gradle Plugin gradle85 variant
+DefaultConfig: buildConfigField 'IS_NEW_ARCHITECTURE_ENABLED' value is being replaced.
+DefaultConfig: buildConfigField 'IS_HERMES_ENABLED' value is being replaced.
+
+> Configure project :
+Evaluating root project 'NitroFusedLocationExample' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/example/android/build.gradle'.
+Found project 'project :gradle-plugin:react-native-gradle-plugin' as substitute for module 'com.facebook.react:react-native-gradle-plugin'.
+Ignoring listeners of task graph ready event, as this build (:gradle-plugin) has already executed work.
+
+> Configure project :react-native-nitro-fused-location
+Evaluating project ':react-native-nitro-fused-location' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+[NitroModules] 🔥 NitroFusedLocation is boosted by nitro!
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+
+> Configure project :react-native-nitro-modules
+Evaluating project ':react-native-nitro-modules' using build file '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build.gradle'.
+Using default execution profile
+Using Kotlin Gradle Plugin gradle85 variant
+[NitroModules] 🔥 Your app is boosted by nitro modules!
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+C/C++: android.ndkVersion from module build.gradle is [27.1.12297006]
+C/C++: android.ndkPath from module build.gradle is not set
+C/C++: ndk.dir in local.properties is not set
+C/C++: Not considering ANDROID_NDK_HOME because support was removed after deprecation period.
+C/C++: sdkFolder is /Users/macintoshhd/Library/Android/sdk
+All projects evaluated.
+Task path ':react-native-nitro-fused-location:configureCMakeDebug' matched project ':react-native-nitro-fused-location'
+Task name matched 'configureCMakeDebug'
+Selected primary task 'configureCMakeDebug' from project :react-native-nitro-fused-location
+Tasks to be executed: [task ':react-native-nitro-fused-location:preBuild', task ':react-native-nitro-fused-location:preDebugBuild', task ':react-native-nitro-modules:prepareHeaders', task ':react-native-nitro-modules:preBuild', task ':react-native-nitro-modules:preDebugBuild', task ':react-native-nitro-modules:configureCMakeDebug[arm64-v8a]', task ':react-native-nitro-modules:buildCMakeDebug[arm64-v8a]', task ':react-native-nitro-modules:configureCMakeDebug[armeabi-v7a]', task ':react-native-nitro-modules:buildCMakeDebug[armeabi-v7a]', task ':react-native-nitro-modules:configureCMakeDebug[x86]', task ':react-native-nitro-modules:buildCMakeDebug[x86]', task ':react-native-nitro-modules:configureCMakeDebug[x86_64]', task ':react-native-nitro-modules:buildCMakeDebug[x86_64]', task ':react-native-nitro-modules:externalNativeBuildDebug', task ':react-native-nitro-modules:generateJsonModelDebug', task ':react-native-nitro-modules:prefabDebugConfigurePackage', task ':react-native-nitro-fused-location:configureCMakeDebug[arm64-v8a]', task ':react-native-nitro-fused-location:configureCMakeDebug[armeabi-v7a]', task ':react-native-nitro-fused-location:configureCMakeDebug[x86]', task ':react-native-nitro-fused-location:configureCMakeDebug[x86_64]', task ':react-native-nitro-fused-location:configureCMakeDebug']
+Tasks that were excluded: []
+Resolve mutations for :react-native-nitro-fused-location:preBuild (Thread[Execution worker,5,main]) started.
+:react-native-nitro-fused-location:preBuild (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-fused-location:preBuild UP-TO-DATE
+Skipping task ':react-native-nitro-fused-location:preBuild' as it has no actions.
+Resolve mutations for :react-native-nitro-fused-location:preDebugBuild (Thread[Execution worker,5,main]) started.
+:react-native-nitro-fused-location:preDebugBuild (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-fused-location:preDebugBuild UP-TO-DATE
+Skipping task ':react-native-nitro-fused-location:preDebugBuild' as it has no actions.
+Resolve mutations for :react-native-nitro-modules:prepareHeaders (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:prepareHeaders (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:prepareHeaders UP-TO-DATE
+Caching disabled for task ':react-native-nitro-modules:prepareHeaders' because:
+  Build cache is disabled
+  Not worth caching
+Skipping task ':react-native-nitro-modules:prepareHeaders' as it is up-to-date.
+Resolve mutations for :react-native-nitro-modules:preBuild (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:preBuild (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:preBuild UP-TO-DATE
+Skipping task ':react-native-nitro-modules:preBuild' as it has no actions.
+Resolve mutations for :react-native-nitro-modules:preDebugBuild (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:preDebugBuild (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:preDebugBuild UP-TO-DATE
+Skipping task ':react-native-nitro-modules:preDebugBuild' as it has no actions.
+Resolve mutations for :react-native-nitro-modules:configureCMakeDebug[arm64-v8a] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:configureCMakeDebug[arm64-v8a] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:configureCMakeDebug[arm64-v8a]
+Caching disabled for task ':react-native-nitro-modules:configureCMakeDebug[arm64-v8a]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:configureCMakeDebug[arm64-v8a]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : Start JSON generation. Platform version: 24 min SDK version: arm64-v8a
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : rebuilding JSON /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a/android_gradle_build.json due to:
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : - a file changed
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a :   - /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a/prefab_config.json (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : /opt/homebrew/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home/bin/java \
+  --class-path \
+  /Users/macintoshhd/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/2.1.0/aa32fec809c44fa531f01dcfb739b5b3304d3050/cli-2.1.0-all.jar \
+  com.google.prefab.cli.AppKt \
+  --build-system \
+  cmake \
+  --platform \
+  android \
+  --abi \
+  arm64-v8a \
+  --os-version \
+  24 \
+  --stl \
+  c++_shared \
+  --ndk-version \
+  27 \
+  --output \
+  /var/folders/w9/wd9hp8l917v_9wwh4gftr4k00000gn/T/agp-prefab-staging3742730037985574139/staged-cli-output \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab
+
+Starting process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/arm64-v8a/prefab_command''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/arm64-v8a/prefab_command 
+Successfully started process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/arm64-v8a/prefab_command''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : keeping json folder '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a' but regenerating project
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : executing cmake /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=arm64-v8a \
+  -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/arm64-v8a/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=arm64-v8a \
+  -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/arm64-v8a/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_PLATFORM=android-24 -DANDROID_ABI=arm64-v8a -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a -DCMAKE_BUILD_TYPE=Debug -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/arm64-v8a/prefab -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a -GNinja -DANDROID_STL=c++_shared -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : Exiting generation of /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a/compile_commands.json.bin normally
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : done executing cmake
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a/libjsi.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a/libfbjni.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a/libc++_shared.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a/libreactnative.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : JSON generation completed without problems
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|arm64-v8a : Writing build model to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/arm64-v8a/build_model.json
+Resolve mutations for :react-native-nitro-modules:buildCMakeDebug[arm64-v8a] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:buildCMakeDebug[arm64-v8a] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:buildCMakeDebug[arm64-v8a]
+Caching disabled for task ':react-native-nitro-modules:buildCMakeDebug[arm64-v8a]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:buildCMakeDebug[arm64-v8a]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: starting build
+C/C++: reading expected JSONs
+C/C++: done reading expected JSONs
+C/C++: executing build commands for targets that produce .so files or executables
+C/C++: evaluate miniconfig
+C/C++: evaluate library NitroModules (arm64-v8a)
+C/C++: building target NitroModules because it is required by the build
+C/C++: about to build targets NitroModules
+C/C++: Build NitroModules
+C/C++: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a \
+  NitroModules
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -C /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/arm64-v8a NitroModules
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja''
+C/C++: Received process result: 0
+C/C++: check expected build outputs
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a/libfbjni.so
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a/libjsi.so
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a/libreactnative.so
+C/C++: hard linked /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/arm64-v8a/libc++_shared.so
+C/C++: build complete
+Resolve mutations for :react-native-nitro-modules:configureCMakeDebug[armeabi-v7a] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:configureCMakeDebug[armeabi-v7a] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:configureCMakeDebug[armeabi-v7a]
+Caching disabled for task ':react-native-nitro-modules:configureCMakeDebug[armeabi-v7a]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:configureCMakeDebug[armeabi-v7a]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : Start JSON generation. Platform version: 24 min SDK version: armeabi-v7a
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : rebuilding JSON /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a/android_gradle_build.json due to:
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : - a file changed
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a :   - /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a/prefab_config.json (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : /opt/homebrew/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home/bin/java \
+  --class-path \
+  /Users/macintoshhd/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/2.1.0/aa32fec809c44fa531f01dcfb739b5b3304d3050/cli-2.1.0-all.jar \
+  com.google.prefab.cli.AppKt \
+  --build-system \
+  cmake \
+  --platform \
+  android \
+  --abi \
+  armeabi-v7a \
+  --os-version \
+  24 \
+  --stl \
+  c++_shared \
+  --ndk-version \
+  27 \
+  --output \
+  /var/folders/w9/wd9hp8l917v_9wwh4gftr4k00000gn/T/agp-prefab-staging5718691455438582158/staged-cli-output \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab
+
+Starting process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/armeabi-v7a/prefab_command''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/armeabi-v7a/prefab_command 
+Successfully started process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/armeabi-v7a/prefab_command''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : keeping json folder '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a' but regenerating project
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : executing cmake /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=armeabi-v7a \
+  -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/armeabi-v7a/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=armeabi-v7a \
+  -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/armeabi-v7a/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_PLATFORM=android-24 -DANDROID_ABI=armeabi-v7a -DCMAKE_ANDROID_ARCH_ABI=armeabi-v7a -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a -DCMAKE_BUILD_TYPE=Debug -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/armeabi-v7a/prefab -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a -GNinja -DANDROID_STL=c++_shared -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : Exiting generation of /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a/compile_commands.json.bin normally
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : done executing cmake
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a/libjsi.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a/libfbjni.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a/libc++_shared.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a/libreactnative.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : JSON generation completed without problems
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|armeabi-v7a : Writing build model to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/armeabi-v7a/build_model.json
+Resolve mutations for :react-native-nitro-modules:buildCMakeDebug[armeabi-v7a] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:buildCMakeDebug[armeabi-v7a] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:buildCMakeDebug[armeabi-v7a]
+Caching disabled for task ':react-native-nitro-modules:buildCMakeDebug[armeabi-v7a]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:buildCMakeDebug[armeabi-v7a]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: starting build
+C/C++: reading expected JSONs
+C/C++: done reading expected JSONs
+C/C++: executing build commands for targets that produce .so files or executables
+C/C++: evaluate miniconfig
+C/C++: evaluate library NitroModules (armeabi-v7a)
+C/C++: building target NitroModules because it is required by the build
+C/C++: about to build targets NitroModules
+C/C++: Build NitroModules
+C/C++: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a \
+  NitroModules
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -C /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/armeabi-v7a NitroModules
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja''
+C/C++: Received process result: 0
+C/C++: check expected build outputs
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.armeabi-v7a/libfbjni.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a/libfbjni.so
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab/modules/jsi/libs/android.armeabi-v7a/libjsi.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a/libjsi.so
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab/modules/reactnative/libs/android.armeabi-v7a/libreactnative.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a/libreactnative.so
+C/C++: hard linked /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/armeabi-v7a/libc++_shared.so
+C/C++: build complete
+Resolve mutations for :react-native-nitro-modules:configureCMakeDebug[x86] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:configureCMakeDebug[x86] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:configureCMakeDebug[x86]
+Caching disabled for task ':react-native-nitro-modules:configureCMakeDebug[x86]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:configureCMakeDebug[x86]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : Start JSON generation. Platform version: 24 min SDK version: x86
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : rebuilding JSON /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86/android_gradle_build.json due to:
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : - a file changed
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 :   - /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86/prefab_config.json (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : /opt/homebrew/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home/bin/java \
+  --class-path \
+  /Users/macintoshhd/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/2.1.0/aa32fec809c44fa531f01dcfb739b5b3304d3050/cli-2.1.0-all.jar \
+  com.google.prefab.cli.AppKt \
+  --build-system \
+  cmake \
+  --platform \
+  android \
+  --abi \
+  x86 \
+  --os-version \
+  24 \
+  --stl \
+  c++_shared \
+  --ndk-version \
+  27 \
+  --output \
+  /var/folders/w9/wd9hp8l917v_9wwh4gftr4k00000gn/T/agp-prefab-staging2644495677401710031/staged-cli-output \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab
+
+Starting process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/x86/prefab_command''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/x86/prefab_command 
+Successfully started process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/x86/prefab_command''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : keeping json folder '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86' but regenerating project
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : executing cmake /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=x86 \
+  -DCMAKE_ANDROID_ARCH_ABI=x86 \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86 \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86 \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/x86/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86 \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=x86 \
+  -DCMAKE_ANDROID_ARCH_ABI=x86 \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86 \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86 \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/x86/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86 \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_PLATFORM=android-24 -DANDROID_ABI=x86 -DCMAKE_ANDROID_ARCH_ABI=x86 -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86 -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/x86/prefab -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86 -GNinja -DANDROID_STL=c++_shared -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : Exiting generation of /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86/compile_commands.json.bin normally
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : done executing cmake
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86/libjsi.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86/libfbjni.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86/libc++_shared.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86/libreactnative.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : JSON generation completed without problems
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86 : Writing build model to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/x86/build_model.json
+Resolve mutations for :react-native-nitro-modules:buildCMakeDebug[x86] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:buildCMakeDebug[x86] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:buildCMakeDebug[x86]
+Caching disabled for task ':react-native-nitro-modules:buildCMakeDebug[x86]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:buildCMakeDebug[x86]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: starting build
+C/C++: reading expected JSONs
+C/C++: done reading expected JSONs
+C/C++: executing build commands for targets that produce .so files or executables
+C/C++: evaluate miniconfig
+C/C++: evaluate library NitroModules (x86)
+C/C++: building target NitroModules because it is required by the build
+C/C++: about to build targets NitroModules
+C/C++: Build NitroModules
+C/C++: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86 \
+  NitroModules
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -C /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86 NitroModules
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja''
+C/C++: Received process result: 0
+C/C++: check expected build outputs
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86/libfbjni.so
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab/modules/jsi/libs/android.x86/libjsi.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86/libjsi.so
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab/modules/reactnative/libs/android.x86/libreactnative.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86/libreactnative.so
+C/C++: hard linked /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/i686-linux-android/libc++_shared.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86/libc++_shared.so
+C/C++: build complete
+Resolve mutations for :react-native-nitro-modules:configureCMakeDebug[x86_64] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:configureCMakeDebug[x86_64] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:configureCMakeDebug[x86_64]
+Caching disabled for task ':react-native-nitro-modules:configureCMakeDebug[x86_64]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:configureCMakeDebug[x86_64]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : Start JSON generation. Platform version: 24 min SDK version: x86_64
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : rebuilding JSON /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64/android_gradle_build.json due to:
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : - a file changed
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 :   - /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64/prefab_config.json (LAST_MODIFIED_CHANGED)
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : /opt/homebrew/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home/bin/java \
+  --class-path \
+  /Users/macintoshhd/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/2.1.0/aa32fec809c44fa531f01dcfb739b5b3304d3050/cli-2.1.0-all.jar \
+  com.google.prefab.cli.AppKt \
+  --build-system \
+  cmake \
+  --platform \
+  android \
+  --abi \
+  x86_64 \
+  --os-version \
+  24 \
+  --stl \
+  c++_shared \
+  --ndk-version \
+  27 \
+  --output \
+  /var/folders/w9/wd9hp8l917v_9wwh4gftr4k00000gn/T/agp-prefab-staging7134761461516163036/staged-cli-output \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab
+
+Starting process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/x86_64/prefab_command''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/x86_64/prefab_command 
+Successfully started process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/x86_64/prefab_command''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : keeping json folder '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64' but regenerating project
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : executing cmake /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=x86_64 \
+  -DCMAKE_ANDROID_ARCH_ABI=x86_64 \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64 \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64 \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/x86_64/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64 \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=x86_64 \
+  -DCMAKE_ANDROID_ARCH_ABI=x86_64 \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  "-DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2" \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64 \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64 \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/x86_64/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64 \
+  -GNinja \
+  -DANDROID_STL=c++_shared \
+  -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_PLATFORM=android-24 -DANDROID_ABI=x86_64 -DCMAKE_ANDROID_ARCH_ABI=x86_64 -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_CXX_FLAGS=-frtti -fexceptions -Wall -Wextra -fstack-protector-all -O1 -g -O2 -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64 -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/prefab/x86_64/prefab -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64 -GNinja -DANDROID_STL=c++_shared -DANDROID_SUPPORT_FLEXIBLE_PAGE_SIZES=ON
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : Exiting generation of /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64/compile_commands.json.bin normally
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : done executing cmake
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64/libjsi.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64/libfbjni.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64/libc++_shared.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : deleted unexpected build output /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64/libreactnative.so in incremental regenerate
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : JSON generation completed without problems
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/CMakeLists.txt debug|x86_64 : Writing build model to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/logs/x86_64/build_model.json
+Resolve mutations for :react-native-nitro-modules:buildCMakeDebug[x86_64] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:buildCMakeDebug[x86_64] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:buildCMakeDebug[x86_64]
+Caching disabled for task ':react-native-nitro-modules:buildCMakeDebug[x86_64]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:buildCMakeDebug[x86_64]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: starting build
+C/C++: reading expected JSONs
+C/C++: done reading expected JSONs
+C/C++: executing build commands for targets that produce .so files or executables
+C/C++: evaluate miniconfig
+C/C++: evaluate library NitroModules (x86_64)
+C/C++: building target NitroModules because it is required by the build
+C/C++: about to build targets NitroModules
+C/C++: Build NitroModules
+C/C++: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64 \
+  NitroModules
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -C /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/.cxx/Debug/t3g2w593/x86_64 NitroModules
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja''
+C/C++: Received process result: 0
+C/C++: check expected build outputs
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.x86_64/libfbjni.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64/libfbjni.so
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab/modules/jsi/libs/android.x86_64/libjsi.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64/libjsi.so
+C/C++: hard linked /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab/modules/reactnative/libs/android.x86_64/libreactnative.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64/libreactnative.so
+C/C++: hard linked /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/react-native-nitro-modules/android/build/intermediates/cxx/Debug/t3g2w593/obj/x86_64/libc++_shared.so
+C/C++: build complete
+Resolve mutations for :react-native-nitro-modules:externalNativeBuildDebug (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:externalNativeBuildDebug (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:externalNativeBuildDebug
+Caching disabled for task ':react-native-nitro-modules:externalNativeBuildDebug' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:externalNativeBuildDebug' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: link or copy build outputs to republish point
+Resolve mutations for :react-native-nitro-modules:generateJsonModelDebug (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:generateJsonModelDebug (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:generateJsonModelDebug
+Skipping task ':react-native-nitro-modules:generateJsonModelDebug' as it has no actions.
+Resolve mutations for :react-native-nitro-modules:prefabDebugConfigurePackage (Thread[Execution worker,5,main]) started.
+:react-native-nitro-modules:prefabDebugConfigurePackage (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-modules:prefabDebugConfigurePackage
+Caching disabled for task ':react-native-nitro-modules:prefabDebugConfigurePackage' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-modules:prefabDebugConfigurePackage' is not up-to-date because:
+  Task.upToDateWhen is false.
+work action resolve prefab_publication.json (project :react-native-nitro-modules) (Thread[Execution worker,5,main]) started.
+Resolve mutations for :react-native-nitro-fused-location:configureCMakeDebug[arm64-v8a] (Thread[Execution worker,5,main]) started.
+:react-native-nitro-fused-location:configureCMakeDebug[arm64-v8a] (Thread[Execution worker,5,main]) started.
+
+> Task :react-native-nitro-fused-location:configureCMakeDebug[arm64-v8a] FAILED
+Caching disabled for task ':react-native-nitro-fused-location:configureCMakeDebug[arm64-v8a]' because:
+  Build cache is disabled
+  Caching has been disabled for the task
+Task ':react-native-nitro-fused-location:configureCMakeDebug[arm64-v8a]' is not up-to-date because:
+  Task.upToDateWhen is false.
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : Start JSON generation. Platform version: 24 min SDK version: arm64-v8a
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : rebuilding JSON /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a/android_gradle_build.json due to:
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : - no fingerprint file, will remove stale configuration folder
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : /opt/homebrew/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home/bin/java \
+  --class-path \
+  /Users/macintoshhd/.gradle/caches/modules-2/files-2.1/com.google.prefab/cli/2.1.0/aa32fec809c44fa531f01dcfb739b5b3304d3050/cli-2.1.0-all.jar \
+  com.google.prefab.cli.AppKt \
+  --build-system \
+  cmake \
+  --platform \
+  android \
+  --abi \
+  arm64-v8a \
+  --os-version \
+  24 \
+  --stl \
+  c++_shared \
+  --ndk-version \
+  27 \
+  --output \
+  /var/folders/w9/wd9hp8l917v_9wwh4gftr4k00000gn/T/agp-prefab-staging14613558411255679238/staged-cli-output \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/e825b865204eae86d5a39faa8a256d3e/transformed/react-android-0.80.1-debug/prefab \
+  /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/refs/react-native-nitro-modules/2f3bl6w2 \
+  /Users/macintoshhd/.gradle/caches/9.0.0/transforms/aaf203391c760393b9bcd0e8f8b49882/transformed/fbjni-0.7.0/prefab
+
+Starting process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/logs/arm64-v8a/prefab_command''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android Command: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/logs/arm64-v8a/prefab_command 
+Successfully started process 'command '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/logs/arm64-v8a/prefab_command''
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : Received process result: 0
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : removing stale contents from '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a'
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : created folder '/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a'
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : executing cmake /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=arm64-v8a \
+  -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/prefab/arm64-v8a/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a \
+  -GNinja \
+  -DANDROID_STL=c++_shared
+
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+  -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android \
+  -DCMAKE_SYSTEM_NAME=Android \
+  -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+  -DCMAKE_SYSTEM_VERSION=24 \
+  -DANDROID_PLATFORM=android-24 \
+  -DANDROID_ABI=arm64-v8a \
+  -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+  -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+  -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+  -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+  -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+  -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/prefab/arm64-v8a/prefab \
+  -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a \
+  -GNinja \
+  -DANDROID_STL=c++_shared
+
+Starting process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''. Working directory: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android Command: /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_PLATFORM=android-24 -DANDROID_ABI=arm64-v8a -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a -DCMAKE_BUILD_TYPE=Debug -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/prefab/arm64-v8a/prefab -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a -GNinja -DANDROID_STL=c++_shared
+Successfully started process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake''
+C/C++: CMake Warning (dev) in CMakeLists.txt:
+C/C++:   No project() command is present.  The top-level CMakeLists.txt file must
+C/C++:   contain a literal, direct call to the project() command.  Add a line of
+C/C++:   code such as
+C/C++:     project(ProjectName)
+C/C++:   near the top of the file, but after cmake_minimum_required().
+C/C++:   CMake is pretending there is a "project(Project)" command on the first
+C/C++:   line.
+C/C++: This warning is for project developers.  Use -Wno-dev to suppress it.
+C/C++: CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:30 (target_sources):
+C/C++:   Cannot specify sources for target "NitroFusedLocation" which is not built
+C/C++:   by this project.
+C/C++: Call Stack (most recent call first):
+C/C++:   CMakeLists.txt:2 (include)
+C/C++: CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:43 (target_compile_definitions):
+C/C++:   Cannot specify compile definitions for target "NitroFusedLocation" which is
+C/C++:   not built by this project.
+C/C++: Call Stack (most recent call first):
+C/C++:   CMakeLists.txt:2 (include)
+C/C++: CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:63 (target_link_libraries):
+C/C++:   Cannot specify link libraries for target "NitroFusedLocation" which is not
+C/C++:   built by this project.
+C/C++: Call Stack (most recent call first):
+C/C++:   CMakeLists.txt:2 (include)
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : Received process result: 1
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : JSON generation completed with problem. Exception: com.android.ide.common.process.ProcessException: -- The C compiler identification is Clang 18.0.2
+-- The CXX compiler identification is Clang 18.0.2
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring incomplete, errors occurred!
+See also "/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a/CMakeFiles/CMakeOutput.log".
+
+C++ build system [configure] failed while executing:
+    /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+      -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android \
+      -DCMAKE_SYSTEM_NAME=Android \
+      -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+      -DCMAKE_SYSTEM_VERSION=24 \
+      -DANDROID_PLATFORM=android-24 \
+      -DANDROID_ABI=arm64-v8a \
+      -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+      -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+      -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+      -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+      -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+      -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+      -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+      -DCMAKE_BUILD_TYPE=Debug \
+      -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/prefab/arm64-v8a/prefab \
+      -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a \
+      -GNinja \
+      -DANDROID_STL=c++_shared
+  from /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android
+CMake Warning (dev) in CMakeLists.txt:
+  No project() command is present.  The top-level CMakeLists.txt file must
+  contain a literal, direct call to the project() command.  Add a line of
+  code such as
+
+    project(ProjectName)
+
+  near the top of the file, but after cmake_minimum_required().
+
+  CMake is pretending there is a "project(Project)" command on the first
+  line.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:30 (target_sources):
+  Cannot specify sources for target "NitroFusedLocation" which is not built
+  by this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (include)
+
+
+CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:43 (target_compile_definitions):
+  Cannot specify compile definitions for target "NitroFusedLocation" which is
+  not built by this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (include)
+
+
+CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:63 (target_link_libraries):
+  Cannot specify link libraries for target "NitroFusedLocation" which is not
+  built by this project.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (include)
+C/C++: /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt debug|arm64-v8a : Writing build model to /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/logs/arm64-v8a/build_model.json
+Build dcb9529f-89ba-4ba8-a083-513cecd107c5 is closed
+Build d0e6af95-b7ed-4fc2-8ef8-2219c4a01897 is closed
+
+[Incubating] Problems report is available at: file:///Users/macintoshhd/Desktop/react-native-nitro-fused-location/example/android/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':react-native-nitro-fused-location:configureCMakeDebug[arm64-v8a]'.
+> [CXX1429] error when building with cmake using /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/CMakeLists.txt: -- The C compiler identification is Clang 18.0.2
+  -- The CXX compiler identification is Clang 18.0.2
+  -- Detecting C compiler ABI info
+  -- Detecting C compiler ABI info - done
+  -- Check for working C compiler: /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang - skipped
+  -- Detecting C compile features
+  -- Detecting C compile features - done
+  -- Detecting CXX compiler ABI info
+  -- Detecting CXX compiler ABI info - done
+  -- Check for working CXX compiler: /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ - skipped
+  -- Detecting CXX compile features
+  -- Detecting CXX compile features - done
+  -- Configuring incomplete, errors occurred!
+  See also "/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a/CMakeFiles/CMakeOutput.log".
+  
+  C++ build system [configure] failed while executing:
+      /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+        -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android \
+        -DCMAKE_SYSTEM_NAME=Android \
+        -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+        -DCMAKE_SYSTEM_VERSION=24 \
+        -DANDROID_PLATFORM=android-24 \
+        -DANDROID_ABI=arm64-v8a \
+        -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+        -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+        -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+        -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+        -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+        -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+        -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+        -DCMAKE_BUILD_TYPE=Debug \
+        -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/prefab/arm64-v8a/prefab \
+        -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a \
+        -GNinja \
+        -DANDROID_STL=c++_shared
+    from /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android
+  CMake Warning (dev) in CMakeLists.txt:
+    No project() command is present.  The top-level CMakeLists.txt file must
+    contain a literal, direct call to the project() command.  Add a line of
+    code such as
+  
+      project(ProjectName)
+  
+    near the top of the file, but after cmake_minimum_required().
+  
+    CMake is pretending there is a "project(Project)" command on the first
+    line.
+  This warning is for project developers.  Use -Wno-dev to suppress it.
+  
+  CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:30 (target_sources):
+    Cannot specify sources for target "NitroFusedLocation" which is not built
+    by this project.
+  Call Stack (most recent call first):
+    CMakeLists.txt:2 (include)
+  
+  
+  CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:43 (target_compile_definitions):
+    Cannot specify compile definitions for target "NitroFusedLocation" which is
+    not built by this project.
+  Call Stack (most recent call first):
+    CMakeLists.txt:2 (include)
+  
+  
+  CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:63 (target_link_libraries):
+    Cannot specify link libraries for target "NitroFusedLocation" which is not
+    built by this project.
+  Call Stack (most recent call first):
+    CMakeLists.txt:2 (include) : com.android.ide.common.process.ProcessException: -- The C compiler identification is Clang 18.0.2
+  -- The CXX compiler identification is Clang 18.0.2
+  -- Detecting C compiler ABI info
+  -- Detecting C compiler ABI info - done
+  -- Check for working C compiler: /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang - skipped
+  -- Detecting C compile features
+  -- Detecting C compile features - done
+  -- Detecting CXX compiler ABI info
+  -- Detecting CXX compiler ABI info - done
+  -- Check for working CXX compiler: /Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ - skipped
+  -- Detecting CXX compile features
+  -- Detecting CXX compile features - done
+  -- Configuring incomplete, errors occurred!
+  See also "/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a/CMakeFiles/CMakeOutput.log".
+  
+  C++ build system [configure] failed while executing:
+      /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake \
+        -H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android \
+        -DCMAKE_SYSTEM_NAME=Android \
+        -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+        -DCMAKE_SYSTEM_VERSION=24 \
+        -DANDROID_PLATFORM=android-24 \
+        -DANDROID_ABI=arm64-v8a \
+        -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a \
+        -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+        -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 \
+        -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake \
+        -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja \
+        -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+        -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a \
+        -DCMAKE_BUILD_TYPE=Debug \
+        -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/prefab/arm64-v8a/prefab \
+        -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a \
+        -GNinja \
+        -DANDROID_STL=c++_shared
+    from /Users/macintoshhd/Desktop/react-native-nitro-fused-location/android
+  CMake Warning (dev) in CMakeLists.txt:
+    No project() command is present.  The top-level CMakeLists.txt file must
+    contain a literal, direct call to the project() command.  Add a line of
+    code such as
+  
+      project(ProjectName)
+  
+    near the top of the file, but after cmake_minimum_required().
+  
+    CMake is pretending there is a "project(Project)" command on the first
+    line.
+  This warning is for project developers.  Use -Wno-dev to suppress it.
+  
+  CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:30 (target_sources):
+    Cannot specify sources for target "NitroFusedLocation" which is not built
+    by this project.
+  Call Stack (most recent call first):
+    CMakeLists.txt:2 (include)
+  
+  
+  CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:43 (target_compile_definitions):
+    Cannot specify compile definitions for target "NitroFusedLocation" which is
+    not built by this project.
+  Call Stack (most recent call first):
+    CMakeLists.txt:2 (include)
+  
+  
+  CMake Error at /Users/macintoshhd/Desktop/react-native-nitro-fused-location/nitrogen/generated/android/NitroFusedLocation+autolinking.cmake:63 (target_link_libraries):
+    Cannot specify link libraries for target "NitroFusedLocation" which is not
+    built by this project.
+  Call Stack (most recent call first):
+    CMakeLists.txt:2 (include)
+  	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:288)
+  	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:108)
+  	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:106)
+  	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:32)
+  	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:106)
+  	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:85)
+  	at com.android.build.gradle.tasks.CmakeQueryMetadataGenerator.executeProcess(CmakeFileApiMetadataGenerator.kt:59)
+  	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator$configureOneAbi$1$1$3.invoke(ExternalNativeJsonGenerator.kt:247)
+  	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator$configureOneAbi$1$1$3.invoke(ExternalNativeJsonGenerator.kt:247)
+  	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:32)
+  	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configureOneAbi(ExternalNativeJsonGenerator.kt:247)
+  	at com.android.build.gradle.tasks.ExternalNativeJsonGenerator.configure(ExternalNativeJsonGenerator.kt:113)
+  	at com.android.build.gradle.tasks.ExternalNativeBuildJsonTask.doTaskAction(ExternalNativeBuildJsonTask.kt:89)
+  	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:59)
+  	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+  	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:81)
+  	at jdk.internal.reflect.GeneratedMethodAccessor316.invoke(Unknown Source)
+  	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+  	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+  	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+  	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+  	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+  	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:252)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+  	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:237)
+  	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:220)
+  	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:203)
+  	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:170)
+  	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:105)
+  	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:44)
+  	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:59)
+  	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:56)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+  	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:56)
+  	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:44)
+  	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+  	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+  	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+  	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:50)
+  	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:28)
+  	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:68)
+  	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.execute(RemovePreviousOutputsStep.java:38)
+  	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:61)
+  	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:26)
+  	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+  	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+  	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:39)
+  	at org.gradle.internal.execution.steps.ResolveInputChangesStep.execute(ResolveInputChangesStep.java:28)
+  	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:189)
+  	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:75)
+  	at org.gradle.internal.Either$Right.fold(Either.java:176)
+  	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+  	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:73)
+  	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:48)
+  	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+  	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+  	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+  	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+  	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+  	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+  	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+  	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+  	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+  	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+  	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+  	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+  	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+  	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:64)
+  	at org.gradle.internal.execution.steps.ResolveChangesStep.execute(ResolveChangesStep.java:35)
+  	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:62)
+  	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:40)
+  	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:76)
+  	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:45)
+  	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:136)
+  	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:61)
+  	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:38)
+  	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+  	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+  	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+  	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:75)
+  	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.execute(HandleStaleOutputsStep.java:41)
+  	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+  	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:297)
+  	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+  	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+  	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+  	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+  	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+  	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+  	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+  	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+  	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+  	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+  	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:47)
+  	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:34)
+  	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:64)
+  	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+  	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+  	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+  	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+  	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+  	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+  	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+  	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+  	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+  	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+  	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+  	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+  	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+  	at org.gradle.execution.plan.LocalTaskNodeExecutor.execute(LocalTaskNodeExecutor.java:45)
+  	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:347)
+  	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:334)
+  	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:330)
+  	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+  	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:330)
+  	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:319)
+  	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+  	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+  	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+  	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+  	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+  	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+  	at java.base/java.lang.Thread.run(Thread.java:840)
+  Caused by: com.android.ide.common.process.ProcessException: Error while executing process /Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake with arguments {-H/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android -DCMAKE_SYSTEM_NAME=Android -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_SYSTEM_VERSION=24 -DANDROID_PLATFORM=android-24 -DANDROID_ABI=arm64-v8a -DCMAKE_ANDROID_ARCH_ABI=arm64-v8a -DANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_ANDROID_NDK=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006 -DCMAKE_TOOLCHAIN_FILE=/Users/macintoshhd/Library/Android/sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake -DCMAKE_MAKE_PROGRAM=/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/ninja -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a -DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/build/intermediates/cxx/Debug/1e565w3p/obj/arm64-v8a -DCMAKE_BUILD_TYPE=Debug -DCMAKE_FIND_ROOT_PATH=/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/prefab/arm64-v8a/prefab -B/Users/macintoshhd/Desktop/react-native-nitro-fused-location/android/.cxx/Debug/1e565w3p/arm64-v8a -GNinja -DANDROID_STL=c++_shared}
+  	at com.android.build.gradle.internal.process.GradleProcessResult.buildProcessException(GradleProcessResult.java:73)
+  	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:48)
+  	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:277)
+  	... 141 more
+  Caused by: org.gradle.process.ProcessExecutionException: Process 'command '/Users/macintoshhd/Library/Android/sdk/cmake/3.22.1/bin/cmake'' finished with non-zero exit value 1
+  	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:443)
+  	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:46)
+  	... 142 more
+
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --debug option to get more log output.
+> Run with --scan to generate a Build Scan (Powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.0.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 3s
+22 actionable tasks: 11 executed, 11 up-to-date
+Watched directory hierarchies: [/Users/macintoshhd/Desktop/react-native-nitro-fused-location/node_modules/@react-native/gradle-plugin, /Users/macintoshhd/Desktop/react-native-nitro-fused-location/example/android]

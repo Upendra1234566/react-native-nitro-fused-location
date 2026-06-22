@@ -3,7 +3,6 @@ apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
 react {
-    // New Arch band kar de abhi - yahi crash karwa raha hai
     newArchEnabled = false
     
     reactNativeDir = file("../../../node_modules/react-native")
@@ -27,10 +26,20 @@ android {
         buildConfig true
     }
 
+    // Sahi spelling: packagingOptions (sirf ek 'p')
     packagingOptions {
-        jniLibs {
-            useLegacyPackaging = false
-        }
+        // jniLibs {
+        //     useLegacyPackaging = false
+        // }
+        // pickFirsts.add("**/libjsi.so")
+        // pickFirsts.add("**/libreactnative.so")
+        // pickFirsts.add("**/libreact_nativemodule_core.so")
+        // pickFirsts.add("**/libturbomodulejsijni.so")
+        pickFirsts.add("**/libjsi.so")
+        pickFirsts.add("**/libreactnative.so")
+        pickFirsts.add("**/libreact_nativemodule_core.so")
+        pickFirsts.add("**/libturbomodulejsijni.so")
+        pickFirsts.add("**/libNitroFusedLocation.so")
     }
 
     namespace "com.nitrofusedlocationexample"
@@ -48,6 +57,7 @@ android {
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", String.valueOf(react.newArchEnabled)
         buildConfigField "boolean", "IS_HERMES_ENABLED", String.valueOf(hermesEnabled.toBoolean())
     }
+    
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -56,6 +66,7 @@ android {
             keyPassword 'android'
         }
     }
+    
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
@@ -76,5 +87,4 @@ dependencies {
     } else {
         implementation jscFlavor
     }
-    // Bas itna hi. Aur kuch nahi chahiye.
 }

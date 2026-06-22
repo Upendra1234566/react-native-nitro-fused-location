@@ -13,7 +13,7 @@
     "metro-react-native-babel-preset": "^0.77.0",
     "react": "^19.1.0",
     "react-native": "^0.80.3",
-    "react-native-nitro-fused-location": "file:../",
+    "react-native-nitro-fused-location": "file:..",
     "react-native-nitro-modules": "^0.35.9"
   },
   "devDependencies": {

@@ -7,20 +7,14 @@ import com.facebook.react.uimanager.ViewManager
 import android.util.Log
 
 class NitroFusedLocationPackage : ReactPackage {
-
     companion object {
         init {
             try {
-                Log.i("NITRO_LOCATION", "Step 1: Loading C++ library...")
-                System.loadLibrary("NitroFusedLocation") // CMake wale naam se match hona chahiye
-                
-                Log.i("NITRO_LOCATION", "Step 2: C++ loaded! Initializing Nitrogen...")
-                NitroFusedLocationOnLoad.initializeNative()
-                
-                Log.i("NITRO_LOCATION", "Step 3: All Success!")
-            } catch (e: Throwable) { // <-- Exception ki jagah Throwable (Bahut Zaroori)
-                Log.e("NITRO_LOCATION", "CRASH: Library load fail ho gayi!", e)
-                throw RuntimeException("ASLI ERROR YAHAN HAI: Failed to load NitroFusedLocation C++ library! -> " + e.message, e)
+                Log.i("NITRO_LOCATION", "Loading Manual C++ library...")
+                System.loadLibrary("NitroFusedLocation")
+                Log.i("NITRO_LOCATION", "Library Loaded Successfully!")
+            } catch (e: Throwable) {
+                Log.e("NITRO_LOCATION", "Failed to load library", e)
             }
         }
     }

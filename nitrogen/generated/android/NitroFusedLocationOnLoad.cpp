@@ -27,7 +27,7 @@ int initialize(JavaVM* vm) {
 }
 
 struct JHybridNitroFusedLocationSpecImpl: public jni::JavaClass<JHybridNitroFusedLocationSpecImpl, JHybridNitroFusedLocationSpec::JavaPart> {
-  static constexpr auto kJavaDescriptor = "Lcom/nitrofusedlocation/HybridNitroFusedLocation;";
+  static constexpr auto kJavaDescriptor = "Lcom/margelo/nitro/nitrofusedlocation/HybridNitroFusedLocation;";
   static std::shared_ptr<JHybridNitroFusedLocationSpec> create() {
     static const auto constructorFn = javaClassStatic()->getConstructor<JHybridNitroFusedLocationSpecImpl::javaobject()>();
     jni::local_ref<JHybridNitroFusedLocationSpec::JavaPart> javaPart = javaClassStatic()->newObject(constructorFn);
