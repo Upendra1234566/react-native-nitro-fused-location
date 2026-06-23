@@ -51,12 +51,12 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.text}>Nitro Fused Location Welcome Upendra Singh 🚀</Text>
+        <Text style={styles.text}>Nitro Fused Location Welcome 🚀</Text>
         <Text style={styles.subtext}>Status: {status}</Text>
         {location && (
           <View style={styles.locationBox}>
-            <Text style={styles.coords}>Lat: {location.latitude.toFixed(6)}</Text>
-            <Text style={styles.coords}>Lng: {location.longitude.toFixed(6)}</Text>
+            <Text style={styles.coords}>Lat: {location.latitude.toFixed(8)}</Text>
+            <Text style={styles.coords}>Lng: {location.longitude.toFixed(8)}</Text>
           </View>
         )}
       </View>
