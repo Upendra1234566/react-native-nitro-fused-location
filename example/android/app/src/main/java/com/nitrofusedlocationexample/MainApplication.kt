@@ -11,7 +11,7 @@ import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.react.soloader.OpenSourceMergedSoMapping
 import com.facebook.soloader.SoLoader
-// Library package ko import kiya
+// Ensure kijiye ki ye import path aapki library ke native code se match kare
 import com.margelo.nitro.nitrofusedlocation.NitroFusedLocationPackage 
 
 class MainApplication : Application(), ReactApplication {
@@ -19,17 +19,20 @@ class MainApplication : Application(), ReactApplication {
   override val reactNativeHost: ReactNativeHost =
     object : DefaultReactNativeHost(this) {
       override fun getPackages(): List<ReactPackage> {
-        // Autolinked packages ki list ko mutable banaya
+        // Autolinked packages ki list
         val packages = PackageList(this).packages.toMutableList()
         
-        // Aapki Nitro library ko force-load karne ke liye manually add kiya
+        // Nitro library ko explicitly register kiya
         packages.add(NitroFusedLocationPackage())
         
         return packages
       }
 
       override fun getJSMainModuleName(): String = "index"
+      
       override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
+      
+      // Ye flags ab aapke app/build.gradle se aayenge
       override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
       override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
     }
@@ -39,8 +42,10 @@ class MainApplication : Application(), ReactApplication {
 
   override fun onCreate() {
     super.onCreate()
+    // Nitro ke liye JSI bridge initialize karna zaruri hai
     SoLoader.init(this, OpenSourceMergedSoMapping)
     
+    // New Architecture (TurboModules) load karna
     if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
       load()
     }

@@ -1,48 +1,116 @@
+// apply plugin: "com.android.application"
+// apply plugin: "org.jetbrains.kotlin.android"
+// apply plugin: "com.facebook.react"
+
+// react {
+//     newArchEnabled = true
+    
+//     reactNativeDir = file("../../../node_modules/react-native")
+//     codegenDir = file("../../../node_modules/@react-native/codegen")
+//     cliFile = file("../../../node_modules/react-native/cli.js")
+    
+//     hermesCommand = "$rootDir/../../node_modules/hermes-compiler/hermesc/%OS-BIN%/hermesc"
+    
+//     autolinkLibrariesWithApp()
+// }
+
+// def enableProguardInReleaseBuilds = false
+// def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
+
+// android {
+//     ndkVersion rootProject.ext.ndkVersion
+//     buildToolsVersion rootProject.ext.buildToolsVersion
+//     compileSdk rootProject.ext.compileSdkVersion
+
+//     buildFeatures {
+//         buildConfig true
+//     }
+
+//     // Sahi spelling: packagingOptions (sirf ek 'p')
+//     packagingOptions {
+//         // jniLibs {
+//         //     useLegacyPackaging = false
+//         // }
+//         // pickFirsts.add("**/libjsi.so")
+//         // pickFirsts.add("**/libreactnative.so")
+//         // pickFirsts.add("**/libreact_nativemodule_core.so")
+//         // pickFirsts.add("**/libturbomodulejsijni.so")
+//         pickFirsts.add("**/libjsi.so")
+//         pickFirsts.add("**/libreactnative.so")
+//         pickFirsts.add("**/libreact_nativemodule_core.so")
+//         pickFirsts.add("**/libturbomodulejsijni.so")
+//         pickFirsts.add("**/libNitroFusedLocation.so")
+//     }
+
+//     namespace "com.nitrofusedlocationexample"
+//     defaultConfig {
+//         applicationId "com.nitrofusedlocationexample"
+//         minSdkVersion rootProject.ext.minSdkVersion
+//         targetSdkVersion rootProject.ext.targetSdkVersion
+//         versionCode 1
+//         versionName "1.0"
+        
+//         ndk {
+//             abiFilters "arm64-v8a", "armeabi-v7a", "x86_64"
+//         }
+        
+//         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", String.valueOf(react.newArchEnabled)
+//         buildConfigField "boolean", "IS_HERMES_ENABLED", String.valueOf(hermesEnabled.toBoolean())
+//     }
+    
+//     signingConfigs {
+//         debug {
+//             storeFile file('debug.keystore')
+//             storePassword 'android'
+//             keyAlias 'androiddebugkey'
+//             keyPassword 'android'
+//         }
+//     }
+    
+//     buildTypes {
+//         debug {
+//             signingConfig signingConfigs.debug
+//         }
+//         release {
+//             signingConfig signingConfigs.debug
+//             minifyEnabled enableProguardInReleaseBuilds
+//             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+//         }
+//     }
+// }
+
+// dependencies {
+//     implementation("com.facebook.react:react-android")
+    
+//     if (hermesEnabled.toBoolean()) {
+//         implementation("com.facebook.react:hermes-android")
+//     } else {
+//         implementation jscFlavor
+//     }
+// } 
+
+
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
 react {
-    newArchEnabled = false
+    // 1. New Architecture enable hona zaruri hai
+    newArchEnabled = true
     
     reactNativeDir = file("../../../node_modules/react-native")
     codegenDir = file("../../../node_modules/@react-native/codegen")
     cliFile = file("../../../node_modules/react-native/cli.js")
-    
     hermesCommand = "$rootDir/../../node_modules/hermes-compiler/hermesc/%OS-BIN%/hermesc"
     
     autolinkLibrariesWithApp()
 }
 
-def enableProguardInReleaseBuilds = false
-def jscFlavor = 'io.github.react-native-community:jsc-android:2026004.+'
-
 android {
-    ndkVersion rootProject.ext.ndkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-    compileSdk rootProject.ext.compileSdkVersion
-
-    buildFeatures {
-        buildConfig true
-    }
-
-    // Sahi spelling: packagingOptions (sirf ek 'p')
-    packagingOptions {
-        // jniLibs {
-        //     useLegacyPackaging = false
-        // }
-        // pickFirsts.add("**/libjsi.so")
-        // pickFirsts.add("**/libreactnative.so")
-        // pickFirsts.add("**/libreact_nativemodule_core.so")
-        // pickFirsts.add("**/libturbomodulejsijni.so")
-        pickFirsts.add("**/libjsi.so")
-        pickFirsts.add("**/libreactnative.so")
-        pickFirsts.add("**/libreact_nativemodule_core.so")
-        pickFirsts.add("**/libturbomodulejsijni.so")
-        pickFirsts.add("**/libNitroFusedLocation.so")
-    }
-
     namespace "com.nitrofusedlocationexample"
+    compileSdk rootProject.ext.compileSdkVersion
+    ndkVersion rootProject.ext.ndkVersion
+
     defaultConfig {
         applicationId "com.nitrofusedlocationexample"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -50,41 +118,45 @@ android {
         versionCode 1
         versionName "1.0"
         
-        ndk {
-            abiFilters "arm64-v8a", "armeabi-v7a", "x86_64"
-        }
-        
-        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", String.valueOf(react.newArchEnabled)
-        buildConfigField "boolean", "IS_HERMES_ENABLED", String.valueOf(hermesEnabled.toBoolean())
-    }
-    
-    signingConfigs {
-        debug {
-            storeFile file('debug.keystore')
-            storePassword 'android'
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
+        // C++ ke liye zaruri flags
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
         }
     }
-    
+
+    packagingOptions {
+        pickFirsts.add("**/libjsi.so")
+        pickFirsts.add("**/libreactnative.so")
+        pickFirsts.add("**/libreact_nativemodule_core.so")
+        pickFirsts.add("**/libturbomodulejsijni.so")
+        pickFirsts.add("**/libNitroFusedLocation.so")
+    }
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
         }
         release {
             signingConfig signingConfigs.debug
-            minifyEnabled enableProguardInReleaseBuilds
+            minifyEnabled false
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 }
 
 dependencies {
+    // 2. React Native core
     implementation("com.facebook.react:react-android")
-    
+
+    // 3. IMPORTANT: Nitro aur apni library ko yahan add karein
+    implementation project(':react-native-nitro-modules')
+    implementation project(':react-native-nitro-fused-location')
+
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
-        implementation jscFlavor
+        implementation 'io.github.react-native-community:jsc-android:2026004.+'
     }
 }
