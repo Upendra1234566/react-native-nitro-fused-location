@@ -12,6 +12,14 @@
 - React Native v0.76.0 or higher
 - Node 18.0.0 or higher
 
+## ✨ Features
+
+*   **Ultra Fast:** Built with React Native Nitro Modules (C++ bindings) for zero-bridge overhead.
+*   **Zero Dependencies:** No Google Maps API or external services required. Completely free to use.
+*   **Cross-Platform:** Works seamlessly on both Android and iOS.
+*   **Reverse Geocoding:** Automatically converts coordinates into human-readable addresses (City, State, Country, Pincode).
+*   **Main Thread Safe:** Optimized iOS background/main thread execution to prevent UI freezes.
+*   **TypeScript Ready:** Fully typed API for a great Developer Experience (DX).
 > [!IMPORTANT]  
 > To Support `Nitro Views`, you need to install React Native version v0.78.0 or higher.
 
