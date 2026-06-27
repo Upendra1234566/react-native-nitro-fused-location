@@ -20,20 +20,26 @@
 ```bash
 npm install react-native-nitro-fused-location react-native-nitro-modules 
 
-⚙️ Setup & Permissions
-Android
-Add these to your android/app/src/main/AndroidManifest.xml 
+## ⚙️ Setup & Permissions
 
+### Android
+Add these to your `android/app/src/main/AndroidManifest.xml`:
+```xml
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
- 
- iOS
-Add this to your ios/YourProjectName/Info.plist: 
+
+### iOS
+Add this to your `ios/YourProjectName/Info.plist`:
+```xml
 <key>NSLocationWhenInUseUsageDescription</key>
 <string>We need your location to fetch the current address.</string> 
 
-💻 Usage 
+### Step 2: Usage Section
+```md
 
+## 💻 Usage
+
+```tsx 
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Alert, PermissionsAndroid, Platform, ActivityIndicator } from 'react-native';
 import { NitroFusedLocation } from 'react-native-nitro-fused-location';
@@ -132,20 +138,22 @@ const styles = StyleSheet.create({
 export default App; 
 
 
+### Step 3: Local Development & Footer
+```md
+## 🛠️ Local Development 
 
-🛠️ Local Development
-If you want to contribute, follow these steps: 
-
-1. Start Metro: npm start 
-2. Build Android: npm run android 
-3.Build iOS: 
-
-bundle install
-bundle exec pod install
-npm run ios 
+1. **Start Metro:** `npm start`
+2. **Build Android:** `npm run android`
+3. **Build iOS:**
+   ```bash
+   bundle install
+   bundle exec pod install
+   npm run ios 
+   
 
 Credits
 Bootstrapped with create-nitro-module. 
 
-License
-MIT
+## License
+
+MIT © [Upendra Singh](https://github.com/Upendra1234566)
