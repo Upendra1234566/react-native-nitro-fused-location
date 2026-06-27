@@ -93,4 +93,7 @@ const styles = StyleSheet.create({
   coords: { fontSize: 12, color: '#777', textAlign: 'center' },
 });
 
-export default App;
+export default App; 
+
+
+
