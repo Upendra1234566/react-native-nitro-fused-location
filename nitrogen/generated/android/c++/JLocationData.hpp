@@ -10,7 +10,7 @@
 #include <fbjni/fbjni.h>
 #include "LocationData.hpp"
 
-
+#include <string>
 
 namespace margelo::nitro::nitrofusedlocation {
 
@@ -37,10 +37,28 @@ namespace margelo::nitro::nitrofusedlocation {
       double longitude = this->getFieldValue(fieldLongitude);
       static const auto fieldAccuracy = clazz->getField<double>("accuracy");
       double accuracy = this->getFieldValue(fieldAccuracy);
+      static const auto fieldAddress = clazz->getField<jni::JString>("address");
+      jni::local_ref<jni::JString> address = this->getFieldValue(fieldAddress);
+      static const auto fieldCity = clazz->getField<jni::JString>("city");
+      jni::local_ref<jni::JString> city = this->getFieldValue(fieldCity);
+      static const auto fieldState = clazz->getField<jni::JString>("state");
+      jni::local_ref<jni::JString> state = this->getFieldValue(fieldState);
+      static const auto fieldCountry = clazz->getField<jni::JString>("country");
+      jni::local_ref<jni::JString> country = this->getFieldValue(fieldCountry);
+      static const auto fieldPincode = clazz->getField<jni::JString>("pincode");
+      jni::local_ref<jni::JString> pincode = this->getFieldValue(fieldPincode);
+      static const auto fieldDistance = clazz->getField<double>("distance");
+      double distance = this->getFieldValue(fieldDistance);
       return LocationData(
         latitude,
         longitude,
-        accuracy
+        accuracy,
+        address->toStdString(),
+        city->toStdString(),
+        state->toStdString(),
+        country->toStdString(),
+        pincode->toStdString(),
+        distance
       );
     }
 
@@ -50,14 +68,20 @@ namespace margelo::nitro::nitrofusedlocation {
      */
     [[maybe_unused]]
     static jni::local_ref<JLocationData::javaobject> fromCpp(const LocationData& value) {
-      using JSignature = JLocationData(double, double, double);
+      using JSignature = JLocationData(double, double, double, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, double);
       static const auto clazz = javaClassStatic();
       static const auto create = clazz->getStaticMethod<JSignature>("fromCpp");
       return create(
         clazz,
         value.latitude,
         value.longitude,
-        value.accuracy
+        value.accuracy,
+        jni::make_jstring(value.address),
+        jni::make_jstring(value.city),
+        jni::make_jstring(value.state),
+        jni::make_jstring(value.country),
+        jni::make_jstring(value.pincode),
+        value.distance
       );
     }
   };

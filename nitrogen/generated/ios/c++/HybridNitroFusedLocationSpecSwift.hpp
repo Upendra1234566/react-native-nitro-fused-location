@@ -17,6 +17,7 @@ namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 
 #include "LocationData.hpp"
 #include <NitroModules/Promise.hpp>
+#include <string>
 
 #include "NitroFusedLocation-Swift-Cxx-Umbrella.hpp"
 

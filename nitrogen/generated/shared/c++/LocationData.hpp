@@ -30,7 +30,7 @@
 
 
 
-
+#include <string>
 
 namespace margelo::nitro::nitrofusedlocation {
 
@@ -42,10 +42,16 @@ namespace margelo::nitro::nitrofusedlocation {
     double latitude     SWIFT_PRIVATE;
     double longitude     SWIFT_PRIVATE;
     double accuracy     SWIFT_PRIVATE;
+    std::string address     SWIFT_PRIVATE;
+    std::string city     SWIFT_PRIVATE;
+    std::string state     SWIFT_PRIVATE;
+    std::string country     SWIFT_PRIVATE;
+    std::string pincode     SWIFT_PRIVATE;
+    double distance     SWIFT_PRIVATE;
 
   public:
     LocationData() = default;
-    explicit LocationData(double latitude, double longitude, double accuracy): latitude(latitude), longitude(longitude), accuracy(accuracy) {}
+    explicit LocationData(double latitude, double longitude, double accuracy, std::string address, std::string city, std::string state, std::string country, std::string pincode, double distance): latitude(latitude), longitude(longitude), accuracy(accuracy), address(address), city(city), state(state), country(country), pincode(pincode), distance(distance) {}
 
   public:
     friend bool operator==(const LocationData& lhs, const LocationData& rhs) = default;
@@ -63,7 +69,13 @@ namespace margelo::nitro {
       return margelo::nitro::nitrofusedlocation::LocationData(
         JSIConverter<double>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "latitude"))),
         JSIConverter<double>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "longitude"))),
-        JSIConverter<double>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "accuracy")))
+        JSIConverter<double>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "accuracy"))),
+        JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "address"))),
+        JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "city"))),
+        JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "state"))),
+        JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "country"))),
+        JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "pincode"))),
+        JSIConverter<double>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "distance")))
       );
     }
     static inline jsi::Value toJSI(jsi::Runtime& runtime, const margelo::nitro::nitrofusedlocation::LocationData& arg) {
@@ -71,6 +83,12 @@ namespace margelo::nitro {
       obj.setProperty(runtime, PropNameIDCache::get(runtime, "latitude"), JSIConverter<double>::toJSI(runtime, arg.latitude));
       obj.setProperty(runtime, PropNameIDCache::get(runtime, "longitude"), JSIConverter<double>::toJSI(runtime, arg.longitude));
       obj.setProperty(runtime, PropNameIDCache::get(runtime, "accuracy"), JSIConverter<double>::toJSI(runtime, arg.accuracy));
+      obj.setProperty(runtime, PropNameIDCache::get(runtime, "address"), JSIConverter<std::string>::toJSI(runtime, arg.address));
+      obj.setProperty(runtime, PropNameIDCache::get(runtime, "city"), JSIConverter<std::string>::toJSI(runtime, arg.city));
+      obj.setProperty(runtime, PropNameIDCache::get(runtime, "state"), JSIConverter<std::string>::toJSI(runtime, arg.state));
+      obj.setProperty(runtime, PropNameIDCache::get(runtime, "country"), JSIConverter<std::string>::toJSI(runtime, arg.country));
+      obj.setProperty(runtime, PropNameIDCache::get(runtime, "pincode"), JSIConverter<std::string>::toJSI(runtime, arg.pincode));
+      obj.setProperty(runtime, PropNameIDCache::get(runtime, "distance"), JSIConverter<double>::toJSI(runtime, arg.distance));
       return obj;
     }
     static inline bool canConvert(jsi::Runtime& runtime, const jsi::Value& value) {
@@ -84,6 +102,12 @@ namespace margelo::nitro {
       if (!JSIConverter<double>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "latitude")))) return false;
       if (!JSIConverter<double>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "longitude")))) return false;
       if (!JSIConverter<double>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "accuracy")))) return false;
+      if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "address")))) return false;
+      if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "city")))) return false;
+      if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "state")))) return false;
+      if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "country")))) return false;
+      if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "pincode")))) return false;
+      if (!JSIConverter<double>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "distance")))) return false;
       return true;
     }
   };

@@ -18,8 +18,8 @@ public extension LocationData {
   /**
    * Create a new instance of `LocationData`.
    */
-  init(latitude: Double, longitude: Double, accuracy: Double) {
-    self.init(latitude, longitude, accuracy)
+  init(latitude: Double, longitude: Double, accuracy: Double, address: String, city: String, state: String, country: String, pincode: String, distance: Double) {
+    self.init(latitude, longitude, accuracy, std.string(address), std.string(city), std.string(state), std.string(country), std.string(pincode), distance)
   }
 
   @inline(__always)
@@ -35,5 +35,35 @@ public extension LocationData {
   @inline(__always)
   var accuracy: Double {
     return self.__accuracy
+  }
+  
+  @inline(__always)
+  var address: String {
+    return String(self.__address)
+  }
+  
+  @inline(__always)
+  var city: String {
+    return String(self.__city)
+  }
+  
+  @inline(__always)
+  var state: String {
+    return String(self.__state)
+  }
+  
+  @inline(__always)
+  var country: String {
+    return String(self.__country)
+  }
+  
+  @inline(__always)
+  var pincode: String {
+    return String(self.__pincode)
+  }
+  
+  @inline(__always)
+  var distance: Double {
+    return self.__distance
   }
 }

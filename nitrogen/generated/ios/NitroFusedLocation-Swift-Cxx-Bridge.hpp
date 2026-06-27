@@ -26,6 +26,7 @@ namespace NitroFusedLocation { class HybridNitroFusedLocationSpec_cxx; }
 #include <exception>
 #include <functional>
 #include <memory>
+#include <string>
 
 /**
  * Contains specialized versions of C++ templated types so they can be accessed from Swift,

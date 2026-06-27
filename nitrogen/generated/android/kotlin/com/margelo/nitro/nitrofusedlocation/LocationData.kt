@@ -26,7 +26,25 @@ data class LocationData(
   val longitude: Double,
   @DoNotStrip
   @Keep
-  val accuracy: Double
+  val accuracy: Double,
+  @DoNotStrip
+  @Keep
+  val address: String,
+  @DoNotStrip
+  @Keep
+  val city: String,
+  @DoNotStrip
+  @Keep
+  val state: String,
+  @DoNotStrip
+  @Keep
+  val country: String,
+  @DoNotStrip
+  @Keep
+  val pincode: String,
+  @DoNotStrip
+  @Keep
+  val distance: Double
 ) {
   /* primary constructor */
 
@@ -36,13 +54,25 @@ data class LocationData(
     return Objects.deepEquals(this.latitude, other.latitude)
       && Objects.deepEquals(this.longitude, other.longitude)
       && Objects.deepEquals(this.accuracy, other.accuracy)
+      && Objects.deepEquals(this.address, other.address)
+      && Objects.deepEquals(this.city, other.city)
+      && Objects.deepEquals(this.state, other.state)
+      && Objects.deepEquals(this.country, other.country)
+      && Objects.deepEquals(this.pincode, other.pincode)
+      && Objects.deepEquals(this.distance, other.distance)
   }
 
   override fun hashCode(): Int {
     return arrayOf<Any?>(
       latitude,
       longitude,
-      accuracy
+      accuracy,
+      address,
+      city,
+      state,
+      country,
+      pincode,
+      distance
     ).contentDeepHashCode()
   }
 
@@ -54,8 +84,8 @@ data class LocationData(
     @Keep
     @Suppress("unused")
     @JvmStatic
-    private fun fromCpp(latitude: Double, longitude: Double, accuracy: Double): LocationData {
-      return LocationData(latitude, longitude, accuracy)
+    private fun fromCpp(latitude: Double, longitude: Double, accuracy: Double, address: String, city: String, state: String, country: String, pincode: String, distance: Double): LocationData {
+      return LocationData(latitude, longitude, accuracy, address, city, state, country, pincode, distance)
     }
   }
 }

@@ -20,6 +20,7 @@ namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 #include <NitroModules/Result.hpp>
 #include <exception>
 #include <memory>
+#include <string>
 
 // C++ helpers for Swift
 #include "NitroFusedLocation-Swift-Cxx-Bridge.hpp"

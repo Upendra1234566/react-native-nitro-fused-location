@@ -7,23 +7,26 @@ import com.facebook.react.uimanager.ViewManager
 import android.util.Log
 
 class NitroFusedLocationPackage : ReactPackage {
+
     companion object {
         init {
             try {
-                Log.i("NITRO_LOCATION", "Loading Manual C++ library...")
+                // Library load karna zaroori hai taki C++ bridge initialize ho sake
                 System.loadLibrary("NitroFusedLocation")
                 Log.i("NITRO_LOCATION", "Library Loaded Successfully!")
             } catch (e: Throwable) {
-                Log.e("NITRO_LOCATION", "Failed to load library", e)
+                Log.e("NITRO_LOCATION", "Failed to load library: ${e.message}")
             }
         }
     }
 
     override fun createNativeModules(reactContext: ReactApplicationContext): List<NativeModule> {
+        // Nitro modules HybridObjects hote hain, isliye yahan koi NativeModule return nahi karna
         return emptyList()
     }
 
     override fun createViewManagers(reactContext: ReactApplicationContext): List<ViewManager<*, *>> {
+        // Agar aap koi UI component nahi bana rahe, toh khali list
         return emptyList()
     }
 }

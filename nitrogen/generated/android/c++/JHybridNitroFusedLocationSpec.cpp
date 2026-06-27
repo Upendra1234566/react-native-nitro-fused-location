@@ -14,6 +14,7 @@ namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 #include <NitroModules/Promise.hpp>
 #include <NitroModules/JPromise.hpp>
 #include "JLocationData.hpp"
+#include <string>
 
 namespace margelo::nitro::nitrofusedlocation {
 
