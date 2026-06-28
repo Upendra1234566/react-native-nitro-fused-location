@@ -131,5 +131,20 @@ namespace margelo::nitro::nitrofusedlocation {
       return __promise;
     }();
   }
+  std::shared_ptr<Promise<void>> JHybridNitroFusedLocationSpec::setGeofence(double lat, double lng, double radius) {
+    static const auto method = _javaPart->javaClassStatic()->getMethod<jni::local_ref<JPromise::javaobject>(double /* lat */, double /* lng */, double /* radius */)>("setGeofence");
+    auto __result = method(_javaPart, lat, lng, radius);
+    return [&]() {
+      auto __promise = Promise<void>::create();
+      __result->cthis()->addOnResolvedListener([=](const jni::alias_ref<jni::JObject>& /* unit */) {
+        __promise->resolve();
+      });
+      __result->cthis()->addOnRejectedListener([=](const jni::alias_ref<jni::JThrowable>& __throwable) {
+        jni::JniException __jniError(__throwable);
+        __promise->reject(std::make_exception_ptr(__jniError));
+      });
+      return __promise;
+    }();
+  }
 
 } // namespace margelo::nitro::nitrofusedlocation

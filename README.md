@@ -22,6 +22,8 @@ It provides ultra-fast location fetching, continuous background tracking, and na
 *   **📏 Native Distance Tracking:** Calculates distance (in meters) directly on iOS and Android background threads.
 *   **🔄 Live Tracking:** Continuously watch user location and distance updates.
 *   **📱 Cross-Platform:** Works seamlessly on both Android and iOS.
+*   **🚀 Real-time Speed Monitoring: Get live speed data (m/s) without extra calculations.
+*   **📍 Native Geofencing: Define custom geofence zones and monitor proximity status in
 *   **🛡️ Main Thread Safe:** Optimized background execution to prevent UI freezes.
 *   **✅ TypeScript Ready:** Fully typed API for a great Developer Experience (DX).
 
@@ -67,19 +69,21 @@ Here is a complete example of how to use the library with continuous tracking, d
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { 
   View, Text, StyleSheet, SafeAreaView, Alert, PermissionsAndroid, 
-  Platform, TouchableOpacity, ScrollView, RefreshControl 
+  Platform, ScrollView, RefreshControl, TouchableOpacity 
 } from 'react-native';
 import { NitroFusedLocation } from 'react-native-nitro-fused-location';
 
 interface LocationInfo {
   latitude: number; longitude: number; accuracy: number; address: string;
   city: string; state: string; country: string; pincode: string; distance: number;
+  speed: number;           // Naya field
+  isInsideGeofence: boolean; // Naya field
 }
 
 type StatusType = 'Requesting...' | 'Checking GPS...' | 'Watching...' | 'Success' | 'Failed' | 'Denied' | 'Stopped';
 
 function App(): React.JSX.Element {
-  const [location, setLocation] = useState<LocationInfo null |>(null);
+  const [location, setLocation] = useState<LocationInfo | null>(null);
   const [status, setStatus] = useState<StatusType>('Requesting...');
   const [refreshing, setRefreshing] = useState(false);
   const watchIdRef = useRef<string | null>(null);
@@ -89,7 +93,6 @@ function App(): React.JSX.Element {
     const isEnabled = await NitroFusedLocation.isGpsEnabled();
     if (!isEnabled) {
       setStatus('Failed');
-      Alert.alert("GPS is Off", "Please turn on your GPS and pull down to refresh.");
       return false;
     }
     startWatching();
@@ -99,6 +102,7 @@ function App(): React.JSX.Element {
   const startWatching = async () => {
     setStatus('Watching...');
     try {
+      // Start watching and receive the updated LocationInfo object
       const id = await NitroFusedLocation.watchPosition((loc) => {
         setLocation(loc);
         setStatus('Success');
@@ -120,12 +124,16 @@ function App(): React.JSX.Element {
   }, []);
 
   useEffect(() => {
+    // 1. Geofence setup (Dynamic coordinates)
+    NitroFusedLocation.setGeofence(28.8314, 78.7660, 500);
+
+    // 2. Permission and Start
     if (Platform.OS === 'android') {
-      PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION).then(() => {
-          checkGpsAndStart();
-      });
+        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION).then(() => {
+            checkGpsAndStart();
+        });
     } else {
-      checkGpsAndStart();
+        checkGpsAndStart();
     }
 
     return () => {
@@ -134,38 +142,47 @@ function App(): React.JSX.Element {
   }, []);
 
   return (
-    <SafeAreaView style="{styles.container}">
-      <ScrollView contentContainerStyle="{styles.content}" onRefresh="{onRefresh}" refreshControl="{<RefreshControl" refreshing="{refreshing}" tintColor="#00ffcc"/>}
+    <SafeAreaView style={styles.container}>
+      <ScrollView 
+        contentContainerStyle={styles.content}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#00ffcc" />}
       >
-        <Text style="{styles.title}">Nitro Fused Location 🚀</Text>
-        <Text '#00ffcc' '#ff4444' 'Success' : ? color: status="==" style="{[styles.status," { }]}>
+        <Text style={styles.title}>Nitro Fused Location 🚀</Text>
+        <Text style={[styles.status, { color: status === 'Success' ? '#00ffcc' : '#ff4444' }]}>
           Status: {status}
         </Text>
         
         {location && (
-          <View style="{styles.locationBox}">
-            <Text style="{styles.label}">📍 Address: {location.address}</Text>
-            <Text style="{styles.label}">🏙 City: {location.city}</Text>
-            <Text style="{styles.label}">🗺 State: {location.state}</Text>
-            <Text style="{styles.label}">🇮🇳 Country: {location.country}</Text>
-            <Text style="{styles.label}">📮 Pincode: {location.pincode}</Text>
-            <Text style="{styles.distanceLabel}">📏 Total Distance: {location.distance.toFixed(2)}m</Text>
+          <View style={styles.locationBox}>
+            <Text style={styles.label}>📍 Address: {location.address}</Text>
+            <Text style={styles.label}>🏙 City: {location.city}</Text>
+            <Text style={styles.label}>🗺 State: {location.state}</Text>
+            <Text style={styles.label}>🇮🇳 Country: {location.country}</Text>
+            <Text style={styles.label}>📮 Pincode: {location.pincode}</Text>
             
-            <View style="{styles.divider}"/>
-            <Text style="{styles.coords}">Lat: {location.latitude.toFixed(6)} | Lng: {location.longitude.toFixed(6)}</Text>
+            <View style={styles.divider} />
             
-            <View style="{styles.buttonRow}">
-              <TouchableOpacity onPress="{async" style="{styles.resetButton}"> {
+            <Text style={styles.distanceLabel}>📏 Total Distance: {location.distance.toFixed(2)}m</Text>
+            <Text style={styles.speedLabel}>⚡ Speed: {location.speed.toFixed(1)} m/s</Text>
+            <Text style={[styles.geoLabel, { color: location.isInsideGeofence ? '#00ffcc' : '#ffaa00' }]}>
+              🏠 Geofence: {location.isInsideGeofence ? 'Inside' : 'Outside'}
+            </Text>
+            
+            <View style={styles.divider} />
+            <Text style={styles.coords}>Lat: {location.latitude.toFixed(6)} | Lng: {location.longitude.toFixed(6)}</Text>
+            
+            <View style={styles.buttonRow}>
+              <TouchableOpacity style={styles.resetButton} onPress={async () => {
                 await NitroFusedLocation.resetDistance();
-              }}><Text style="{styles.buttonText}">Reset Distance</Text></TouchableOpacity>
+              }}><Text style={styles.buttonText}>Reset Distance</Text></TouchableOpacity>
               
-              <TouchableOpacity onPress="{async" style="{styles.stopButton}"> {
+              <TouchableOpacity style={styles.stopButton} onPress={async () => {
                 if (watchIdRef.current) {
                   await NitroFusedLocation.clearWatch(watchIdRef.current);
                   watchIdRef.current = null;
                   setStatus('Stopped');
                 }
-              }}><Text style="{styles.buttonText}">Stop Tracking</Text></TouchableOpacity>
+              }}><Text style={styles.buttonText}>Stop Tracking</Text></TouchableOpacity>
             </View>
           </View>
         )}
@@ -181,7 +198,9 @@ const styles = StyleSheet.create({
   status: { fontSize: 16, textAlign: 'center', marginTop: 10, fontWeight: '600' },
   locationBox: { marginTop: 25, padding: 20, backgroundColor: '#1e1e1e', borderRadius: 12, borderWidth: 1, borderColor: '#333' },
   label: { fontSize: 15, color: '#e0e0e0', marginVertical: 4 },
-  distanceLabel: { fontSize: 18, color: '#00ffcc', fontWeight: 'bold', marginVertical: 10, textAlign: 'center' },
+  distanceLabel: { fontSize: 18, color: '#00ffcc', fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
+  speedLabel: { fontSize: 16, color: '#ffcc00', fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
+  geoLabel: { fontSize: 16, fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
   divider: { height: 1, backgroundColor: '#333', marginVertical: 15 },
   coords: { fontSize: 12, color: '#777', textAlign: 'center' },
   buttonRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 },
@@ -191,7 +210,6 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
 
 ### Step 3: Local Development & Footer
 ```md
@@ -219,6 +237,7 @@ export default App;
 | `watchPosition(callback)` | `Promise<string>` | Subscribes to location updates and native distance calculation. Returns a `watchId`. |
 | `clearWatch(watchId)` | `Promise<void>` | Stops watching location updates for the given ID. |
 | `resetDistance()` | `Promise<void>` | Resets the natively calculated distance tracker to 0.00m. |
+| `setGeofence(lat, lng, radius)` | Promise<void> | Sets a target geofence (in meters) to track proximity.
 
 ### `LocationData` Object (Return Type)
 
@@ -235,7 +254,8 @@ When you fetch or watch a location, the promise/callback returns this object:
 | `country`   | `string` | Country name.                                    |
 | `pincode`   | `string` | Postal code / Zip code.                          |
 | `distance`  | `number` | Total distance traveled in meters (since start). |
-   
+| `speed`.    | `number` | Current speed in meters per second (m/s).        |
+| `isInsideGeofence`| boolean | Returns true if user is within the defined geofence radius.|  
 
 Credits
 Bootstrapped with create-nitro-module. 

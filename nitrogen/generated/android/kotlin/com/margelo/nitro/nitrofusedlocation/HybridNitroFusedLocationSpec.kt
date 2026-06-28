@@ -53,6 +53,10 @@ abstract class HybridNitroFusedLocationSpec: HybridObject() {
   @DoNotStrip
   @Keep
   abstract fun resetDistance(): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun setGeofence(lat: Double, lng: Double, radius: Double): Promise<Unit>
 
   // Default implementation of `HybridObject.toString()`
   override fun toString(): String {

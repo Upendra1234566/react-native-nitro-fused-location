@@ -110,6 +110,14 @@ namespace margelo::nitro::nitrofusedlocation {
       auto __value = std::move(__result.value());
       return __value;
     }
+    inline std::shared_ptr<Promise<void>> setGeofence(double lat, double lng, double radius) override {
+      auto __result = _swiftPart.setGeofence(std::forward<decltype(lat)>(lat), std::forward<decltype(lng)>(lng), std::forward<decltype(radius)>(radius));
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
 
   private:
     NitroFusedLocation::HybridNitroFusedLocationSpec_cxx _swiftPart;

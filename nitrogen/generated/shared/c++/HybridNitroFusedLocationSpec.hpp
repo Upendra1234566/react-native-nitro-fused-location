@@ -57,6 +57,7 @@ namespace margelo::nitro::nitrofusedlocation {
       virtual std::shared_ptr<Promise<void>> clearWatch(const std::string& watchId) = 0;
       virtual std::shared_ptr<Promise<bool>> isGpsEnabled() = 0;
       virtual std::shared_ptr<Promise<void>> resetDistance() = 0;
+      virtual std::shared_ptr<Promise<void>> setGeofence(double lat, double lng, double radius) = 0;
 
     protected:
       // Hybrid Setup

@@ -49,6 +49,10 @@ namespace margelo::nitro::nitrofusedlocation {
       jni::local_ref<jni::JString> pincode = this->getFieldValue(fieldPincode);
       static const auto fieldDistance = clazz->getField<double>("distance");
       double distance = this->getFieldValue(fieldDistance);
+      static const auto fieldSpeed = clazz->getField<double>("speed");
+      double speed = this->getFieldValue(fieldSpeed);
+      static const auto fieldIsInsideGeofence = clazz->getField<jboolean>("isInsideGeofence");
+      jboolean isInsideGeofence = this->getFieldValue(fieldIsInsideGeofence);
       return LocationData(
         latitude,
         longitude,
@@ -58,7 +62,9 @@ namespace margelo::nitro::nitrofusedlocation {
         state->toStdString(),
         country->toStdString(),
         pincode->toStdString(),
-        distance
+        distance,
+        speed,
+        static_cast<bool>(isInsideGeofence)
       );
     }
 
@@ -68,7 +74,7 @@ namespace margelo::nitro::nitrofusedlocation {
      */
     [[maybe_unused]]
     static jni::local_ref<JLocationData::javaobject> fromCpp(const LocationData& value) {
-      using JSignature = JLocationData(double, double, double, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, double);
+      using JSignature = JLocationData(double, double, double, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, jni::alias_ref<jni::JString>, double, double, jboolean);
       static const auto clazz = javaClassStatic();
       static const auto create = clazz->getStaticMethod<JSignature>("fromCpp");
       return create(
@@ -81,7 +87,9 @@ namespace margelo::nitro::nitrofusedlocation {
         jni::make_jstring(value.state),
         jni::make_jstring(value.country),
         jni::make_jstring(value.pincode),
-        value.distance
+        value.distance,
+        value.speed,
+        value.isInsideGeofence
       );
     }
   };

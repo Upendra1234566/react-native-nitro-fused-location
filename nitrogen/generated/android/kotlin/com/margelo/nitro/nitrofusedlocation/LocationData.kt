@@ -44,7 +44,13 @@ data class LocationData(
   val pincode: String,
   @DoNotStrip
   @Keep
-  val distance: Double
+  val distance: Double,
+  @DoNotStrip
+  @Keep
+  val speed: Double,
+  @DoNotStrip
+  @Keep
+  val isInsideGeofence: Boolean
 ) {
   /* primary constructor */
 
@@ -60,6 +66,8 @@ data class LocationData(
       && Objects.deepEquals(this.country, other.country)
       && Objects.deepEquals(this.pincode, other.pincode)
       && Objects.deepEquals(this.distance, other.distance)
+      && Objects.deepEquals(this.speed, other.speed)
+      && Objects.deepEquals(this.isInsideGeofence, other.isInsideGeofence)
   }
 
   override fun hashCode(): Int {
@@ -72,7 +80,9 @@ data class LocationData(
       state,
       country,
       pincode,
-      distance
+      distance,
+      speed,
+      isInsideGeofence
     ).contentDeepHashCode()
   }
 
@@ -84,8 +94,8 @@ data class LocationData(
     @Keep
     @Suppress("unused")
     @JvmStatic
-    private fun fromCpp(latitude: Double, longitude: Double, accuracy: Double, address: String, city: String, state: String, country: String, pincode: String, distance: Double): LocationData {
-      return LocationData(latitude, longitude, accuracy, address, city, state, country, pincode, distance)
+    private fun fromCpp(latitude: Double, longitude: Double, accuracy: Double, address: String, city: String, state: String, country: String, pincode: String, distance: Double, speed: Double, isInsideGeofence: Boolean): LocationData {
+      return LocationData(latitude, longitude, accuracy, address, city, state, country, pincode, distance, speed, isInsideGeofence)
     }
   }
 }

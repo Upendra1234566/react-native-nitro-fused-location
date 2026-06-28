@@ -48,10 +48,12 @@ namespace margelo::nitro::nitrofusedlocation {
     std::string country     SWIFT_PRIVATE;
     std::string pincode     SWIFT_PRIVATE;
     double distance     SWIFT_PRIVATE;
+    double speed     SWIFT_PRIVATE;
+    bool isInsideGeofence     SWIFT_PRIVATE;
 
   public:
     LocationData() = default;
-    explicit LocationData(double latitude, double longitude, double accuracy, std::string address, std::string city, std::string state, std::string country, std::string pincode, double distance): latitude(latitude), longitude(longitude), accuracy(accuracy), address(address), city(city), state(state), country(country), pincode(pincode), distance(distance) {}
+    explicit LocationData(double latitude, double longitude, double accuracy, std::string address, std::string city, std::string state, std::string country, std::string pincode, double distance, double speed, bool isInsideGeofence): latitude(latitude), longitude(longitude), accuracy(accuracy), address(address), city(city), state(state), country(country), pincode(pincode), distance(distance), speed(speed), isInsideGeofence(isInsideGeofence) {}
 
   public:
     friend bool operator==(const LocationData& lhs, const LocationData& rhs) = default;
@@ -75,7 +77,9 @@ namespace margelo::nitro {
         JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "state"))),
         JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "country"))),
         JSIConverter<std::string>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "pincode"))),
-        JSIConverter<double>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "distance")))
+        JSIConverter<double>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "distance"))),
+        JSIConverter<double>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "speed"))),
+        JSIConverter<bool>::fromJSI(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "isInsideGeofence")))
       );
     }
     static inline jsi::Value toJSI(jsi::Runtime& runtime, const margelo::nitro::nitrofusedlocation::LocationData& arg) {
@@ -89,6 +93,8 @@ namespace margelo::nitro {
       obj.setProperty(runtime, PropNameIDCache::get(runtime, "country"), JSIConverter<std::string>::toJSI(runtime, arg.country));
       obj.setProperty(runtime, PropNameIDCache::get(runtime, "pincode"), JSIConverter<std::string>::toJSI(runtime, arg.pincode));
       obj.setProperty(runtime, PropNameIDCache::get(runtime, "distance"), JSIConverter<double>::toJSI(runtime, arg.distance));
+      obj.setProperty(runtime, PropNameIDCache::get(runtime, "speed"), JSIConverter<double>::toJSI(runtime, arg.speed));
+      obj.setProperty(runtime, PropNameIDCache::get(runtime, "isInsideGeofence"), JSIConverter<bool>::toJSI(runtime, arg.isInsideGeofence));
       return obj;
     }
     static inline bool canConvert(jsi::Runtime& runtime, const jsi::Value& value) {
@@ -108,6 +114,8 @@ namespace margelo::nitro {
       if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "country")))) return false;
       if (!JSIConverter<std::string>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "pincode")))) return false;
       if (!JSIConverter<double>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "distance")))) return false;
+      if (!JSIConverter<double>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "speed")))) return false;
+      if (!JSIConverter<bool>::canConvert(runtime, obj.getProperty(runtime, PropNameIDCache::get(runtime, "isInsideGeofence")))) return false;
       return true;
     }
   };

@@ -18,8 +18,8 @@ public extension LocationData {
   /**
    * Create a new instance of `LocationData`.
    */
-  init(latitude: Double, longitude: Double, accuracy: Double, address: String, city: String, state: String, country: String, pincode: String, distance: Double) {
-    self.init(latitude, longitude, accuracy, std.string(address), std.string(city), std.string(state), std.string(country), std.string(pincode), distance)
+  init(latitude: Double, longitude: Double, accuracy: Double, address: String, city: String, state: String, country: String, pincode: String, distance: Double, speed: Double, isInsideGeofence: Bool) {
+    self.init(latitude, longitude, accuracy, std.string(address), std.string(city), std.string(state), std.string(country), std.string(pincode), distance, speed, isInsideGeofence)
   }
 
   @inline(__always)
@@ -65,5 +65,15 @@ public extension LocationData {
   @inline(__always)
   var distance: Double {
     return self.__distance
+  }
+  
+  @inline(__always)
+  var speed: Double {
+    return self.__speed
+  }
+  
+  @inline(__always)
+  var isInsideGeofence: Bool {
+    return self.__isInsideGeofence
   }
 }

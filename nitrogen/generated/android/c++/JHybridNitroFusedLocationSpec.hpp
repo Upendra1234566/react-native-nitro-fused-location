@@ -59,6 +59,7 @@ namespace margelo::nitro::nitrofusedlocation {
     std::shared_ptr<Promise<void>> clearWatch(const std::string& watchId) override;
     std::shared_ptr<Promise<bool>> isGpsEnabled() override;
     std::shared_ptr<Promise<void>> resetDistance() override;
+    std::shared_ptr<Promise<void>> setGeofence(double lat, double lng, double radius) override;
 
   private:
     jni::global_ref<JHybridNitroFusedLocationSpec::JavaPart> _javaPart;

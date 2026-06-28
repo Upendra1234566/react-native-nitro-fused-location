@@ -10,6 +10,8 @@ export interface LocationData {
   country: string
   pincode: string
   distance: number
+  speed: number           
+  isInsideGeofence: boolean 
 }
 
 export interface NitroFusedLocation extends HybridObject<{ ios: 'swift', android: 'kotlin' }> {
@@ -18,4 +20,5 @@ export interface NitroFusedLocation extends HybridObject<{ ios: 'swift', android
   clearWatch(watchId: string): Promise<void>
   isGpsEnabled(): Promise<boolean>
   resetDistance(): Promise<void>
+  setGeofence(lat: number, lng: number, radius: number): Promise<void> // Naya
 }

@@ -18,6 +18,7 @@ public protocol HybridNitroFusedLocationSpec_protocol: HybridObject {
   func clearWatch(watchId: String) throws -> Promise<Void>
   func isGpsEnabled() throws -> Promise<Bool>
   func resetDistance() throws -> Promise<Void>
+  func setGeofence(lat: Double, lng: Double, radius: Double) throws -> Promise<Void>
 }
 
 public extension HybridNitroFusedLocationSpec_protocol {
