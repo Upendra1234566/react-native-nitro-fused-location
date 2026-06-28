@@ -15,6 +15,10 @@ namespace margelo::nitro::nitrofusedlocation {
     // load custom methods/properties
     registerHybrids(this, [](Prototype& prototype) {
       prototype.registerHybridMethod("getCurrentLocation", &HybridNitroFusedLocationSpec::getCurrentLocation);
+      prototype.registerHybridMethod("watchPosition", &HybridNitroFusedLocationSpec::watchPosition);
+      prototype.registerHybridMethod("clearWatch", &HybridNitroFusedLocationSpec::clearWatch);
+      prototype.registerHybridMethod("isGpsEnabled", &HybridNitroFusedLocationSpec::isGpsEnabled);
+      prototype.registerHybridMethod("resetDistance", &HybridNitroFusedLocationSpec::resetDistance);
     });
   }
 

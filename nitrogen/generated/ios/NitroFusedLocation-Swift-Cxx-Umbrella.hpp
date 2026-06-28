@@ -19,6 +19,7 @@ namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 #include <NitroModules/Promise.hpp>
 #include <NitroModules/Result.hpp>
 #include <exception>
+#include <functional>
 #include <memory>
 #include <string>
 

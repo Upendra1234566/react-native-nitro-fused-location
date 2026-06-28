@@ -18,6 +18,7 @@ namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 #include "LocationData.hpp"
 #include <NitroModules/Promise.hpp>
 #include <string>
+#include <functional>
 
 #include "NitroFusedLocation-Swift-Cxx-Umbrella.hpp"
 
@@ -71,6 +72,38 @@ namespace margelo::nitro::nitrofusedlocation {
     // Methods
     inline std::shared_ptr<Promise<LocationData>> getCurrentLocation() override {
       auto __result = _swiftPart.getCurrentLocation();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<std::string>> watchPosition(const std::function<void(const LocationData& /* data */)>& callback) override {
+      auto __result = _swiftPart.watchPosition(callback);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<void>> clearWatch(const std::string& watchId) override {
+      auto __result = _swiftPart.clearWatch(watchId);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<bool>> isGpsEnabled() override {
+      auto __result = _swiftPart.isGpsEnabled();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<void>> resetDistance() override {
+      auto __result = _swiftPart.resetDistance();
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
       }

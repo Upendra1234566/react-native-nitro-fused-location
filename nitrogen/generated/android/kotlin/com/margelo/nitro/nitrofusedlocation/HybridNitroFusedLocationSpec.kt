@@ -32,6 +32,27 @@ abstract class HybridNitroFusedLocationSpec: HybridObject() {
   @DoNotStrip
   @Keep
   abstract fun getCurrentLocation(): Promise<LocationData>
+  
+  abstract fun watchPosition(callback: (data: LocationData) -> Unit): Promise<String>
+  
+  @DoNotStrip
+  @Keep
+  private fun watchPosition_cxx(callback: Func_void_LocationData): Promise<String> {
+    val __result = watchPosition(callback)
+    return __result
+  }
+  
+  @DoNotStrip
+  @Keep
+  abstract fun clearWatch(watchId: String): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun isGpsEnabled(): Promise<Boolean>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun resetDistance(): Promise<Unit>
 
   // Default implementation of `HybridObject.toString()`
   override fun toString(): String {

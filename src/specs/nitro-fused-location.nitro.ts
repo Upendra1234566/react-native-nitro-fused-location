@@ -9,9 +9,13 @@ export interface LocationData {
   state: string
   country: string
   pincode: string
-  distance: number // meters mein
+  distance: number
 }
 
 export interface NitroFusedLocation extends HybridObject<{ ios: 'swift', android: 'kotlin' }> {
   getCurrentLocation(): Promise<LocationData>
+  watchPosition(callback: (data: LocationData) => void): Promise<string>
+  clearWatch(watchId: string): Promise<void>
+  isGpsEnabled(): Promise<boolean>
+  resetDistance(): Promise<void>
 }

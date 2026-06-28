@@ -16,6 +16,7 @@
 #include <NitroModules/HybridObjectRegistry.hpp>
 
 #include "JHybridNitroFusedLocationSpec.hpp"
+#include "JFunc_void_LocationData.hpp"
 #include <NitroModules/DefaultConstructableObject.hpp>
 
 namespace margelo::nitro::nitrofusedlocation {
@@ -41,6 +42,7 @@ void registerAllNatives() {
 
   // Register native JNI methods
   margelo::nitro::nitrofusedlocation::JHybridNitroFusedLocationSpec::CxxPart::registerNatives();
+  margelo::nitro::nitrofusedlocation::JFunc_void_LocationData_cxx::registerNatives();
 
   // Register Nitro Hybrid Objects
   HybridObjectRegistry::registerHybridObjectConstructor(

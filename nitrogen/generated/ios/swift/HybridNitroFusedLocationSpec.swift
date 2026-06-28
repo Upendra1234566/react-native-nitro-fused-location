@@ -14,6 +14,10 @@ public protocol HybridNitroFusedLocationSpec_protocol: HybridObject {
 
   // Methods
   func getCurrentLocation() throws -> Promise<LocationData>
+  func watchPosition(callback: @escaping (_ data: LocationData) -> Void) throws -> Promise<String>
+  func clearWatch(watchId: String) throws -> Promise<Void>
+  func isGpsEnabled() throws -> Promise<Bool>
+  func resetDistance() throws -> Promise<Void>
 }
 
 public extension HybridNitroFusedLocationSpec_protocol {

@@ -18,6 +18,8 @@ namespace margelo::nitro::nitrofusedlocation { struct LocationData; }
 
 #include "LocationData.hpp"
 #include <NitroModules/Promise.hpp>
+#include <string>
+#include <functional>
 
 namespace margelo::nitro::nitrofusedlocation {
 
@@ -51,6 +53,10 @@ namespace margelo::nitro::nitrofusedlocation {
     public:
       // Methods
       virtual std::shared_ptr<Promise<LocationData>> getCurrentLocation() = 0;
+      virtual std::shared_ptr<Promise<std::string>> watchPosition(const std::function<void(const LocationData& /* data */)>& callback) = 0;
+      virtual std::shared_ptr<Promise<void>> clearWatch(const std::string& watchId) = 0;
+      virtual std::shared_ptr<Promise<bool>> isGpsEnabled() = 0;
+      virtual std::shared_ptr<Promise<void>> resetDistance() = 0;
 
     protected:
       // Hybrid Setup
