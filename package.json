@@ -18,6 +18,10 @@
     "react-native",
     "react-native-nitro-fused-location"
   ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Upendra1234566"
+  },
   "files": [
     "src",
     "react-native.config.js",
@@ -42,11 +46,11 @@
   "workspaces": [
     "example"
   ],
-  "repository": "https://github.com/upendrasingh/react-native-nitro-fused-location.git",
+  "repository": "https://github.com/Upendra1234566/react-native-nitro-fused-location.git",
   "author": "Upendra Singh",
   "license": "MIT",
-  "bugs": "https://github.com/upendrasingh/react-native-nitro-fused-location/issues",
-  "homepage": "https://github.com/upendrasingh/react-native-nitro-fused-location#readme",
+  "bugs": "https://github.com/Upendra1234566/react-native-nitro-fused-location/issues",
+  "homepage": "https://github.com/Upendra1234566/react-native-nitro-fused-location#readme",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
