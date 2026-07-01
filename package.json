@@ -1,6 +1,6 @@
 {
   "name": "react-native-nitro-fused-location",
-  "version": "0.80.0",
+  "version": "0.1.2",
   "description": "react-native-nitro-fused-location is a react native package built with Nitro",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",

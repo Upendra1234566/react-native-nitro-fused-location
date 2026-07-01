@@ -47,6 +47,11 @@ It provides ultra-fast location fetching, continuous background tracking, and na
 
 ```bash
 npm install react-native-nitro-fused-location react-native-nitro-modules
+ or
+yarn add react-native-nitro-fused-location react-native-nitro-modules
+
+### Android Setup
+Supports Android 14 (SDK 36). No extra setup needed!
 
 ⚙️ Setup & Permissions
 Android
@@ -55,6 +60,12 @@ Add these permissions to your android/app/src/main/AndroidManifest.xml:
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+
+1 android/gradle.properties 
+  ```
+  newArchEnabled=true
+  hermesEnabled=true
 
 ### iOS
 Add this to your `ios/YourProjectName/Info.plist`:
