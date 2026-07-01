@@ -1,5 +1,6 @@
 # react-native-nitro-fused-location 🚀
 
+**Offline GPS tracking for React Native** - Fire OS compatible. Works without Google Play Services. Background location for Android & iOS.
 `react-native-nitro-fused-location` is a blazing-fast, cross-platform location module for React Native built using **Nitro Modules** for zero-bridge overhead. 
 
 It provides ultra-fast location fetching, continuous background tracking, and native reverse geocoding without relying on external paid APIs like Google Maps.

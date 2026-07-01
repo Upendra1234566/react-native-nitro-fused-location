@@ -1,7 +1,7 @@
 {
   "name": "react-native-nitro-fused-location",
   "version": "0.1.2",
-  "description": "react-native-nitro-fused-location is a react native package built with Nitro",
+ "description": "Offline GPS tracking for React Native. Works on Fire OS without Google Play Services. Background location support for Android & iOS.",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
   "types": "./lib/typescript/src/index.d.ts",
@@ -16,7 +16,23 @@
   },
   "keywords": [
     "react-native",
-    "react-native-nitro-fused-location"
+    "react-native-nitro-fused-location",
+    "gps",
+    "location",
+    "offline-gps",
+    "fire-os",
+    "amazon-fire",
+    "background-location",
+    "foreground-service",
+    "locationmanager",
+    "no-google-play-services",
+    "geolocation",
+    "kill-mode",
+    "fleet-tracking",
+    "delivery-tracking",
+    "react-native-location",
+    "android-location",
+    "ios-corelocation"
   ],
   "funding": {
     "type": "github",
