@@ -1,0 +1,7 @@
+package-lock.json linguist-generated=true
+yarn.lock linguist-generated=true
+/example/** linguist-vendored
+/nitrogen/generated/** linguist-generated=true
+*.pbxproj linguist-vendored
+*.xcworkspacedata linguist-vendored
+ios/Pods/** linguist-vendored
