@@ -14,23 +14,34 @@ It provides ultra-fast location fetching, continuous background tracking, and na
 - React Native v0.76.0 or higher
 - Node 18.0.0 or higher
 
-## ✨ Features
+## ✨ Features - v0.1.2
 
 *   **🔥 Fire OS Compatible:** Works on Amazon Fire OS tablets & devices without Google Play Services. Uses native `android.location.LocationManager`.
-*   **📴 100% Offline:** No Google Maps API, no internet required. Get coordinates, speed, and distance completely offline.
-*   **🆓 Zero Google Dependencies:** No Fused Location Provider, no Play Services. Pure AOSP location API - works on de-Googled devices.
+*   **📴 Offline GPS:** Get coordinates, speed, and distance using device GPS without internet or Google Maps API. *Note: Sending data to server requires internet.*
+*   **🆓 Zero Google Dependencies:** No Fused Location Provider, no Play Services. Pure AOSP `LocationManager` - works on de-Googled devices.
 *   **⚡️ Ultra Fast:** Built with React Native Nitro Modules (C++ bindings) for zero-bridge overhead.
-*   **📏 Native Distance Tracking:** Calculates distance (in meters) directly on Android background threads.
+*   **📏 Native Distance Tracking:** Calculates distance in meters directly on Android/iOS background threads.
 *   **🚀 Real-time Speed Monitoring:** Get live speed in `m/s` and `km/h` without extra calculations.
-*   **🔄 Live Tracking:** Continuously watch user location and distance updates.
-*   **📱 Cross-Platform:** Android & iOS support. Android uses `LocationManager`, iOS uses `CoreLocation`.
-*   **📍 Native Geofencing:** Define custom geofence zones and monitor proximity status.
-*   **🛡️ Main Thread Safe:** Optimized background execution to prevent UI freezes.
+*   **🔄 Live Tracking:** Continuously watch user location updates with configurable intervals.
+*   **📱 Cross-Platform:** Android uses `LocationManager`, iOS uses `CoreLocation`. No Google APIs on either platform.
+*   **📍 Native Geofencing:** Define custom geofence zones and monitor enter/exit events.
+*   **🛡️ Main Thread Safe:** All GPS/DB operations run on background threads to prevent UI freezes.
 *   **✅ TypeScript Ready:** Fully typed API for a great Developer Experience (DX).
-*   **🔋 Battery Efficient:** Uses `LocationManager` + smart throttling to reduce GPS battery drain by up to 40%. 
-*   **🎯 High Accuracy Modes:** Supports `PRIORITY_HIGH_ACCURACY`, `PRIORITY_BALANCED_POWER_ACCURACY`, and `PRIORITY_LOW_POWER`.
+*   **🔋 Battery Efficient:** Uses smart GPS throttling + distance-based updates to reduce battery drain by up to 40%. 
+*   **🎯 Configurable Accuracy:** Supports `GPS_PROVIDER`, `NETWORK_PROVIDER`, and criteria-based accuracy levels. Pick what fits your use case.
 *   **🔐 Permission Handling Built-in:** Handles Android 13+ `FOREGROUND_SERVICE_LOCATION` and iOS `Always/WhenInUse` permissions out of the box.
 *   **📦 Tiny Bundle Size:** Native module is <50KB with zero impact on your JS bundle size.
+
+## 🗺️ Roadmap
+
+### **v0.2.0 - Coming Soon**
+We're working on enterprise-grade features based on community feedback:
+
+*   **📦 Offline Queue:** Store GPS points locally when device is offline
+*   **🔄 Auto Sync:** Automatically upload queued data when internet returns  
+*   **📊 Analytics:** Track offline duration, battery impact, and sync stats
+
+> Star the repo to get notified on release.
  
 
  <p align="center">

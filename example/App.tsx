@@ -1,15 +1,16 @@
+
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { 
   View, Text, StyleSheet, SafeAreaView, Alert, PermissionsAndroid, 
-  Platform, ScrollView, RefreshControl, TouchableOpacity 
+  Platform, ScrollView, RefreshControl, TouchableOpacity, Linking
 } from 'react-native';
 import { NitroFusedLocation } from 'react-native-nitro-fused-location';
 
 interface LocationInfo {
   latitude: number; longitude: number; accuracy: number; address: string;
   city: string; state: string; country: string; pincode: string; distance: number;
-  speed: number;           // Naya field
-  isInsideGeofence: boolean; // Naya field
+  speed: number;           
+  isInsideGeofence: boolean; 
 }
 
 type StatusType = 'Requesting...' | 'Checking GPS...' | 'Watching...' | 'Success' | 'Failed' | 'Denied' | 'Stopped';
@@ -20,11 +21,27 @@ function App(): React.JSX.Element {
   const [refreshing, setRefreshing] = useState(false);
   const watchIdRef = useRef<string | null>(null);
 
+  // CHANGE #1: Distance ko km/m me format karne ka function
+  const formatDistance = (meters: number): string => {
+    return meters < 1000 
+      ? `${meters.toFixed(0)} m` 
+      : `${(meters / 1000).toFixed(2)} km`;
+  };
+
   const checkGpsAndStart = async () => {
     setStatus('Checking GPS...');
     const isEnabled = await NitroFusedLocation.isGpsEnabled();
     if (!isEnabled) {
       setStatus('Failed');
+      // CHANGE #2: GPS band hai to popup dikhao
+      Alert.alert(
+        'GPS Band Hai',
+        'Location ke liye GPS on karo',
+        [
+          { text: 'Cancel', style: 'cancel' },
+          { text: 'Settings Kholo', onPress: () => Linking.openSettings() }
+        ]
+      );
       return false;
     }
     startWatching();
@@ -34,14 +51,24 @@ function App(): React.JSX.Element {
   const startWatching = async () => {
     setStatus('Watching...');
     try {
-      // Start watching and receive the updated LocationInfo object
       const id = await NitroFusedLocation.watchPosition((loc) => {
         setLocation(loc);
         setStatus('Success');
       });
       watchIdRef.current = id;
-    } catch (err) {
+    } catch (err: any) {
       setStatus('Failed');
+      // CHANGE #3: Permission error handle karo
+      if (err.message.includes('permission')) {
+        Alert.alert(
+          'Permission Chahiye',
+          'Location permission allow karo',
+          [
+            { text: 'Cancel' },
+            { text: 'Settings', onPress: () => Linking.openSettings() }
+          ]
+        );
+      }
     }
   };
 
@@ -56,14 +83,20 @@ function App(): React.JSX.Element {
   }, []);
 
   useEffect(() => {
-    // 1. Geofence setup (Dynamic coordinates)
+    // Geofence setup
     NitroFusedLocation.setGeofence(28.8314, 78.7660, 500);
 
-    // 2. Permission and Start
+    // Permission and Start
     if (Platform.OS === 'android') {
-        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION).then(() => {
-            checkGpsAndStart();
-        });
+        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
+          .then((granted) => {
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+              checkGpsAndStart();
+            } else {
+              setStatus('Denied');
+              Alert.alert('Permission Denied', 'App ko location chahiye');
+            }
+          });
     } else {
         checkGpsAndStart();
     }
@@ -94,8 +127,13 @@ function App(): React.JSX.Element {
             
             <View style={styles.divider} />
             
-            <Text style={styles.distanceLabel}>📏 Total Distance: {location.distance.toFixed(2)}m</Text>
-            <Text style={styles.speedLabel}>⚡ Speed: {location.speed.toFixed(1)} m/s</Text>
+            {/* CHANGE #4: Distance ab km/m 
+            */}
+            <Text style={styles.distanceLabel}>📏 Total Distance: {formatDistance(location.distance)}</Text>
+            
+            {/* CHANGE #5: Speed km/h me , m/s */}
+            <Text style={styles.speedLabel}>⚡ Speed: {location.speed.toFixed(1)} km/h</Text>
+            
             <Text style={[styles.geoLabel, { color: location.isInsideGeofence ? '#00ffcc' : '#ffaa00' }]}>
               🏠 Geofence: {location.isInsideGeofence ? 'Inside' : 'Outside'}
             </Text>
@@ -106,6 +144,7 @@ function App(): React.JSX.Element {
             <View style={styles.buttonRow}>
               <TouchableOpacity style={styles.resetButton} onPress={async () => {
                 await NitroFusedLocation.resetDistance();
+                setLocation(prev => prev ? { ...prev, distance: 0 } : null);
               }}><Text style={styles.buttonText}>Reset Distance</Text></TouchableOpacity>
               
               <TouchableOpacity style={styles.stopButton} onPress={async () => {

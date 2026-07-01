@@ -20,5 +20,5 @@ export interface NitroFusedLocation extends HybridObject<{ ios: 'swift', android
   clearWatch(watchId: string): Promise<void>
   isGpsEnabled(): Promise<boolean>
   resetDistance(): Promise<void>
-  setGeofence(lat: number, lng: number, radius: number): Promise<void> // Naya
+  setGeofence(lat: number, lng: number, radius: number): Promise<void> 
 }
