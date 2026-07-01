@@ -1,7 +1,18 @@
+# Generated files
 package-lock.json linguist-generated=true
 yarn.lock linguist-generated=true
-/example/** linguist-vendored
 /nitrogen/generated/** linguist-generated=true
 *.pbxproj linguist-vendored
 *.xcworkspacedata linguist-vendored
-ios/Pods/** linguist-vendored
+
+# Example app - ye sabse bada JS hai
+/example/** linguist-vendored
+/example/node_modules/** linguist-vendored
+
+# iOS Pods
+/ios/Pods/** linguist-vendored
+
+# Other configs
+package.json linguist-vendored
+babel.config.js linguist-vendored
+post-script.js linguist-vendored
