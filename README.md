@@ -16,21 +16,21 @@ It provides ultra-fast location fetching, continuous background tracking, and na
 
 ## ✨ Features
 
+*   **🔥 Fire OS Compatible:** Works on Amazon Fire OS tablets & devices without Google Play Services. Uses native `android.location.LocationManager`.
+*   **📴 100% Offline:** No Google Maps API, no internet required. Get coordinates, speed, and distance completely offline.
+*   **🆓 Zero Google Dependencies:** No Fused Location Provider, no Play Services. Pure AOSP location API - works on de-Googled devices.
 *   **⚡️ Ultra Fast:** Built with React Native Nitro Modules (C++ bindings) for zero-bridge overhead.
-*   **🆓 Zero Dependencies:** No Google Maps API required. Get exact Address, City, State, Country, and Pincode natively.
-*   **🌍 Fused Location Provider:** Uses highly accurate and battery-efficient location tracking on Android.
-*   **📏 Native Distance Tracking:** Calculates distance (in meters) directly on iOS and Android background threads.
+*   **📏 Native Distance Tracking:** Calculates distance (in meters) directly on Android background threads.
+*   **🚀 Real-time Speed Monitoring:** Get live speed in `m/s` and `km/h` without extra calculations.
 *   **🔄 Live Tracking:** Continuously watch user location and distance updates.
-*   **📱 Cross-Platform:** Works seamlessly on both Android and iOS.
-*   **🚀 Real-time Speed Monitoring: Get live speed data (m/s) without extra calculations.
-*   **📍 Native Geofencing: Define custom geofence zones and monitor proximity status in
+*   **📱 Cross-Platform:** Android & iOS support. Android uses `LocationManager`, iOS uses `CoreLocation`.
+*   **📍 Native Geofencing:** Define custom geofence zones and monitor proximity status.
 *   **🛡️ Main Thread Safe:** Optimized background execution to prevent UI freezes.
 *   **✅ TypeScript Ready:** Fully typed API for a great Developer Experience (DX).
-*   **🔋 Battery Efficient:** Uses Fused Location Provider + smart throttling to reduce GPS battery drain by up to 40%. 
-*   **🎯 High Accuracy Modes:** Supports `PRIORITY_HIGH_ACCURACY`, `PRIORITY_BALANCED_POWER_ACCURACY`, and `PRIORITY_LOW_POWER` - pick what fits your use case. 
-*   **🔐 Permission Handling Built-in:** Handles Android 13+ `FOREGROUND_SERVICE_LOCATION` and iOS `Always/WhenInUse` permissions out of the box. No boilerplate. 
-*   **📦 Tiny Bundle Size:** Native module is <50KB with zero impact on your JS bundle size. 
-*   **🚀 Real-time Speed Monitoring:** Get live speed data (m/s) without extra calculations.
+*   **🔋 Battery Efficient:** Uses `LocationManager` + smart throttling to reduce GPS battery drain by up to 40%. 
+*   **🎯 High Accuracy Modes:** Supports `PRIORITY_HIGH_ACCURACY`, `PRIORITY_BALANCED_POWER_ACCURACY`, and `PRIORITY_LOW_POWER`.
+*   **🔐 Permission Handling Built-in:** Handles Android 13+ `FOREGROUND_SERVICE_LOCATION` and iOS `Always/WhenInUse` permissions out of the box.
+*   **📦 Tiny Bundle Size:** Native module is <50KB with zero impact on your JS bundle size.
  
 
  <p align="center">
