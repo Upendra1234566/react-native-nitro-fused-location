@@ -1,3 +1,8 @@
+
+/**
+ * Created by Upendra Singh
+ * MIT License
+ */
 package com.margelo.nitro.nitrofusedlocation
 
 import com.facebook.react.ReactPackage

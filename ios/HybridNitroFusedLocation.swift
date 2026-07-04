@@ -1,3 +1,9 @@
+
+/**
+ * Created by Upendra Singh
+ * MIT License
+ */
+ 
 import Foundation
 import NitroModules
 import CoreLocation

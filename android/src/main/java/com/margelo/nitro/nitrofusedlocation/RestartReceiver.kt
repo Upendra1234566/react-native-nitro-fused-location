@@ -1,3 +1,9 @@
+
+/**
+ * Created by Upendra Singh
+ * MIT License
+ */
+ 
 package com.margelo.nitro.nitrofusedlocation
 
 import android.content.BroadcastReceiver
