@@ -55,8 +55,7 @@ We're working on enterprise-grade features based on community feedback:
   <br>
   <sub>Android Release Build • Cold start to 12m tracking • First fix in ~2s</sub>
 </p>
-> [!IMPORTANT]  
-> To Support `Nitro Views`, you need to install React Native version v0.78.0 or higher.
+> 
 
 ---
 
@@ -123,7 +122,7 @@ Add this to your `ios/YourProjectName/Info.plist`:
 ## 📖 How to Use
 ### Step 1: Request Permissions
 For Android 10+ and Android 13+, request all required permissions.
-```ts
+```tsx
 import { NitroFusedLocation } from 'react-native-nitro-fused-location';
 import { PermissionsAndroid, Platform } from 'react-native';
 const requestPermissions = async () => {
@@ -137,11 +136,11 @@ const requestPermissions = async () => {
     await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
   }
 };
-```tsx
+```
 
 ### Step 2: Start Live Tracking
 Use `watchPosition` to get real-time location updates.
-```ts
+```tsx
 import { NitroFusedLocation } from 'react-native-nitro-fused-location';
 ...
 
@@ -163,17 +162,17 @@ const startTracking = async () => {
 };
 
 startTracking();
-`
+```tsx
 Step 3: Enable Kill-Proof Background Mode 
 Keeps tracking alive even after app is killed or device is rebooted.
-```tsx 
+```tsx
 // Start background service with persistent notification
 await NitroFusedLocation.startKillProofMode();
 // Stop background service
 await NitroFusedLocation.stopKillProofMode();
 // Alias for stopKillProofMode
 await NitroFusedLocation.killMode(); 
-```
+```tsx
 
 Step 4: OEM Settings for Chinese Devices
 Required for Xiaomi, Vivo, Oppo, OnePlus to allow auto-start after reboot.
