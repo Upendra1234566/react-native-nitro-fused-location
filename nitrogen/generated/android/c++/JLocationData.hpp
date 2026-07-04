@@ -17,7 +17,7 @@ namespace margelo::nitro::nitrofusedlocation {
   using namespace facebook;
 
   /**
-   * The C++ JNI bridge between the C++ struct "LocationData" and the the Kotlin data class "LocationData".
+   * The C++ JNI bridge between the C++ struct "LocationData" and the Kotlin data class "LocationData".
    */
   struct JLocationData final: public jni::JavaClass<JLocationData> {
   public:

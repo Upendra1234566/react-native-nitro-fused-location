@@ -55,11 +55,17 @@ namespace margelo::nitro::nitrofusedlocation {
   public:
     // Methods
     std::shared_ptr<Promise<LocationData>> getCurrentLocation() override;
-    std::shared_ptr<Promise<std::string>> watchPosition(const std::function<void(const LocationData& /* data */)>& callback) override;
+    std::shared_ptr<Promise<std::string>> watchPosition() override;
     std::shared_ptr<Promise<void>> clearWatch(const std::string& watchId) override;
     std::shared_ptr<Promise<bool>> isGpsEnabled() override;
     std::shared_ptr<Promise<void>> resetDistance() override;
     std::shared_ptr<Promise<void>> setGeofence(double lat, double lng, double radius) override;
+    std::shared_ptr<Promise<void>> requestBatteryOptimizationExemption() override;
+    std::shared_ptr<Promise<void>> startKillProofMode() override;
+    std::shared_ptr<Promise<void>> stopKillProofMode() override;
+    std::shared_ptr<Promise<void>> openAutoStartSettings() override;
+    void addLocationListener(const std::function<void(const LocationData& /* data */)>& listener) override;
+    void removeLocationListener(const std::function<void(const LocationData& /* data */)>& listener) override;
 
   private:
     jni::global_ref<JHybridNitroFusedLocationSpec::JavaPart> _javaPart;

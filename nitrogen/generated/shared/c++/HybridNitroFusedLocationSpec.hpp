@@ -53,11 +53,17 @@ namespace margelo::nitro::nitrofusedlocation {
     public:
       // Methods
       virtual std::shared_ptr<Promise<LocationData>> getCurrentLocation() = 0;
-      virtual std::shared_ptr<Promise<std::string>> watchPosition(const std::function<void(const LocationData& /* data */)>& callback) = 0;
+      virtual std::shared_ptr<Promise<std::string>> watchPosition() = 0;
       virtual std::shared_ptr<Promise<void>> clearWatch(const std::string& watchId) = 0;
       virtual std::shared_ptr<Promise<bool>> isGpsEnabled() = 0;
       virtual std::shared_ptr<Promise<void>> resetDistance() = 0;
       virtual std::shared_ptr<Promise<void>> setGeofence(double lat, double lng, double radius) = 0;
+      virtual std::shared_ptr<Promise<void>> requestBatteryOptimizationExemption() = 0;
+      virtual std::shared_ptr<Promise<void>> startKillProofMode() = 0;
+      virtual std::shared_ptr<Promise<void>> stopKillProofMode() = 0;
+      virtual std::shared_ptr<Promise<void>> openAutoStartSettings() = 0;
+      virtual void addLocationListener(const std::function<void(const LocationData& /* data */)>& listener) = 0;
+      virtual void removeLocationListener(const std::function<void(const LocationData& /* data */)>& listener) = 0;
 
     protected:
       // Hybrid Setup

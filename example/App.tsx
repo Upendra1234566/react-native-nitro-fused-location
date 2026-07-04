@@ -1,31 +1,103 @@
-
-import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { 
-  View, Text, StyleSheet, SafeAreaView, Alert, PermissionsAndroid, 
-  Platform, ScrollView, RefreshControl, TouchableOpacity, Linking
+import React, {useEffect, useState, useRef, useCallback} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  Alert,
+  PermissionsAndroid,
+  Platform,
+  ScrollView,
+  RefreshControl,
+  TouchableOpacity,
+  Linking,
+  AppState,
 } from 'react-native';
-import { NitroFusedLocation } from 'react-native-nitro-fused-location';
+import {NitroFusedLocation} from 'react-native-nitro-fused-location';
 
 interface LocationInfo {
-  latitude: number; longitude: number; accuracy: number; address: string;
-  city: string; state: string; country: string; pincode: string; distance: number;
-  speed: number;           
-  isInsideGeofence: boolean; 
+  latitude: number;
+  longitude: number;
+  accuracy: number;
+  address: string;
+  city: string;
+  state: string;
+  country: string;
+  pincode: string;
+  distance: number;
+  speed: number;
+  isInsideGeofence: boolean;
 }
 
-type StatusType = 'Requesting...' | 'Checking GPS...' | 'Watching...' | 'Success' | 'Failed' | 'Denied' | 'Stopped';
+type StatusType =
+  | 'Requesting...'
+  | 'Checking GPS...'
+  | 'Watching...'
+  | 'Kill Mode Active'
+  | 'Success'
+  | 'Failed'
+  | 'Denied'
+  | 'Stopped';
 
 function App(): React.JSX.Element {
   const [location, setLocation] = useState<LocationInfo | null>(null);
   const [status, setStatus] = useState<StatusType>('Requesting...');
   const [refreshing, setRefreshing] = useState(false);
+  const [killMode, setKillMode] = useState(false);
   const watchIdRef = useRef<string | null>(null);
+  const appState = useRef(AppState.currentState);
 
-  // CHANGE #1: Distance ko km/m me format karne ka function
   const formatDistance = (meters: number): string => {
-    return meters < 1000 
-      ? `${meters.toFixed(0)} m` 
+    return meters < 1000
+     ? `${meters.toFixed(0)} m`
       : `${(meters / 1000).toFixed(2)} km`;
+  };
+
+  const requestAllPermissions = async (): Promise<boolean> => {
+    if (Platform.OS!== 'android') return true;
+
+    try {
+      if (Platform.Version >= 33) {
+        const notif = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
+        );
+        if (notif!== PermissionsAndroid.RESULTS.GRANTED) {
+          Alert.alert('Notification Denied', 'Kill-proof ke liye notification chahiye');
+          return false;
+        }
+      }
+
+      const fine = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      );
+      if (fine!== PermissionsAndroid.RESULTS.GRANTED) {
+        setStatus('Denied');
+        Alert.alert('Permission Denied', 'Location permission allow karo');
+        return false;
+      }
+
+      if (Platform.Version >= 29) {
+        const bg = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
+        );
+        if (bg!== PermissionsAndroid.RESULTS.GRANTED) {
+          Alert.alert(
+            'Background Location',
+            'App band hone pe bhi tracking ke liye "Allow all the time" select karo',
+            [
+              {text: 'Cancel'},
+              {text: 'Settings', onPress: () => Linking.openSettings()},
+            ],
+          );
+          return false;
+        }
+      }
+
+      return true;
+    } catch (err) {
+      console.error('Permission error:', err);
+      return false;
+    }
   };
 
   const checkGpsAndStart = async () => {
@@ -33,17 +105,19 @@ function App(): React.JSX.Element {
     const isEnabled = await NitroFusedLocation.isGpsEnabled();
     if (!isEnabled) {
       setStatus('Failed');
-      // CHANGE #2: GPS band hai to popup dikhao
-      Alert.alert(
-        'GPS Band Hai',
-        'Location ke liye GPS on karo',
-        [
-          { text: 'Cancel', style: 'cancel' },
-          { text: 'Settings Kholo', onPress: () => Linking.openSettings() }
-        ]
-      );
+      Alert.alert('GPS Band Hai', 'Location ke liye GPS on karo', [
+        {text: 'Cancel', style: 'cancel'},
+        {text: 'Settings Kholo', onPress: () => Linking.openSettings()},
+      ]);
       return false;
     }
+
+    try {
+      await NitroFusedLocation.requestBatteryOptimizationExemption();
+    } catch (e) {
+      console.log('Battery optimization skip:', e);
+    }
+
     startWatching();
     return true;
   };
@@ -51,72 +125,137 @@ function App(): React.JSX.Element {
   const startWatching = async () => {
     setStatus('Watching...');
     try {
-      const id = await NitroFusedLocation.watchPosition((loc) => {
+      NitroFusedLocation.addLocationListener(loc => {
         setLocation(loc);
-        setStatus('Success');
+        setStatus(killMode? 'Kill Mode Active' : 'Success');
       });
+
+      const id = await NitroFusedLocation.watchPosition();
       watchIdRef.current = id;
     } catch (err: any) {
       setStatus('Failed');
-      // CHANGE #3: Permission error handle karo
-      if (err.message.includes('permission')) {
-        Alert.alert(
-          'Permission Chahiye',
-          'Location permission allow karo',
-          [
-            { text: 'Cancel' },
-            { text: 'Settings', onPress: () => Linking.openSettings() }
-          ]
-        );
+      if (err.message?.includes('permission')) {
+        Alert.alert('Permission Chahiye', 'Location permission allow karo', [
+          {text: 'Cancel'},
+          {text: 'Settings', onPress: () => Linking.openSettings()},
+        ]);
+      } else {
+        Alert.alert('Error', err.message);
       }
+    }
+  };
+
+  // Auto-start settings kholne ka function
+  const openAutoStart = async () => {
+    try {
+      await NitroFusedLocation.openAutoStartSettings();
+      Alert.alert(
+        'Auto-Start Enable Karo',
+        'Reboot ke baad tracking chalu rakhne ke liye:\n\nXiaomi: Autostart ON\nVivo: Background power consumption → High\nOppo/Realme: Startup manager ON\nOnePlus: Auto-launch ON\n\nSettings me app ko ON kar do',
+      );
+    } catch (e) {
+      Alert.alert('Error', 'Settings khol nahi paye. Manual ja ke Auto-start ON karo');
+    }
+  };
+
+  const toggleKillProofMode = async () => {
+    try {
+      if (!killMode) {
+        setStatus('Requesting...');
+        await NitroFusedLocation.startKillProofMode();
+        setKillMode(true);
+        setStatus('Kill Mode Active');
+        Alert.alert(
+          'Kill-Proof Active ✅',
+          'Background tracking chalu ho gayi.\n\nReboot ke baad bhi chalane ke liye "Auto-Start Enable" button dabao.',
+          [
+            {text: 'Theek Hai'},
+            {text: 'Auto-Start Kholo', onPress: openAutoStart},
+          ],
+        );
+      } else {
+        await NitroFusedLocation.stopKillProofMode();
+        setKillMode(false);
+        setStatus('Stopped');
+        Alert.alert('Kill-Proof Stopped', 'Background tracking band ho gayi');
+      }
+    } catch (err: any) {
+      Alert.alert('Error', err.message);
     }
   };
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
     if (watchIdRef.current) {
-        await NitroFusedLocation.clearWatch(watchIdRef.current);
-        watchIdRef.current = null;
+      await NitroFusedLocation.clearWatch(watchIdRef.current);
+      watchIdRef.current = null;
     }
     await checkGpsAndStart();
     setRefreshing(false);
-  }, []);
+  }, [killMode]);
 
   useEffect(() => {
-    // Geofence setup
-    NitroFusedLocation.setGeofence(28.8314, 78.7660, 500);
+    NitroFusedLocation.setGeofence(19.076, 72.8777, 500);
 
-    // Permission and Start
-    if (Platform.OS === 'android') {
-        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
-          .then((granted) => {
-            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-              checkGpsAndStart();
-            } else {
-              setStatus('Denied');
-              Alert.alert('Permission Denied', 'App ko location chahiye');
-            }
-          });
-    } else {
-        checkGpsAndStart();
-    }
+    const init = async () => {
+      const hasPerms = await requestAllPermissions();
+      if (hasPerms) {
+        await checkGpsAndStart();
+      }
+    };
+    init();
+
+    const subscription = AppState.addEventListener('change', nextAppState => {
+      if (
+        appState.current.match(/active/) &&
+        nextAppState === 'background' &&
+       !killMode
+      ) {
+        Alert.alert(
+          'Background Tracking',
+          'App background me ja rahi hai. Kill-proof mode on karna chahte ho?',
+          [
+            {text: 'Nahi', style: 'cancel'},
+            {text: 'Haan', onPress: toggleKillProofMode},
+          ],
+        );
+      }
+      appState.current = nextAppState;
+    });
 
     return () => {
-      if (watchIdRef.current) NitroFusedLocation.clearWatch(watchIdRef.current);
+      subscription.remove();
+      if (watchIdRef.current) {
+        NitroFusedLocation.clearWatch(watchIdRef.current);
+      }
     };
   }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView 
+      <ScrollView
         contentContainerStyle={styles.content}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#00ffcc" />}
-      >
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#00ffcc"
+          />
+        }>
         <Text style={styles.title}>Nitro Fused Location 🚀</Text>
-        <Text style={[styles.status, { color: status === 'Success' ? '#00ffcc' : '#ff4444' }]}>
+        <Text
+          style={[
+            styles.status,
+            {
+              color:
+                status === 'Success' || status === 'Kill Mode Active'
+                 ? '#00ffcc'
+                  : '#ff4444',
+            },
+          ]}>
           Status: {status}
         </Text>
-        
+
         {location && (
           <View style={styles.locationBox}>
             <Text style={styles.label}>📍 Address: {location.address}</Text>
@@ -124,37 +263,78 @@ function App(): React.JSX.Element {
             <Text style={styles.label}>🗺 State: {location.state}</Text>
             <Text style={styles.label}>🇮🇳 Country: {location.country}</Text>
             <Text style={styles.label}>📮 Pincode: {location.pincode}</Text>
-            
+
             <View style={styles.divider} />
-            
-            {/* CHANGE #4: Distance ab km/m 
-            */}
-            <Text style={styles.distanceLabel}>📏 Total Distance: {formatDistance(location.distance)}</Text>
-            
-            {/* CHANGE #5: Speed km/h me , m/s */}
-            <Text style={styles.speedLabel}>⚡ Speed: {location.speed.toFixed(1)} km/h</Text>
-            
-            <Text style={[styles.geoLabel, { color: location.isInsideGeofence ? '#00ffcc' : '#ffaa00' }]}>
-              🏠 Geofence: {location.isInsideGeofence ? 'Inside' : 'Outside'}
+
+            <Text style={styles.distanceLabel}>
+              📏 Total Distance: {formatDistance(location.distance)}
             </Text>
-            
+
+            <Text style={styles.speedLabel}>
+              ⚡ Speed: {location.speed.toFixed(1)} km/h
+            </Text>
+
+            <Text
+              style={[
+                styles.geoLabel,
+                {color: location.isInsideGeofence? '#00ffcc' : '#ffaa00'},
+              ]}>
+              🏠 Geofence: {location.isInsideGeofence? 'Inside' : 'Outside'}
+            </Text>
+
             <View style={styles.divider} />
-            <Text style={styles.coords}>Lat: {location.latitude.toFixed(6)} | Lng: {location.longitude.toFixed(6)}</Text>
-            
+            <Text style={styles.coords}>
+              Lat: {location.latitude.toFixed(6)} | Lng:{' '}
+              {location.longitude.toFixed(6)}
+            </Text>
+            <Text style={styles.coords}>
+              Accuracy: {location.accuracy.toFixed(0)} m
+            </Text>
+
             <View style={styles.buttonRow}>
-              <TouchableOpacity style={styles.resetButton} onPress={async () => {
-                await NitroFusedLocation.resetDistance();
-                setLocation(prev => prev ? { ...prev, distance: 0 } : null);
-              }}><Text style={styles.buttonText}>Reset Distance</Text></TouchableOpacity>
-              
-              <TouchableOpacity style={styles.stopButton} onPress={async () => {
-                if (watchIdRef.current) {
-                  await NitroFusedLocation.clearWatch(watchIdRef.current);
-                  watchIdRef.current = null;
-                  setStatus('Stopped');
-                }
-              }}><Text style={styles.buttonText}>Stop Tracking</Text></TouchableOpacity>
+              <TouchableOpacity
+                style={styles.resetButton}
+                onPress={async () => {
+                  await NitroFusedLocation.resetDistance();
+                  setLocation(prev => (prev? {...prev, distance: 0} : null));
+                }}>
+                <Text style={styles.buttonText}>Reset Distance</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={styles.stopButton}
+                onPress={async () => {
+                  if (watchIdRef.current) {
+                    await NitroFusedLocation.clearWatch(watchIdRef.current);
+                    watchIdRef.current = null;
+                    setStatus('Stopped');
+                  }
+                }}>
+                <Text style={styles.buttonText}>Stop Tracking</Text>
+              </TouchableOpacity>
             </View>
+
+            <TouchableOpacity
+              style={[
+                styles.killModeButton,
+                {backgroundColor: killMode? '#ff4444' : '#00cc88'},
+              ]}
+              onPress={toggleKillProofMode}>
+              <Text style={styles.buttonText}>
+                {killMode? '🔴 Stop Kill-Proof Mode' : '🟢 Start Kill-Proof Mode'}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Naya Button - Auto-start ke liye */}
+            {killMode && (
+              <TouchableOpacity
+                style={styles.autoStartButton}
+                onPress={openAutoStart}>
+                <Text style={styles.buttonText}>
+                  ⚙️ Enable Auto-Start for Reboot
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
         )}
       </ScrollView>
@@ -163,21 +343,61 @@ function App(): React.JSX.Element {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#111' },
-  content: { flexGrow: 1, justifyContent: 'center', padding: 20 },
-  title: { fontSize: 24, color: 'white', fontWeight: 'bold', textAlign: 'center' },
-  status: { fontSize: 16, textAlign: 'center', marginTop: 10, fontWeight: '600' },
-  locationBox: { marginTop: 25, padding: 20, backgroundColor: '#1e1e1e', borderRadius: 12, borderWidth: 1, borderColor: '#333' },
-  label: { fontSize: 15, color: '#e0e0e0', marginVertical: 4 },
-  distanceLabel: { fontSize: 18, color: '#00ffcc', fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
-  speedLabel: { fontSize: 16, color: '#ffcc00', fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
-  geoLabel: { fontSize: 16, fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
-  divider: { height: 1, backgroundColor: '#333', marginVertical: 15 },
-  coords: { fontSize: 12, color: '#777', textAlign: 'center' },
-  buttonRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 },
-  resetButton: { backgroundColor: '#4488ff', paddingVertical: 12, borderRadius: 8, flex: 0.48 },
-  stopButton: { backgroundColor: '#ff4444', paddingVertical: 12, borderRadius: 8, flex: 0.48 },
-  buttonText: { color: 'white', fontSize: 14, fontWeight: 'bold', textAlign: 'center' },
+  container: {flex: 1, backgroundColor: '#111'},
+  content: {flexGrow: 1, justifyContent: 'center', padding: 20},
+  title: {fontSize: 24, color: 'white', fontWeight: 'bold', textAlign: 'center'},
+  status: {fontSize: 16, textAlign: 'center', marginTop: 10, fontWeight: '600'},
+  locationBox: {
+    marginTop: 25,
+    padding: 20,
+    backgroundColor: '#1e1e1e',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#333',
+  },
+  label: {fontSize: 15, color: '#e0e0e0', marginVertical: 4},
+  distanceLabel: {
+    fontSize: 18,
+    color: '#00ffcc',
+    fontWeight: 'bold',
+    marginVertical: 5,
+    textAlign: 'center',
+  },
+  speedLabel: {
+    fontSize: 16,
+    color: '#ffcc00',
+    fontWeight: 'bold',
+    marginVertical: 5,
+    textAlign: 'center',
+  },
+  geoLabel: {fontSize: 16, fontWeight: 'bold', marginVertical: 5, textAlign: 'center'},
+  divider: {height: 1, backgroundColor: '#333', marginVertical: 15},
+  coords: {fontSize: 12, color: '#777', textAlign: 'center', marginTop: 4},
+  buttonRow: {flexDirection: 'row', justifyContent: 'space-between', marginTop: 20},
+  resetButton: {
+    backgroundColor: '#4488ff',
+    paddingVertical: 12,
+    borderRadius: 8,
+    flex: 0.48,
+  },
+  stopButton: {
+    backgroundColor: '#ff4444',
+    paddingVertical: 12,
+    borderRadius: 8,
+    flex: 0.48,
+  },
+  killModeButton: {
+    paddingVertical: 14,
+    borderRadius: 8,
+    marginTop: 12,
+  },
+  autoStartButton: {
+    backgroundColor: '#ff8800',
+    paddingVertical: 14,
+    borderRadius: 8,
+    marginTop: 12,
+  },
+  buttonText: {color: 'white', fontSize: 14, fontWeight: 'bold', textAlign: 'center'},
 });
 
 export default App;

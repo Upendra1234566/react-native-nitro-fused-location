@@ -106,6 +106,16 @@ android {
         }
     }
 
+    // Ye block IS_NEW_ARCHITECTURE_ENABLED error fix karega
+    buildTypes {
+        debug {
+            buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", "true"
+        }
+        release {
+            buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", "true"
+        }
+    }
+
     buildFeatures {
         buildConfig true
         prefab true
@@ -129,6 +139,7 @@ dependencies {
     
     implementation project(':react-native-nitro-modules')
     implementation "com.facebook.fbjni:fbjni:0.7.0"
+    // FusedLocation ke liye ye dono chahiye
     // implementation 'com.google.android.gms:play-services-location:21.3.0'
     // implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'

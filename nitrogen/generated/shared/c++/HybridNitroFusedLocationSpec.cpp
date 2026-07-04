@@ -20,6 +20,12 @@ namespace margelo::nitro::nitrofusedlocation {
       prototype.registerHybridMethod("isGpsEnabled", &HybridNitroFusedLocationSpec::isGpsEnabled);
       prototype.registerHybridMethod("resetDistance", &HybridNitroFusedLocationSpec::resetDistance);
       prototype.registerHybridMethod("setGeofence", &HybridNitroFusedLocationSpec::setGeofence);
+      prototype.registerHybridMethod("requestBatteryOptimizationExemption", &HybridNitroFusedLocationSpec::requestBatteryOptimizationExemption);
+      prototype.registerHybridMethod("startKillProofMode", &HybridNitroFusedLocationSpec::startKillProofMode);
+      prototype.registerHybridMethod("stopKillProofMode", &HybridNitroFusedLocationSpec::stopKillProofMode);
+      prototype.registerHybridMethod("openAutoStartSettings", &HybridNitroFusedLocationSpec::openAutoStartSettings);
+      prototype.registerHybridMethod("addLocationListener", &HybridNitroFusedLocationSpec::addLocationListener);
+      prototype.registerHybridMethod("removeLocationListener", &HybridNitroFusedLocationSpec::removeLocationListener);
     });
   }
 

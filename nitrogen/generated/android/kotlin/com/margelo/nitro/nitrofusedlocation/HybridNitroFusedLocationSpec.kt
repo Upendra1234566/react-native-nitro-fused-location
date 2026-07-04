@@ -33,14 +33,9 @@ abstract class HybridNitroFusedLocationSpec: HybridObject() {
   @Keep
   abstract fun getCurrentLocation(): Promise<LocationData>
   
-  abstract fun watchPosition(callback: (data: LocationData) -> Unit): Promise<String>
-  
   @DoNotStrip
   @Keep
-  private fun watchPosition_cxx(callback: Func_void_LocationData): Promise<String> {
-    val __result = watchPosition(callback)
-    return __result
-  }
+  abstract fun watchPosition(): Promise<String>
   
   @DoNotStrip
   @Keep
@@ -57,6 +52,40 @@ abstract class HybridNitroFusedLocationSpec: HybridObject() {
   @DoNotStrip
   @Keep
   abstract fun setGeofence(lat: Double, lng: Double, radius: Double): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun requestBatteryOptimizationExemption(): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun startKillProofMode(): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun stopKillProofMode(): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
+  abstract fun openAutoStartSettings(): Promise<Unit>
+  
+  abstract fun addLocationListener(listener: (data: LocationData) -> Unit): Unit
+  
+  @DoNotStrip
+  @Keep
+  private fun addLocationListener_cxx(listener: Func_void_LocationData): Unit {
+    val __result = addLocationListener(listener)
+    return __result
+  }
+  
+  abstract fun removeLocationListener(listener: (data: LocationData) -> Unit): Unit
+  
+  @DoNotStrip
+  @Keep
+  private fun removeLocationListener_cxx(listener: Func_void_LocationData): Unit {
+    val __result = removeLocationListener(listener)
+    return __result
+  }
 
   // Default implementation of `HybridObject.toString()`
   override fun toString(): String {

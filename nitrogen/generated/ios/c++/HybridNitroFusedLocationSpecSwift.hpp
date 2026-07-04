@@ -78,8 +78,8 @@ namespace margelo::nitro::nitrofusedlocation {
       auto __value = std::move(__result.value());
       return __value;
     }
-    inline std::shared_ptr<Promise<std::string>> watchPosition(const std::function<void(const LocationData& /* data */)>& callback) override {
-      auto __result = _swiftPart.watchPosition(callback);
+    inline std::shared_ptr<Promise<std::string>> watchPosition() override {
+      auto __result = _swiftPart.watchPosition();
       if (__result.hasError()) [[unlikely]] {
         std::rethrow_exception(__result.error());
       }
@@ -117,6 +117,50 @@ namespace margelo::nitro::nitrofusedlocation {
       }
       auto __value = std::move(__result.value());
       return __value;
+    }
+    inline std::shared_ptr<Promise<void>> requestBatteryOptimizationExemption() override {
+      auto __result = _swiftPart.requestBatteryOptimizationExemption();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<void>> startKillProofMode() override {
+      auto __result = _swiftPart.startKillProofMode();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<void>> stopKillProofMode() override {
+      auto __result = _swiftPart.stopKillProofMode();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline std::shared_ptr<Promise<void>> openAutoStartSettings() override {
+      auto __result = _swiftPart.openAutoStartSettings();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
+    inline void addLocationListener(const std::function<void(const LocationData& /* data */)>& listener) override {
+      auto __result = _swiftPart.addLocationListener(listener);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+    }
+    inline void removeLocationListener(const std::function<void(const LocationData& /* data */)>& listener) override {
+      auto __result = _swiftPart.removeLocationListener(listener);
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
     }
 
   private:
