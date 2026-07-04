@@ -142,6 +142,14 @@ namespace margelo::nitro::nitrofusedlocation {
       auto __value = std::move(__result.value());
       return __value;
     }
+    inline std::shared_ptr<Promise<void>> killMode() override {
+      auto __result = _swiftPart.killMode();
+      if (__result.hasError()) [[unlikely]] {
+        std::rethrow_exception(__result.error());
+      }
+      auto __value = std::move(__result.value());
+      return __value;
+    }
     inline std::shared_ptr<Promise<void>> openAutoStartSettings() override {
       auto __result = _swiftPart.openAutoStartSettings();
       if (__result.hasError()) [[unlikely]] {

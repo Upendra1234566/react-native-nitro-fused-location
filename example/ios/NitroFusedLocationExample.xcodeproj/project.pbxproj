@@ -276,7 +276,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nitrofusedlocationexample;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.nitro123-";
 				PRODUCT_NAME = NitroFusedLocationExample;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -309,7 +309,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nitrofusedlocationexample;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.nitro123-";
 				PRODUCT_NAME = NitroFusedLocationExample;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

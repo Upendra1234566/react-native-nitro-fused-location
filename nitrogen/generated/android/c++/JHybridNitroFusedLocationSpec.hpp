@@ -63,6 +63,7 @@ namespace margelo::nitro::nitrofusedlocation {
     std::shared_ptr<Promise<void>> requestBatteryOptimizationExemption() override;
     std::shared_ptr<Promise<void>> startKillProofMode() override;
     std::shared_ptr<Promise<void>> stopKillProofMode() override;
+    std::shared_ptr<Promise<void>> killMode() override;
     std::shared_ptr<Promise<void>> openAutoStartSettings() override;
     void addLocationListener(const std::function<void(const LocationData& /* data */)>& listener) override;
     void removeLocationListener(const std::function<void(const LocationData& /* data */)>& listener) override;

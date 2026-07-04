@@ -22,6 +22,7 @@ public protocol HybridNitroFusedLocationSpec_protocol: HybridObject {
   func requestBatteryOptimizationExemption() throws -> Promise<Void>
   func startKillProofMode() throws -> Promise<Void>
   func stopKillProofMode() throws -> Promise<Void>
+  func killMode() throws -> Promise<Void>
   func openAutoStartSettings() throws -> Promise<Void>
   func addLocationListener(listener: @escaping (_ data: LocationData) -> Void) throws -> Void
   func removeLocationListener(listener: @escaping (_ data: LocationData) -> Void) throws -> Void

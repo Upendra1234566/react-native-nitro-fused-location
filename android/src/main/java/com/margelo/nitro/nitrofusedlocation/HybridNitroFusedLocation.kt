@@ -219,7 +219,11 @@ class HybridNitroFusedLocation : HybridNitroFusedLocationSpec() {
         )
         alarmManager.cancel(pendingIntent)
     }
-
+ 
+ // YE WALA NAYA FUNCTION ADD KIYA HAI
+    override fun killMode(): Promise<Unit> = Promise.async {
+        stopKillProofMode()
+    }
     @SuppressLint("MissingPermission")
     override fun getCurrentLocation(): Promise<LocationData> = Promise.async {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {

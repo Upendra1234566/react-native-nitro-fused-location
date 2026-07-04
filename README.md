@@ -24,13 +24,18 @@ It provides ultra-fast location fetching, continuous background tracking, and na
 *   **📏 Native Distance Tracking:** Calculates distance in meters directly on Android/iOS background threads.
 *   **🚀 Real-time Speed Monitoring:** Get live speed in `m/s` and `km/h` without extra calculations.
 *   **🔄 Live Tracking:** Continuously watch user location updates with configurable intervals.
+*   **🛡️ Kill-Proof Background Mode:** Service auto-restarts after app kill, swipe, or device reboot. Works on Xiaomi, Vivo, Oppo, Samsung.
+*   **🔔 Persistent Foreground Notification:** Shows live location status in notification bar. Cannot be dismissed by user.
+*   **🔄 Auto-Restart on Boot:** Automatically resumes tracking after device restart if kill-mode was active.
+*   **⚙️ Auto-Start Settings Helper:** One-tap method to open OEM auto-start settings for Chinese phones.
+*   **🔋 Battery Optimization Bypass:** Built-in method to request "Ignore Battery Optimizations" for reliable background tracking.
 *   **📱 Cross-Platform:** Android uses `LocationManager`, iOS uses `CoreLocation`. No Google APIs on either platform.
 *   **📍 Native Geofencing:** Define custom geofence zones and monitor enter/exit events.
 *   **🛡️ Main Thread Safe:** All GPS/DB operations run on background threads to prevent UI freezes.
 *   **✅ TypeScript Ready:** Fully typed API for a great Developer Experience (DX).
 *   **🔋 Battery Efficient:** Uses smart GPS throttling + distance-based updates to reduce battery drain by up to 40%. 
-*   **🎯 Configurable Accuracy:** Supports `GPS_PROVIDER`, `NETWORK_PROVIDER`, and criteria-based accuracy levels. Pick what fits your use case.
-*   **🔐 Permission Handling Built-in:** Handles Android 13+ `FOREGROUND_SERVICE_LOCATION` and iOS `Always/WhenInUse` permissions out of the box.
+*   **🎯 Configurable Accuracy:** Supports `GPS_PROVIDER`, `NETWORK_PROVIDER`, and criteria-based accuracy levels.
+*   **🔐 Permission Handling Built-in:** Handles Android 13+ `FOREGROUND_SERVICE_LOCATION`, `POST_NOTIFICATIONS` and iOS `Always/WhenInUse` permissions.
 *   **📦 Tiny Bundle Size:** Native module is <50KB with zero impact on your JS bundle size.
 
 ## 🗺️ Roadmap
@@ -59,25 +64,46 @@ We're working on enterprise-grade features based on community feedback:
 
 ```bash
 npm install react-native-nitro-fused-location react-native-nitro-modules
- or
+# or
 yarn add react-native-nitro-fused-location react-native-nitro-modules
-
+```
 ### Android Setup
 Supports Android 14 (SDK 36). No extra setup needed!
 
-⚙️ Setup & Permissions
-Android
-Add these permissions to your android/app/src/main/AndroidManifest.xml:
+### ⚙️ Setup & Permissions
+
+#### Android
+Add these permissions to your `android/app/src/main/AndroidManifest.xml`:
 ```xml
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> 
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
 
+<application ...>
+  <service 
+    android:name=".LocationForegroundService" 
+    android:foregroundServiceType="location"
+    android:exported="false" />
+    
+  <receiver 
+    android:name=".BootReceiver" 
+    android:enabled="true" 
+    android:exported="true">
+    <intent-filter>
+      <action android:name="android.intent.action.BOOT_COMPLETED" />
+    </intent-filter>
+  </receiver>
+</application>
+```
 
-1 android/gradle.properties 
-  ```
-  newArchEnabled=true
-  hermesEnabled=true
+#### 1. `android/gradle.properties`
+```properties
+newArchEnabled=true
+hermesEnabled=true
+```
 
 ### iOS
 Add this to your `ios/YourProjectName/Info.plist`:
@@ -92,191 +118,115 @@ Add this to your `ios/YourProjectName/Info.plist`:
 <array>
   <string>location</string>
 </array>
+```
 
-### Step 2: Usage Section
-```md
-
-💻 Usage (Pull to Refresh & Live Tracking)
-Here is a complete example of how to use the library with continuous tracking, distance calculation, and a pull-to-refresh UI.
-
-```tsx 
-import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { 
-  View, Text, StyleSheet, SafeAreaView, Alert, PermissionsAndroid, 
-  Platform, ScrollView, RefreshControl, TouchableOpacity 
-} from 'react-native';
+## 📖 How to Use
+### Step 1: Request Permissions
+For Android 10+ and Android 13+, request all required permissions.
+```ts
 import { NitroFusedLocation } from 'react-native-nitro-fused-location';
+import { PermissionsAndroid, Platform } from 'react-native';
+const requestPermissions = async () => {
+  await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION);
+  // 2. Background Location - Required for Android 10+
+  if (Platform.Version >= 29) {
+    await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION);
+  }
+  // 3. Notification Permission - Required for Android 13+
+  if (Platform.Version >= 33) {
+    await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+  }
+};
+```tsx
 
-interface LocationInfo {
-  latitude: number; longitude: number; accuracy: number; address: string;
-  city: string; state: string; country: string; pincode: string; distance: number;
-  speed: number;           // Naya field
-  isInsideGeofence: boolean; // Naya field
-}
+### Step 2: Start Live Tracking
+Use `watchPosition` to get real-time location updates.
+```ts
+import { NitroFusedLocation } from 'react-native-nitro-fused-location';
+...
 
-type StatusType = 'Requesting...' | 'Checking GPS...' | 'Watching...' | 'Success' | 'Failed' | 'Denied' | 'Stopped';
+const startTracking = async () => {
+  // Start watching
+  const watchId = await NitroFusedLocation.watchPosition((location) => {
+    console.log('Latitude:', location.latitude);
+    console.log('Longitude:', location.longitude);
+    console.log('Address:', location.address);
+    console.log('Distance:', location.distance, 'meters');
+    console.log('Speed:', location.speed * 3.6, 'km/h'); // Convert m/s to km/h
+    console.log('Inside Geofence:', location.isInsideGeofence);
+  });
 
-function App(): React.JSX.Element {
-  const [location, setLocation] = useState<LocationInfo | null>(null);
-  const [status, setStatus] = useState<StatusType>('Requesting...');
-  const [refreshing, setRefreshing] = useState(false);
-  const watchIdRef = useRef<string | null>(null);
+  // Stop watching after 10 seconds 
+  setTimeout(async () => {
+    await NitroFusedLocation.clearWatch(watchId);
+  }, 10000);
+};
 
-  const checkGpsAndStart = async () => {
-    setStatus('Checking GPS...');
-    const isEnabled = await NitroFusedLocation.isGpsEnabled();
-    if (!isEnabled) {
-      setStatus('Failed');
-      return false;
-    }
-    startWatching();
-    return true;
-  };
+startTracking();
+`
+Step 3: Enable Kill-Proof Background Mode 
+Keeps tracking alive even after app is killed or device is rebooted.
+```tsx 
+// Start background service with persistent notification
+await NitroFusedLocation.startKillProofMode();
+// Stop background service
+await NitroFusedLocation.stopKillProofMode();
+// Alias for stopKillProofMode
+await NitroFusedLocation.killMode(); 
+```
 
-  const startWatching = async () => {
-    setStatus('Watching...');
-    try {
-      // Start watching and receive the updated LocationInfo object
-      const id = await NitroFusedLocation.watchPosition((loc) => {
-        setLocation(loc);
-        setStatus('Success');
-      });
-      watchIdRef.current = id;
-    } catch (err) {
-      setStatus('Failed');
-    }
-  };
+Step 4: OEM Settings for Chinese Devices
+Required for Xiaomi, Vivo, Oppo, OnePlus to allow auto-start after reboot.
+``` tsx 
+// Opens Auto-start settings screen
+await NitroFusedLocation.openAutoStartSettings();
+// Requests "Ignore Battery Optimizations" permission
+await NitroFusedLocation.requestBatteryOptimizationExemption(); 
+```
+Step 5: Other Useful Methods
+``` tsx
+// Check if GPS is enabled
+const isGpsOn = await NitroFusedLocation.isGpsEnabled();
+// Set Geofence - parameters: latitude, longitude, radius in meters
+await NitroFusedLocation.setGeofence(28.6139, 77.2090, 500);
+// Reset native distance counter to 0
+await NitroFusedLocation.resetDistance(); 
+```
+[!IMPORTANT]
+For Kill-Proof mode, users must manually enable "Auto-start" in device settings on Xiaomi, Vivo, Oppo devices.
+// Get single location update 
+``
 
-  const onRefresh = useCallback(async () => {
-    setRefreshing(true);
-    if (watchIdRef.current) {
-        await NitroFusedLocation.clearWatch(watchIdRef.current);
-        watchIdRef.current = null;
-    }
-    await checkGpsAndStart();
-    setRefreshing(false);
-  }, []);
-
-  useEffect(() => {
-    // 1. Geofence setup (Dynamic coordinates)
-    NitroFusedLocation.setGeofence(28.8314, 78.7660, 500);
-
-    // 2. Permission and Start
-    if (Platform.OS === 'android') {
-        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION).then(() => {
-            checkGpsAndStart();
-        });
-    } else {
-        checkGpsAndStart();
-    }
-
-    return () => {
-      if (watchIdRef.current) NitroFusedLocation.clearWatch(watchIdRef.current);
-    };
-  }, []);
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView 
-        contentContainerStyle={styles.content}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#00ffcc" />}
-      >
-        <Text style={styles.title}>Nitro Fused Location 🚀</Text>
-        <Text style={[styles.status, { color: status === 'Success' ? '#00ffcc' : '#ff4444' }]}>
-          Status: {status}
-        </Text>
-        
-        {location && (
-          <View style={styles.locationBox}>
-            <Text style={styles.label}>📍 Address: {location.address}</Text>
-            <Text style={styles.label}>🏙 City: {location.city}</Text>
-            <Text style={styles.label}>🗺 State: {location.state}</Text>
-            <Text style={styles.label}>🇮🇳 Country: {location.country}</Text>
-            <Text style={styles.label}>📮 Pincode: {location.pincode}</Text>
-            
-            <View style={styles.divider} />
-            
-            <Text style={styles.distanceLabel}>📏 Total Distance: {location.distance.toFixed(2)}m</Text>
-            <Text style={styles.speedLabel}>⚡ Speed: {location.speed.toFixed(1)} m/s</Text>
-            <Text style={[styles.geoLabel, { color: location.isInsideGeofence ? '#00ffcc' : '#ffaa00' }]}>
-              🏠 Geofence: {location.isInsideGeofence ? 'Inside' : 'Outside'}
-            </Text>
-            
-            <View style={styles.divider} />
-            <Text style={styles.coords}>Lat: {location.latitude.toFixed(6)} | Lng: {location.longitude.toFixed(6)}</Text>
-            
-            <View style={styles.buttonRow}>
-              <TouchableOpacity style={styles.resetButton} onPress={async () => {
-                await NitroFusedLocation.resetDistance();
-              }}><Text style={styles.buttonText}>Reset Distance</Text></TouchableOpacity>
-              
-              <TouchableOpacity style={styles.stopButton} onPress={async () => {
-                if (watchIdRef.current) {
-                  await NitroFusedLocation.clearWatch(watchIdRef.current);
-                  watchIdRef.current = null;
-                  setStatus('Stopped');
-                }
-              }}><Text style={styles.buttonText}>Stop Tracking</Text></TouchableOpacity>
-            </View>
-          </View>
-        )}
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#111' },
-  content: { flexGrow: 1, justifyContent: 'center', padding: 20 },
-  title: { fontSize: 24, color: 'white', fontWeight: 'bold', textAlign: 'center' },
-  status: { fontSize: 16, textAlign: 'center', marginTop: 10, fontWeight: '600' },
-  locationBox: { marginTop: 25, padding: 20, backgroundColor: '#1e1e1e', borderRadius: 12, borderWidth: 1, borderColor: '#333' },
-  label: { fontSize: 15, color: '#e0e0e0', marginVertical: 4 },
-  distanceLabel: { fontSize: 18, color: '#00ffcc', fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
-  speedLabel: { fontSize: 16, color: '#ffcc00', fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
-  geoLabel: { fontSize: 16, fontWeight: 'bold', marginVertical: 5, textAlign: 'center' },
-  divider: { height: 1, backgroundColor: '#333', marginVertical: 15 },
-  coords: { fontSize: 12, color: '#777', textAlign: 'center' },
-  buttonRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 20 },
-  resetButton: { backgroundColor: '#4488ff', paddingVertical: 12, borderRadius: 8, flex: 0.48 },
-  stopButton: { backgroundColor: '#ff4444', paddingVertical: 12, borderRadius: 8, flex: 0.48 },
-  buttonText: { color: 'white', fontSize: 14, fontWeight: 'bold', textAlign: 'center' },
-});
-
-export default App;
-
-### Step 3: Local Development & Footer
-```md
-## 🛠️ Local Development 
-
+## 🛠️ Local Development
 1. **Start Metro:** `npm start`
 2. **Build Android:** `npm run android`
 3. **Build iOS:**
    ```bash
    bundle install
    bundle exec pod install
-   npm run ios 
-   
+   npm run ios
+
    📖 API Reference
    ```API
 
-    ## 📖 API Reference
-
 ### Methods
 
-| Method | Returns | Description |
-| :--- | :--- | :--- |
+| Method |            Returns |                         Description |
+| :--- |                :--- |                              :--- |
 | `isGpsEnabled()` | `Promise<boolean>` | Checks if location services are enabled on the device. |
 | `getCurrentLocation()` | `Promise<LocationData>` | Fetches the current location once. |
 | `watchPosition(callback)` | `Promise<string>` | Subscribes to location updates and native distance calculation. Returns a `watchId`. |
 | `clearWatch(watchId)` | `Promise<void>` | Stops watching location updates for the given ID. |
 | `resetDistance()` | `Promise<void>` | Resets the natively calculated distance tracker to 0.00m. |
-| `setGeofence(lat, lng, radius)` | Promise<void> | Sets a target geofence (in meters) to track proximity.
+| `setGeofence(lat, lng, radius)` | `Promise<void>` | Sets a target geofence (in meters) to track proximity. |
+| `startKillProofMode()` | `Promise<void>` | Starts background service that auto-restarts after app kill. |
+| `stopKillProofMode()` | `Promise<void>` | Stops the kill-proof background service. |
+| `killMode()` | `Promise<void>` | Alias of `stopKillProofMode()` - Stops kill-proof mode. |
+| `openAutoStartSettings()` | `Promise<void>` | Opens Auto-start/Battery settings for Xiaomi, Vivo, Oppo etc. |
+| `requestBatteryOptimizationExemption()` | `Promise<void>` | Requests battery optimization exemption for background location. |
 
-### `LocationData` Object (Return Type)
-
-When you fetch or watch a location, the promise/callback returns this object:
-
+###  LocationData  Object (Return Type)
+ ``
 | Property    | Type     | Description                                      |
 | :---------- | :------- | :----------------------------------------------- |
 | `latitude`  | `number` | GPS Latitude.                                    |
@@ -288,16 +238,16 @@ When you fetch or watch a location, the promise/callback returns this object:
 | `country`   | `string` | Country name.                                    |
 | `pincode`   | `string` | Postal code / Zip code.                          |
 | `distance`  | `number` | Total distance traveled in meters (since start). |
-| `speed`.    | `number` | Current speed in meters per second (m/s).        |
-| `isInsideGeofence`| boolean | Returns true if user is within the defined geofence radius.|  
+| `speed`     | `number` | Current speed in meters per second (m/s).        |
+| `isInsideGeofence` | `boolean` | Returns true if user is within the defined geofence radius. |
+```
 
 Credits
 Bootstrapped with create-nitro-module. 
 
-💖 Support My Work
-If this library helped you save time or you find it useful, please consider sponsoring me. Your support helps me maintain this library and build more open-source tools! 
-
+💖 Support My WorkIf this library helped you save time or you find it useful, please consider sponsoring me. Your support helps me maintain this library and build more open-source tools!
+```
 ## License
 
 MIT © [Upendra Singh]
-# update
+

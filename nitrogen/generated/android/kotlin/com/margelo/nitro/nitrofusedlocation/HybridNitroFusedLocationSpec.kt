@@ -67,6 +67,10 @@ abstract class HybridNitroFusedLocationSpec: HybridObject() {
   
   @DoNotStrip
   @Keep
+  abstract fun killMode(): Promise<Unit>
+  
+  @DoNotStrip
+  @Keep
   abstract fun openAutoStartSettings(): Promise<Unit>
   
   abstract fun addLocationListener(listener: (data: LocationData) -> Unit): Unit
