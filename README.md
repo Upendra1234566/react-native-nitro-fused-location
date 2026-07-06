@@ -15,7 +15,7 @@ It provides ultra-fast location fetching, continuous background tracking, and na
 - React Native v0.76.0 or higher
 - Node 18.0.0 or higher
 
-## ✨ Features - v0.1.2
+## ✨ Features 
 
 *   **🔥 Fire OS Compatible:** Works on Amazon Fire OS tablets & devices without Google Play Services. Uses native `android.location.LocationManager`.
 *   **📴 Offline GPS:** Get coordinates, speed, and distance using device GPS without internet or Google Maps API. *Note: Sending data to server requires internet.*
@@ -40,12 +40,12 @@ It provides ultra-fast location fetching, continuous background tracking, and na
 
 ## 🗺️ Roadmap
 
-### **v0.2.0 - Coming Soon**
+<!-- ### **v0.2.0 - Coming Soon**
 We're working on enterprise-grade features based on community feedback:
 
 *   **📦 Offline Queue:** Store GPS points locally when device is offline
 *   **🔄 Auto Sync:** Automatically upload queued data when internet returns  
-*   **📊 Analytics:** Track offline duration, battery impact, and sync stats
+*   **📊 Analytics:** Track offline duration, battery impact, and sync stats -->
 
 > Star the repo to get notified on release.
  
