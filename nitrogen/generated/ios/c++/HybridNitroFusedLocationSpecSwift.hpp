@@ -110,54 +110,6 @@ namespace margelo::nitro::nitrofusedlocation {
       auto __value = std::move(__result.value());
       return __value;
     }
-    inline std::shared_ptr<Promise<void>> setGeofence(double lat, double lng, double radius) override {
-      auto __result = _swiftPart.setGeofence(std::forward<decltype(lat)>(lat), std::forward<decltype(lng)>(lng), std::forward<decltype(radius)>(radius));
-      if (__result.hasError()) [[unlikely]] {
-        std::rethrow_exception(__result.error());
-      }
-      auto __value = std::move(__result.value());
-      return __value;
-    }
-    inline std::shared_ptr<Promise<void>> requestBatteryOptimizationExemption() override {
-      auto __result = _swiftPart.requestBatteryOptimizationExemption();
-      if (__result.hasError()) [[unlikely]] {
-        std::rethrow_exception(__result.error());
-      }
-      auto __value = std::move(__result.value());
-      return __value;
-    }
-    inline std::shared_ptr<Promise<void>> startKillProofMode() override {
-      auto __result = _swiftPart.startKillProofMode();
-      if (__result.hasError()) [[unlikely]] {
-        std::rethrow_exception(__result.error());
-      }
-      auto __value = std::move(__result.value());
-      return __value;
-    }
-    inline std::shared_ptr<Promise<void>> stopKillProofMode() override {
-      auto __result = _swiftPart.stopKillProofMode();
-      if (__result.hasError()) [[unlikely]] {
-        std::rethrow_exception(__result.error());
-      }
-      auto __value = std::move(__result.value());
-      return __value;
-    }
-    inline std::shared_ptr<Promise<void>> killMode() override {
-      auto __result = _swiftPart.killMode();
-      if (__result.hasError()) [[unlikely]] {
-        std::rethrow_exception(__result.error());
-      }
-      auto __value = std::move(__result.value());
-      return __value;
-    }
-    inline std::shared_ptr<Promise<void>> openAutoStartSettings() override {
-      auto __result = _swiftPart.openAutoStartSettings();
-      if (__result.hasError()) [[unlikely]] {
-        std::rethrow_exception(__result.error());
-      }
-      auto __value = std::move(__result.value());
-      return __value;
-    }
     inline void addLocationListener(const std::function<void(const LocationData& /* data */)>& listener) override {
       auto __result = _swiftPart.addLocationListener(listener);
       if (__result.hasError()) [[unlikely]] {

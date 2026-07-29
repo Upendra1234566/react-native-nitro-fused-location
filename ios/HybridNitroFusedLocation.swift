@@ -1,9 +1,8 @@
-
 /**
  * Created by Upendra Singh
  * MIT License
  */
- 
+
 import Foundation
 import NitroModules
 import CoreLocation
@@ -29,12 +28,6 @@ class HybridNitroFusedLocation: HybridNitroFusedLocationSpec {
 
     func removeLocationListener(listener: @escaping (LocationData) -> Void) {
         self.locationListener = nil
-    }
-
-    func setGeofence(lat: Double, lng: Double, radius: Double) throws -> Promise<Void> {
-        return Promise.async { [weak self] in
-            self?.fetcher.setGeofence(lat: lat, lng: lng, radius: radius)
-        }
     }
 
     func getCurrentLocation() throws -> Promise<LocationData> {
@@ -74,26 +67,6 @@ class HybridNitroFusedLocation: HybridNitroFusedLocationSpec {
             DispatchQueue.main.async { self?.fetcher.resetDistance() }
         }
     }
-
-    func requestBatteryOptimizationExemption() throws -> Promise<Void> { return Promise.async { } }
-    func startKillProofMode() throws -> Promise<Void> { return Promise.async { } }
-    func stopKillProofMode() throws -> Promise<Void> { return Promise.async { } }
-
-    func killMode() throws -> Promise<Void> {
-        return Promise.async { [weak self] in
-            DispatchQueue.main.async {
-                self?.fetcher.stopWatching()
-                self?.fetcher.resetDistance()
-                self?.fetcher.disableBackground()
-            }
-        }
-    }
-
-    func openAutoStartSettings() throws -> Promise<Void> { return Promise.async { } }
-
-    func sum(num1: Double, num2: Double) throws -> Double {
-        return num1 + num2
-    }
 }
 
 // MARK: - Location Fetcher Logic
@@ -106,24 +79,13 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
 
     private var totalDistance: Double = 0.0
     private var lastLocation: CLLocation?
-    private var geofenceLat: Double = 0.0
-    private var geofenceLng: Double = 0.0
-    private var geofenceRadius: Double = 100.0
 
     override init() {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.distanceFilter = 5
-        locationManager.requestAlwaysAuthorization()
-    }
-
-    func setGeofence(lat: Double, lng: Double, radius: Double) {
-        self.geofenceLat = lat
-        self.geofenceLng = lng
-        self.geofenceRadius = radius
+        locationManager.requestWhenInUseAuthorization()
     }
 
     func fetchLocation(completion: @escaping (Result<LocationData, Error>) -> Void) {
@@ -144,12 +106,6 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         self.lastLocation = nil
     }
 
-    func disableBackground() {
-        locationManager.allowsBackgroundLocationUpdates = false
-        locationManager.pausesLocationUpdatesAutomatically = true
-        locationManager.stopUpdatingLocation()
-    }
-
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
 
@@ -159,25 +115,36 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         lastLocation = location
 
         let speed = location.speed >= 0 ? location.speed : 0.0
-        let targetLoc = CLLocation(latitude: geofenceLat, longitude: geofenceLng)
-        let isInside = location.distance(from: targetLoc) <= geofenceRadius
 
         if geocoder.isGeocoding { return }
 
-        geocoder.reverseGeocodeLocation(location) { placemarks, _ in
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, _ in
+            guard let self = self else { return }
             let p = placemarks?.first
+            
+            let lat = location.coordinate.latitude
+            let lng = location.coordinate.longitude
+            let acc = location.horizontalAccuracy
+            let name = p?.name ?? "Unknown"
+            let city = p?.locality ?? "Unknown"
+            let state = p?.administrativeArea ?? "Unknown"
+            let country = p?.country ?? "Unknown"
+            let pincode = p?.postalCode ?? "Unknown"
+            let dist = self.totalDistance
+            let spd = speed
+
             let data = LocationData(
-                latitude: location.coordinate.latitude,
-                longitude: location.coordinate.longitude,
-                accuracy: location.horizontalAccuracy,
-                address: p?.name ?? "Unknown",
-                city: p?.locality ?? "Unknown",
-                state: p?.administrativeArea ?? "Unknown",
-                country: p?.country ?? "Unknown",
-                pincode: p?.postalCode ?? "Unknown",
-                distance: self.totalDistance,
-                speed: speed,
-                isInsideGeofence: isInside
+                latitude: lat,
+                longitude: lng,
+                accuracy: acc,
+                address: name,
+                city: city,
+                state: state,
+                country: country,
+                pincode: pincode,
+                distance: dist,
+                speed: spd,
+                isInsideGeofence: false
             )
             
             // Listener ko trigger karein

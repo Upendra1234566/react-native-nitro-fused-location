@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState, useRef, useCallback} from 'react';
 import {
   View,
@@ -11,7 +12,6 @@ import {
   RefreshControl,
   TouchableOpacity,
   Linking,
-  AppState,
 } from 'react-native';
 import {NitroFusedLocation} from 'react-native-nitro-fused-location';
 
@@ -26,14 +26,12 @@ interface LocationInfo {
   pincode: string;
   distance: number;
   speed: number;
-  isInsideGeofence: boolean;
 }
 
 type StatusType =
   | 'Requesting...'
   | 'Checking GPS...'
   | 'Watching...'
-  | 'Kill Mode Active'
   | 'Success'
   | 'Failed'
   | 'Denied'
@@ -43,34 +41,22 @@ function App(): React.JSX.Element {
   const [location, setLocation] = useState<LocationInfo | null>(null);
   const [status, setStatus] = useState<StatusType>('Requesting...');
   const [refreshing, setRefreshing] = useState(false);
-  const [killMode, setKillMode] = useState(false);
   const watchIdRef = useRef<string | null>(null);
-  const appState = useRef(AppState.currentState);
 
   const formatDistance = (meters: number): string => {
     return meters < 1000
-     ? `${meters.toFixed(0)} m`
+      ? `${meters.toFixed(0)} m`
       : `${(meters / 1000).toFixed(2)} km`;
   };
 
   const requestAllPermissions = async (): Promise<boolean> => {
-    if (Platform.OS!== 'android') return true;
+    if (Platform.OS !== 'android') return true;
 
     try {
-      if (Platform.Version >= 33) {
-        const notif = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
-        );
-        if (notif!== PermissionsAndroid.RESULTS.GRANTED) {
-          Alert.alert('Notification Denied', 'Kill-proof ke liye notification chahiye');
-          return false;
-        }
-      }
-
       const fine = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
       );
-      if (fine!== PermissionsAndroid.RESULTS.GRANTED) {
+      if (fine !== PermissionsAndroid.RESULTS.GRANTED) {
         setStatus('Denied');
         Alert.alert('Permission Denied', 'Location permission allow karo');
         return false;
@@ -80,16 +66,15 @@ function App(): React.JSX.Element {
         const bg = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.ACCESS_BACKGROUND_LOCATION,
         );
-        if (bg!== PermissionsAndroid.RESULTS.GRANTED) {
+        if (bg !== PermissionsAndroid.RESULTS.GRANTED) {
           Alert.alert(
             'Background Location',
-            'App band hone pe bhi tracking ke liye "Allow all the time" select karo',
+            'Background me tracking ke liye "Allow all the time" select karo',
             [
               {text: 'Cancel'},
               {text: 'Settings', onPress: () => Linking.openSettings()},
             ],
           );
-          return false;
         }
       }
 
@@ -112,12 +97,6 @@ function App(): React.JSX.Element {
       return false;
     }
 
-    try {
-      await NitroFusedLocation.requestBatteryOptimizationExemption();
-    } catch (e) {
-      console.log('Battery optimization skip:', e);
-    }
-
     startWatching();
     return true;
   };
@@ -127,7 +106,7 @@ function App(): React.JSX.Element {
     try {
       NitroFusedLocation.addLocationListener(loc => {
         setLocation(loc);
-        setStatus(killMode? 'Kill Mode Active' : 'Success');
+        setStatus('Success');
       });
 
       const id = await NitroFusedLocation.watchPosition();
@@ -145,45 +124,6 @@ function App(): React.JSX.Element {
     }
   };
 
-  // Auto-start settings kholne ka function
-  const openAutoStart = async () => {
-    try {
-      await NitroFusedLocation.openAutoStartSettings();
-      Alert.alert(
-        'Auto-Start Enable Karo',
-        'Reboot ke baad tracking chalu rakhne ke liye:\n\nXiaomi: Autostart ON\nVivo: Background power consumption → High\nOppo/Realme: Startup manager ON\nOnePlus: Auto-launch ON\n\nSettings me app ko ON kar do',
-      );
-    } catch (e) {
-      Alert.alert('Error', 'Settings khol nahi paye. Manual ja ke Auto-start ON karo');
-    }
-  };
-
-  const toggleKillProofMode = async () => {
-    try {
-      if (!killMode) {
-        setStatus('Requesting...');
-        await NitroFusedLocation.startKillProofMode();
-        setKillMode(true);
-        setStatus('Kill Mode Active');
-        Alert.alert(
-          'Kill-Proof Active ✅',
-          'Background tracking chalu ho gayi.\n\nReboot ke baad bhi chalane ke liye "Auto-Start Enable" button dabao.',
-          [
-            {text: 'Theek Hai'},
-            {text: 'Auto-Start Kholo', onPress: openAutoStart},
-          ],
-        );
-      } else {
-        await NitroFusedLocation.stopKillProofMode();
-        setKillMode(false);
-        setStatus('Stopped');
-        Alert.alert('Kill-Proof Stopped', 'Background tracking band ho gayi');
-      }
-    } catch (err: any) {
-      Alert.alert('Error', err.message);
-    }
-  };
-
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
     if (watchIdRef.current) {
@@ -192,11 +132,9 @@ function App(): React.JSX.Element {
     }
     await checkGpsAndStart();
     setRefreshing(false);
-  }, [killMode]);
+  }, []);
 
   useEffect(() => {
-    NitroFusedLocation.setGeofence(19.076, 72.8777, 500);
-
     const init = async () => {
       const hasPerms = await requestAllPermissions();
       if (hasPerms) {
@@ -205,26 +143,7 @@ function App(): React.JSX.Element {
     };
     init();
 
-    const subscription = AppState.addEventListener('change', nextAppState => {
-      if (
-        appState.current.match(/active/) &&
-        nextAppState === 'background' &&
-       !killMode
-      ) {
-        Alert.alert(
-          'Background Tracking',
-          'App background me ja rahi hai. Kill-proof mode on karna chahte ho?',
-          [
-            {text: 'Nahi', style: 'cancel'},
-            {text: 'Haan', onPress: toggleKillProofMode},
-          ],
-        );
-      }
-      appState.current = nextAppState;
-    });
-
     return () => {
-      subscription.remove();
       if (watchIdRef.current) {
         NitroFusedLocation.clearWatch(watchIdRef.current);
       }
@@ -247,10 +166,7 @@ function App(): React.JSX.Element {
           style={[
             styles.status,
             {
-              color:
-                status === 'Success' || status === 'Kill Mode Active'
-                 ? '#00ffcc'
-                  : '#ff4444',
+              color: status === 'Success' ? '#00ffcc' : '#ff4444',
             },
           ]}>
           Status: {status}
@@ -274,14 +190,6 @@ function App(): React.JSX.Element {
               ⚡ Speed: {location.speed.toFixed(1)} km/h
             </Text>
 
-            <Text
-              style={[
-                styles.geoLabel,
-                {color: location.isInsideGeofence? '#00ffcc' : '#ffaa00'},
-              ]}>
-              🏠 Geofence: {location.isInsideGeofence? 'Inside' : 'Outside'}
-            </Text>
-
             <View style={styles.divider} />
             <Text style={styles.coords}>
               Lat: {location.latitude.toFixed(6)} | Lng:{' '}
@@ -296,7 +204,7 @@ function App(): React.JSX.Element {
                 style={styles.resetButton}
                 onPress={async () => {
                   await NitroFusedLocation.resetDistance();
-                  setLocation(prev => (prev? {...prev, distance: 0} : null));
+                  setLocation(prev => (prev ? {...prev, distance: 0} : null));
                 }}>
                 <Text style={styles.buttonText}>Reset Distance</Text>
               </TouchableOpacity>
@@ -313,28 +221,6 @@ function App(): React.JSX.Element {
                 <Text style={styles.buttonText}>Stop Tracking</Text>
               </TouchableOpacity>
             </View>
-
-            <TouchableOpacity
-              style={[
-                styles.killModeButton,
-                {backgroundColor: killMode? '#ff4444' : '#00cc88'},
-              ]}
-              onPress={toggleKillProofMode}>
-              <Text style={styles.buttonText}>
-                {killMode? '🔴 Stop Kill-Proof Mode' : '🟢 Start Kill-Proof Mode'}
-              </Text>
-            </TouchableOpacity>
-
-            {/* Naya Button - Auto-start ke liye */}
-            {killMode && (
-              <TouchableOpacity
-                style={styles.autoStartButton}
-                onPress={openAutoStart}>
-                <Text style={styles.buttonText}>
-                  ⚙️ Enable Auto-Start for Reboot
-                </Text>
-              </TouchableOpacity>
-            )}
           </View>
         )}
       </ScrollView>
@@ -370,7 +256,6 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     textAlign: 'center',
   },
-  geoLabel: {fontSize: 16, fontWeight: 'bold', marginVertical: 5, textAlign: 'center'},
   divider: {height: 1, backgroundColor: '#333', marginVertical: 15},
   coords: {fontSize: 12, color: '#777', textAlign: 'center', marginTop: 4},
   buttonRow: {flexDirection: 'row', justifyContent: 'space-between', marginTop: 20},
@@ -385,17 +270,6 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 8,
     flex: 0.48,
-  },
-  killModeButton: {
-    paddingVertical: 14,
-    borderRadius: 8,
-    marginTop: 12,
-  },
-  autoStartButton: {
-    backgroundColor: '#ff8800',
-    paddingVertical: 14,
-    borderRadius: 8,
-    marginTop: 12,
   },
   buttonText: {color: 'white', fontSize: 14, fontWeight: 'bold', textAlign: 'center'},
 });

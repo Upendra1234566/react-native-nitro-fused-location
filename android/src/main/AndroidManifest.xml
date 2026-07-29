@@ -1,51 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Internet & Network -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- Location Permissions -->
+    <!-- Standard Location Permissions -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
-    <!-- Foreground Service -->
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
-
-    <!-- Boot & Wake -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <!-- Notifications -->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
-    <!-- Battery Optimization -->
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
-
     <application>
-        <!-- Foreground Location Service -->
-        <service
-            android:name="com.margelo.nitro.nitrofusedlocation.NitroLocationService"
-            android:enabled="true"
-            android:exported="false"
-            android:foregroundServiceType="location"
-            android:stopWithTask="false" />
-
-        <!-- Boot Receiver -->
-        <receiver
-            android:name="com.margelo.nitro.nitrofusedlocation.BootReceiver"
-            android:enabled="true"
-            android:exported="true"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <!-- Restart Receiver for AlarmManager -->
-        <receiver
-            android:name="com.margelo.nitro.nitrofusedlocation.RestartReceiver"
-            android:enabled="true"
-            android:exported="false" />
+        <!-- Free version mein koi background service ya broadcast receiver nahi chahiye -->
     </application>
 
 </manifest>

@@ -19,12 +19,6 @@ namespace margelo::nitro::nitrofusedlocation {
       prototype.registerHybridMethod("clearWatch", &HybridNitroFusedLocationSpec::clearWatch);
       prototype.registerHybridMethod("isGpsEnabled", &HybridNitroFusedLocationSpec::isGpsEnabled);
       prototype.registerHybridMethod("resetDistance", &HybridNitroFusedLocationSpec::resetDistance);
-      prototype.registerHybridMethod("setGeofence", &HybridNitroFusedLocationSpec::setGeofence);
-      prototype.registerHybridMethod("requestBatteryOptimizationExemption", &HybridNitroFusedLocationSpec::requestBatteryOptimizationExemption);
-      prototype.registerHybridMethod("startKillProofMode", &HybridNitroFusedLocationSpec::startKillProofMode);
-      prototype.registerHybridMethod("stopKillProofMode", &HybridNitroFusedLocationSpec::stopKillProofMode);
-      prototype.registerHybridMethod("killMode", &HybridNitroFusedLocationSpec::killMode);
-      prototype.registerHybridMethod("openAutoStartSettings", &HybridNitroFusedLocationSpec::openAutoStartSettings);
       prototype.registerHybridMethod("addLocationListener", &HybridNitroFusedLocationSpec::addLocationListener);
       prototype.registerHybridMethod("removeLocationListener", &HybridNitroFusedLocationSpec::removeLocationListener);
     });

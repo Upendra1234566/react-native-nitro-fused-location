@@ -18,12 +18,6 @@ public protocol HybridNitroFusedLocationSpec_protocol: HybridObject {
   func clearWatch(watchId: String) throws -> Promise<Void>
   func isGpsEnabled() throws -> Promise<Bool>
   func resetDistance() throws -> Promise<Void>
-  func setGeofence(lat: Double, lng: Double, radius: Double) throws -> Promise<Void>
-  func requestBatteryOptimizationExemption() throws -> Promise<Void>
-  func startKillProofMode() throws -> Promise<Void>
-  func stopKillProofMode() throws -> Promise<Void>
-  func killMode() throws -> Promise<Void>
-  func openAutoStartSettings() throws -> Promise<Void>
   func addLocationListener(listener: @escaping (_ data: LocationData) -> Void) throws -> Void
   func removeLocationListener(listener: @escaping (_ data: LocationData) -> Void) throws -> Void
 }

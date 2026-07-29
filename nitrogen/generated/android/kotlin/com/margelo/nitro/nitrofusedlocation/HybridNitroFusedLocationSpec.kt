@@ -49,30 +49,6 @@ abstract class HybridNitroFusedLocationSpec: HybridObject() {
   @Keep
   abstract fun resetDistance(): Promise<Unit>
   
-  @DoNotStrip
-  @Keep
-  abstract fun setGeofence(lat: Double, lng: Double, radius: Double): Promise<Unit>
-  
-  @DoNotStrip
-  @Keep
-  abstract fun requestBatteryOptimizationExemption(): Promise<Unit>
-  
-  @DoNotStrip
-  @Keep
-  abstract fun startKillProofMode(): Promise<Unit>
-  
-  @DoNotStrip
-  @Keep
-  abstract fun stopKillProofMode(): Promise<Unit>
-  
-  @DoNotStrip
-  @Keep
-  abstract fun killMode(): Promise<Unit>
-  
-  @DoNotStrip
-  @Keep
-  abstract fun openAutoStartSettings(): Promise<Unit>
-  
   abstract fun addLocationListener(listener: (data: LocationData) -> Unit): Unit
   
   @DoNotStrip

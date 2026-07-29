@@ -7,14 +7,13 @@
     "ios": "react-native run-ios",
     "start": "react-native start --reset-cache",
     "clean": "cd android && ./gradlew clean && cd .."
-  
   },
   "dependencies": {
     "metro-react-native-babel-preset": "^0.77.0",
     "react": "^19.1.0",
     "react-native": "^0.80.3",
     "react-native-nitro-fused-location": "file:..",
-    "react-native-nitro-modules": "^0.35.9"
+    "react-native-nitro-modules": "^0.35.10"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

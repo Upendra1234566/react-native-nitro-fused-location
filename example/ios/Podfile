@@ -22,7 +22,6 @@ post_install do |installer|
       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "x86_64"
       
       if target.name == 'fmt'
-        # C++17 pe force kar de + saare consteval flags band
         config.build_settings['CLANG_CXX_LANGUAGE_STANDARD'] = 'c++17'
         config.build_settings['OTHER_CPLUSPLUSFLAGS'] = '$(inherited) -DFMT_USE_CONSTEVAL=0 -DFMT_USE_CONSTEXPR=0 -DFMT_USE_CPP20=0 -D__cpp_consteval=0'
       else
