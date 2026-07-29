@@ -136,7 +136,7 @@
 
 //     // Kotlin Coroutine
 
-//     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+//     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0"
 
 
 
@@ -279,7 +279,7 @@ dependencies {
     implementation project(':react-native-nitro-modules')
     implementation "com.facebook.fbjni:fbjni:0.7.0"
     // Coroutine
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0"
 
     // WorkManager
     implementation "androidx.work:work-runtime-ktx:2.9.0"
