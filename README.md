@@ -1,77 +1,95 @@
-# react-native-nitro-fused-location 🚀
+<img width="1200" height="300" alt="banner (1)" src="https://github.com/user-attachments/assets/4c1994c8-530c-434b-aa54-d49502b45e8e" />
 
-**Offline GPS tracking for React Native** - Fire OS compatible. Works without Google Play Services. 
-`react-native-nitro-fused-location` is a blazing-fast, lightweight location module for React Native built using **Nitro Modules** for zero-bridge overhead.
+# react-native-nitro-fused-location
+
+Offline GPS tracking for React Native, including Fire OS compatibility. Works without Google Play Services.
+
+`react-native-nitro-fused-location` is a lightweight location module for React Native built using Nitro Modules, providing zero-bridge overhead native performance.
 
 [![Version](https://img.shields.io/npm/v/react-native-nitro-fused-location.svg)](https://www.npmjs.com/package/react-native-nitro-fused-location)
 [![Downloads](https://img.shields.io/npm/dm/react-native-nitro-fused-location.svg)](https://www.npmjs.com/package/react-native-nitro-fused-location)
 
 ---
 
-## 🟢 What You Get in FREE Version:
-- **🔥 Fire OS Compatible:** Works on Amazon Fire OS tablets & devices without Google Play Services (`LocationManager`).
-- **📴 Offline GPS:** Get coordinates, speed, and distance using device GPS without internet or Google Maps API.
-- **🆓 Zero Google Dependencies:** No Fused Location Provider, no Play Services. Pure AOSP.
-- **⚡️ Ultra Fast C++ Bindings:** Built with React Native Nitro Modules for zero-bridge overhead.
-- **📏 Native Distance & Speed:** Real-time distance tracking in meters and speed monitoring in `km/h`.
-- **🎯 Core Methods:** `getCurrentLocation()`, `watchPosition()`, `clearWatch()`, `isGpsEnabled()`, `resetDistance()`.
+## Features (Free Version)
+
+- **Fire OS Compatible** — Works on Amazon Fire OS tablets and devices without Google Play Services, using native `LocationManager`.
+- **Offline GPS** — Retrieve coordinates, speed, and distance directly from the device GPS, with no internet or Google Maps API dependency.
+- **Zero Google Dependencies** — No Fused Location Provider, no Play Services. Built purely on AOSP APIs.
+- **Native C++ Bindings** — Built with React Native Nitro Modules for zero-bridge overhead and minimal JS-native latency.
+- **Distance and Speed Tracking** — Real-time distance in meters and speed in km/h, computed natively.
+- **Core API** — `getCurrentLocation()`, `watchPosition()`, `clearWatch()`, `isGpsEnabled()`, `resetDistance()`.
+- **Platform** - Fully supported on Android & iOS.
 
 ---
 
-## 🚀 Looking for PRO Features? (Paid Version)
-If you need enterprise-grade, background-persistent features, check out our **PRO Version** (`react-native-nitro-fused-location-pro`):
-- **🛡️ Kill-Proof Background Mode:** Guaranteed foreground service tracking that never gets killed by Android/iOS system.
-- **📍 Native Geofencing:** Instant entry/exit alerts for custom zones.
-- **🔄 Auto-Start on Boot & Auto-Sync:** Resumes tracking automatically after reboot and syncs offline data via local Room DB.
-👉 Get PRO Version: Contact via email at nitrofusedlocationsupport@gmail.com for licensing.
----
+## Pro Version
 
-## 📋 Requirements
-- React Native v0.76.0 or higher
-- Node 18.0.0 or higher
+For enterprise-grade, background-persistent tracking, see `react-native-nitro-fused-location-pro`:
 
----
-> Star the repo to get notified on release.
- 
+- **Kill-Proof Background Mode** — Guaranteed foreground service tracking that survives app kills on both Android and iOS.
+- **Native Geofencing** — Real-time entry and exit alerts for custom zones.
+- **Auto-Start on Boot & Auto-Sync** — Automatically resumes tracking after device reboot and syncs offline data through a local Room database.
 
- <p align="center">
-  <img src="./assets/demo.gif" width="360" alt="Nitro Fused Location Demo" />
-  <br>
-  <sub>Android Release Build • Cold start to 12m tracking • First fix in ~2s</sub>
-</p>
-> 
+For licensing, contact: nitrofusedlocationsupport@gmail.com
 
 ---
 
-## 📦 Installation
+## Requirements
+
+| Requirement | Minimum Version |
+|---|---|
+| React Native | 0.76.0+ |
+| Node.js | 18.0.0+ |
+| Android | SDK 21+ (tested up to SDK 36 / Android 14) |
+| iOS | 13.0+ |
+
+---
+
+## Installation
 
 ```bash
 npm install react-native-nitro-fused-location react-native-nitro-modules
-# or
+```
+
+or with Yarn:
+
+```bash
 yarn add react-native-nitro-fused-location react-native-nitro-modules
 ```
-### Android Setup
-Supports Android 14 (SDK 36). No extra setup needed!
 
-### ⚙️ Setup & Permissions
+---
 
-#### Android
-Add these permissions to your `android/app/src/main/AndroidManifest.xml`:
+## Platform Support
+
+### Android
+
+- Fully supported on Android 5.0 (API 21) through Android 14 (SDK 36).
+- No manual native linking required — autolinking is supported out of the box.
+- Works on devices without Google Play Services, including Amazon Fire OS tablets.
+
+**1. Add permissions** to `android/app/src/main/AndroidManifest.xml`:
+
 ```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
 ```
 
-#### 1. `android/gradle.properties`
+**2. Enable the New Architecture and Hermes** in `android/gradle.properties`:
+
 ```properties
 newArchEnabled=true
 hermesEnabled=true
 ```
 
 ### iOS
-Add this to your `ios/YourProjectName/Info.plist`:
+
+- Fully supported on iOS 13 and above.
+- Requires CocoaPods installation (see Local Development below).
+
+Add the following to `ios/YourProjectName/Info.plist`:
+
 ```xml
 <key>NSLocationWhenInUseUsageDescription</key>
 <string>We need your location to fetch the current address.</string>
@@ -83,11 +101,13 @@ Add this to your `ios/YourProjectName/Info.plist`:
 </array>
 ```
 
-## 📖 How to Use
+---
+
+## Usage
+
 ### Step 1: Request Permissions
-For Android 10+ and Android 13+, request all required permissions.
+
 ```tsx
-import { NitroFusedLocation } from 'react-native-nitro-fused-location';
 import { PermissionsAndroid } from 'react-native';
 
 const requestPermissions = async () => {
@@ -96,36 +116,39 @@ const requestPermissions = async () => {
 ```
 
 ### Step 2: Start Live Tracking
-Use `watchPosition` to get real-time location updates.
+
+Use `watchPosition` to receive real-time location updates.
+
 ```tsx
 import { NitroFusedLocation } from 'react-native-nitro-fused-location';
-...
 
 const startTracking = async () => {
-  // Start watching
   const watchId = await NitroFusedLocation.watchPosition((location) => {
     console.log('Latitude:', location.latitude);
     console.log('Longitude:', location.longitude);
     console.log('Address:', location.address);
     console.log('Distance:', location.distance, 'meters');
-    console.log('Speed:', location.speed * 3.6, 'km/h'); // Convert m/s to km/h
+    console.log('Speed:', location.speed * 3.6, 'km/h'); // m/s to km/h
     console.log('Inside Geofence:', location.isInsideGeofence);
   });
 
-  // Stop watching after 10 seconds 
+  // Stop watching after 10 seconds
   setTimeout(async () => {
     await NitroFusedLocation.clearWatch(watchId);
   }, 10000);
 };
 
 startTracking();
-```tsx
-Step 3: Enable Kill-Proof Background Mode 
-Keeps tracking alive even after app is killed or device is rebooted.
+```
+
+### Step 3: Background Tracking (Pro)
+
+Keeps tracking active even after the app is killed or the device is rebooted.
+
 ```tsx
 import { NitroFusedLocation } from 'react-native-nitro-fused-location';
 
-const startTracking = async () => {
+const startBackgroundTracking = async () => {
   NitroFusedLocation.addLocationListener((location) => {
     console.log('Latitude:', location.latitude);
     console.log('Longitude:', location.longitude);
@@ -138,22 +161,14 @@ const startTracking = async () => {
 };
 ```
 
-## 🛠️ Local Development
-1. **Start Metro:** `npm start`
-2. **Build Android:** `npm run android`
-3. **Build iOS:**
-   ```bash
-   bundle install
-   bundle exec pod install
-   npm run ios
+---
 
-   📖 API Reference
-   ```API
+## API Reference
 
 ### Methods
 
-| Method |            Returns |                         Description |
-| :--- |                :--- |                              :--- |
+| Method | Returns | Description |
+|---|---|---|
 | `isGpsEnabled()` | `Promise<boolean>` | Checks if location services are enabled on the device. |
 | `getCurrentLocation()` | `Promise<LocationData>` | Fetches the current location once. |
 | `watchPosition(callback)` | `Promise<string>` | Subscribes to location updates and native distance calculation. Returns a `watchId`. |
@@ -161,30 +176,51 @@ const startTracking = async () => {
 | `resetDistance()` | `Promise<void>` | Resets the natively calculated distance tracker to 0.00m. |
 | `setGeofence(lat, lng, radius)` | `Promise<void>` | Sets a target geofence (in meters) to track proximity. |
 
+### LocationData Object
 
-###  LocationData  Object (Return Type)
- ``
-| Property    | Type     | Description                                      |
-| :---------- | :------- | :----------------------------------------------- |
-| `latitude`  | `number` | GPS Latitude.                                    |
-| `longitude` | `number` | GPS Longitude.                                   |
-| `accuracy`  | `number` | Location accuracy in meters.                     |
-| `address`   | `string` | Full formatted address (Reverse Geocoded).       |
-| `city`      | `string` | City name.                                       |
-| `state`     | `string` | State or administrative area.                    |
-| `country`   | `string` | Country name.                                    |
-| `pincode`   | `string` | Postal code / Zip code.                          |
-| `distance`  | `number` | Total distance traveled in meters (since start). |
-| `speed`     | `number` | Current speed in meters per second (m/s).        |
-| `isInsideGeofence` | `boolean` | Returns true if user is within the defined geofence radius. |
-```
+| Property | Type | Description |
+|---|---|---|
+| `latitude` | `number` | GPS latitude. |
+| `longitude` | `number` | GPS longitude. |
+| `accuracy` | `number` | Location accuracy in meters. |
+| `address` | `string` | Full formatted address (reverse geocoded). |
+| `city` | `string` | City name. |
+| `state` | `string` | State or administrative area. |
+| `country` | `string` | Country name. |
+| `pincode` | `string` | Postal code / ZIP code. |
+| `distance` | `number` | Total distance traveled in meters since tracking started. |
+| `speed` | `number` | Current speed in meters per second (m/s). |
+| `isInsideGeofence` | `boolean` | `true` if the user is within the defined geofence radius. |
 
-Credits
-Bootstrapped with create-nitro-module. 
+---
 
-💖 Support My WorkIf this library helped you save time or you find it useful, please consider sponsoring me. Your support helps me maintain this library and build more open-source tools!
-```
+## Local Development
+
+1. Start Metro:
+   ```bash
+   npm start
+   ```
+2. Build for Android:
+   ```bash
+   npm run android
+   ```
+3. Build for iOS:
+   ```bash
+   bundle install
+   bundle exec pod install
+   npm run ios
+   ```
+
+---
+
+## Credits
+
+Bootstrapped with `create-nitro-module`.
+
+## Support
+
+If this library saved you time or you find it useful, consider sponsoring the maintainer to support ongoing development.
+
 ## License
 
-MIT © [Upendra Singh]
-
+MIT © Upendra Singh
