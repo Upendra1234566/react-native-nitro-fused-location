@@ -141,26 +141,6 @@ const startTracking = async () => {
 startTracking();
 ```
 
-### Step 3: Background Tracking (Pro)
-
-Keeps tracking active even after the app is killed or the device is rebooted.
-
-```tsx
-import { NitroFusedLocation } from 'react-native-nitro-fused-location';
-
-const startBackgroundTracking = async () => {
-  NitroFusedLocation.addLocationListener((location) => {
-    console.log('Latitude:', location.latitude);
-    console.log('Longitude:', location.longitude);
-    console.log('Address:', location.address);
-    console.log('Distance:', location.distance, 'meters');
-    console.log('Speed:', location.speed, 'm/s');
-  });
-
-  const watchId = await NitroFusedLocation.watchPosition();
-};
-```
-
 ---
 
 ## API Reference
