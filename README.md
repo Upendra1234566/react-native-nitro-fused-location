@@ -41,7 +41,7 @@ For licensing, contact: nitrofusedlocationsupport@gmail.com
 |---|---|
 | React Native | 0.76.0+ |
 | Node.js | 18.0.0+ |
-| Android | SDK 21+ (tested up to SDK 36 / Android 14) |
+| Android | SDK 17+,21+ (tested up to SDK 36 / Android 14) |
 | iOS | 13.0+ |
 
 ---
