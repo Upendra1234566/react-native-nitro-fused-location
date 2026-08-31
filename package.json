@@ -1,6 +1,6 @@
 {
   "name": "react-native-nitro-fused-location",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Offline GPS tracking for React Native. Works on Fire OS without Google Play Services. Background location support for Android & iOS.",
   "main": "./lib/commonjs/index.js",
   "module": "./lib/module/index.js",
