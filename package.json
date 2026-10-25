@@ -35,9 +35,9 @@
     "ios-corelocation"
   ],
   "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/Upendra1234566"
-  },
+  "type": "github",
+  "url": "https://github.com/sponsors/Upendra1234566"
+},
   "files": [
     "src",
     "react-native.config.js",
