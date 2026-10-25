@@ -1,7 +1,7 @@
 <img width="1200" height="300" alt="banner (1)" src="https://github.com/user-attachments/assets/4c1994c8-530c-434b-aa54-d49502b45e8e" /> 
 [<img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" />](https://github.com/sponsors/Upendra1234566)
 
-[![img](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://github.com/sponsors/Upendra1234566)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://github.com/sponsors/Upendra1234566)
 # react-native-nitro-fused-location
 
 Offline GPS tracking for React Native, including Fire OS compatibility. Works without Google Play Services.
